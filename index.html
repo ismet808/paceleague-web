@@ -10,73 +10,148 @@
             --text-main: #ffffff; --text-secondary: #97a1af; --text-muted: #626e7d; 
             --accent-blue: #7c83ff; --accent-red: #ff3b30; 
         }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.5; color: var(--text-main); margin: 0; background-color: var(--bg-color); }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.5; color: var(--text-main); margin: 0; background-color: var(--bg-color); scroll-behavior: smooth; }
+        
         header { background-color: var(--card-bg); padding: 12px 20px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 20px; font-weight: 900; }
         .app-btn { background-color: #ffffff; color: #000; padding: 6px 14px; border-radius: 20px; text-decoration: none; font-weight: bold; font-size: 12px; }
-        nav { background: var(--card-bg); padding: 0 20px; display: flex; gap: 25px; border-bottom: 1px solid var(--border-color); }
-        nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 600; padding: 15px 0; border-bottom: 3px solid transparent; }
+        
+        nav { background: var(--card-bg); padding: 0 20px; display: flex; gap: 25px; border-bottom: 1px solid var(--border-color); position: sticky; top: 53px; z-index: 999; }
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 600; padding: 15px 0; border-bottom: 3px solid transparent; cursor: pointer; }
         nav a.active { color: var(--text-main); border-bottom: 3px solid var(--text-main); }
+        
+        .page-section { display: none; padding: 20px; max-width: 700px; margin: auto; min-height: 80vh; }
+        .page-section.active { display: block; }
+
+        /* App Tanıtım Alanı (Features) */
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .feature-card { background: var(--card-bg); padding: 20px; border-radius: 15px; border: 1px solid var(--border-color); text-align: center; }
+        .feature-card h3 { color: var(--accent-blue); margin-top: 0; font-size: 16px; }
+        .feature-card p { font-size: 13px; color: var(--text-secondary); }
+
+        /* Mevcut SofaScore Tasarımı */
         .date-container { display: flex; justify-content: center; padding: 15px 0; }
-        .date-selector { display: flex; justify-content: space-between; align-items: center; background-color: rgba(30, 41, 58, 0.5); border: 1px solid var(--border-color); border-radius: 50px; width: 90%; max-width: 350px; padding: 4px 15px; }
+        .date-selector { display: flex; justify-content: space-between; align-items: center; background-color: rgba(30, 41, 58, 0.5); border: 1px solid var(--border-color); border-radius: 50px; width: 100%; max-width: 350px; padding: 4px 15px; }
         .date-text { color: var(--accent-blue); font-weight: bold; font-size: 15px; }
         .arrow { color: var(--accent-blue); font-size: 20px; background: none; border: none; cursor: pointer; padding: 5px 10px; }
-        .container { max-width: 700px; margin: auto; padding: 10px; }
         .list-label { color: var(--text-muted); font-size: 11px; text-transform: uppercase; margin: 15px 0 10px 0; padding-left: 5px; }
-        .match-card { background: var(--card-bg); margin-bottom: 2px; padding: 15px; display: flex; flex-direction: column; border-radius: 4px; }
-        .match-card:first-of-type { border-radius: 12px 12px 4px 4px; }
-        .match-card:last-of-type { border-radius: 4px 4px 12px 12px; }
-        .single-card { border-radius: 12px !important; }
-        .league-info { font-size: 12px; color: var(--text-secondary); display: flex; align-items: center; gap: 5px; margin-bottom: 8px;}
+        .match-card { background: var(--card-bg); margin-bottom: 2px; padding: 15px; display: flex; flex-direction: column; border-radius: 4px; border: 1px solid var(--border-color); }
         .squad-row { display: flex; justify-content: space-between; align-items: center; margin: 5px 0; }
-        .squad-name { font-size: 14px; font-weight: 500; }
-        .steps { font-size: 14px; font-weight: bold; color: var(--text-main); }
+        .steps { font-weight: bold; }
         .live-tag { color: var(--accent-red); font-weight: bold; font-size: 10px; margin-right: 10px; }
-        footer { text-align: center; padding: 60px 40px; font-size: 11px; color: var(--text-muted); }
-        .footer-nav { margin-top: 15px; }
-        .footer-nav a { color: var(--text-secondary); text-decoration: none; margin: 0 10px; }
+
+        footer { text-align: center; padding: 60px 40px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border-color); }
+        .legal-links a { color: var(--text-muted); text-decoration: none; margin: 0 10px; cursor: pointer; }
     </style>
 </head>
 <body>
+
     <header>
         <div class="logo">PACELEAGUE</div>
         <a href="#" class="app-btn">App herunterladen</a>
     </header>
-    <nav>
-        <a href="index.html" class="active">HOME</a>
-        <a href="about.html">ÜBER UNS</a>
-        <a href="license.html">LIZENZ</a>
-        <a href="imprint.html">IMPRESSUM</a>
+
+    <nav id="main-nav">
+        <a onclick="showSection('home')" id="nav-home" class="active">HOME</a>
+        <a onclick="showSection('features')" id="nav-features">APP FEATURES</a>
+        <a onclick="showSection('about')" id="nav-about">ÜBER UNS</a>
+        <a onclick="showSection('imprint')" id="nav-imprint">IMPRESSUM</a>
     </nav>
-    <div class="date-container">
+
+    <section id="home" class="page-section active">
         <div class="date-selector">
-            <button class="arrow">&lt;</button>
-            <span class="date-text">Heute</span>
-            <button class="arrow">&gt;</button>
+            <span style="color: var(--accent-blue); cursor: pointer;">&lt;</span>
+            <span style="font-weight: 800;">HEUTE</span>
+            <span style="color: var(--accent-blue); cursor: pointer;">&gt;</span>
         </div>
-    </div>
-    <div class="container">
-        <p class="list-label">Aktuelle Squad-Matches (Wien)</p>
+        
+        <h2>Live Squad Matches</h2>
         <div class="match-card">
-            <div class="league-info"><span class="live-tag">LIVE</span> Bezirk 2 • Leopoldstadt</div>
-            <div class="squad-row"><span class="squad-name">Prater Runners</span><span class="steps">42.500</span></div>
-            <div class="squad-row"><span class="squad-name">Donau Squad</span><span class="steps">38.200</span></div>
+            <div style="font-size: 12px; color: var(--accent-red); font-weight: 800; margin-bottom: 10px;">LIVE • WIEN</div>
+            <div class="squad-row"><span>Ottakringer Madrid</span><span class="steps">52.110</span></div>
+            <div class="squad-row"><span>Döner Bros (Favoriten)</span><span class="steps">49.800</span></div>
         </div>
+
         <div class="match-card">
-            <div class="league-info">Bezirk 7 • Neubau</div>
-            <div class="squad-row"><span class="squad-name">Neubau Knights</span><span class="steps">15.400</span></div>
-            <div class="squad-row"><span class="squad-name">MuseumsQuartier Crew</span><span class="steps">14.900</span></div>
+            <div style="font-size: 12px; color: var(--text-secondary); font-weight: 800; margin-bottom: 10px;">BEZIRK 2 • LEOPOLDSTADT</div>
+            <div class="squad-row"><span>Prater Runners</span><span class="steps">42.500</span></div>
+            <div class="squad-row"><span>Donau Squad</span><span class="steps">38.200</span></div>
         </div>
-        <p class="list-label">Individuelle Top-Performer</p>
-        <div class="match-card single-card">
-            <div class="squad-row"><span class="squad-name">Goran S. (Bezirk 9)</span><span class="steps">31.313 Schritte</span></div>
+
+        <h2>Top Performer</h2>
+        <div class="match-card">
+            <div class="squad-row">
+                <span>Goran S. <small style="color: var(--text-secondary);">(Bezirk 15)</small></span>
+                <span class="steps" style="color: var(--accent-blue);">41.234</span>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section id="features" class="page-section">
+        <h2 style="color: var(--accent-blue);">Warum PaceLeague?</h2>
+        <p>Die App, die Wien in Bewegung setzt. Entdecke unsere Kernfunktionen:</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Bezirks-Ranking</h3>
+                <p>Kämpfe für deinen Wiener Bezirk und steige in der Tabelle auf.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Squad Battles</h3>
+                <p>Gründe Teams mit Freunden und tretet gegen andere Squads an.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Real-Time Tracking</h3>
+                <p>Synchronisiere deine Schritte direkt von Apple Health oder Google Fit.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Badges & Belohnungen</h3>
+                <p>Sammle exklusive digitale Trophäen für deine Leistungen.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="page-section">
+        <h2>Über uns</h2>
+        <p>PaceLeague Solutions GmbH ist ein junges Wiener Startup, das Sport und Technologie verbindet.</p>
+        <p><b>Markenschutz:</b> Unsere Wortmarke "PaceLeague" ist unter den Nizza-Klassen 9, 41 und 42 geschützt.</p>
+    </section>
+
+    <section id="imprint" class="page-section">
+        <h2>Impressum</h2>
+        <p><b>PaceLeague Solutions GmbH</b><br>
+        Fenerbahce Straße 1907, 1010 Wien<br>
+        Geschäftsführer: Ismet Ünal<br>
+        UID: ATU98765432</p>
+    </section>
+
     <footer>
         <p>&copy; 2026 PaceLeague Solutions GmbH</p>
-        <div class="footer-nav">
-            <a href="privacy.html">Datenschutz</a> | <a href="accessibility.html">Barrierefreiheit</a> | <a href="contact.html">Kontakt</a>
+        <div class="legal-links">
+            <a onclick="showSection('privacy')">Datenschutz</a> | 
+            <a onclick="showSection('license')">Lizenz</a>
         </div>
     </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Tüm bölümleri gizle
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Seçilen bölümü göster
+            document.getElementById(sectionId).classList.add('active');
+
+            // Navigasyon linklerindeki aktif sınıfını güncelle
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            const activeNav = document.getElementById('nav-' + sectionId);
+            if(activeNav) activeNav.classList.add('active');
+
+            // Sayfayı en yukarı kaydır
+            window.scrollTo(0,0);
+        }
+    </script>
+
 </body>
 </html>
