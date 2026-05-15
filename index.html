@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PaceLeague – Offizielle Website</title>
     <style>
+        /* DESIGN SYSTEM AND COLOR PALETTE */
         :root {
             --bg-color: #0b111a; 
             --card-bg: #1e293a; 
@@ -16,109 +17,48 @@
         }
 
         * { box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: var(--text-main); margin: 0; background-color: var(--bg-color); }
 
-        body { 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            line-height: 1.6; 
-            color: var(--text-main); 
-            margin: 0; 
-            background-color: var(--bg-color); 
-            -webkit-font-smoothing: antialiased;
-        }
+        /* HEADER AND NAVIGATION STYLING */
+        header { background-color: var(--card-bg); padding: 16px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 22px; font-weight: 800; letter-spacing: -1px; }
+        .app-btn { background-color: #ffffff; color: #000; padding: 10px 20px; border-radius: 24px; text-decoration: none; font-weight: 700; font-size: 13px; }
 
-        header { 
-            background-color: var(--card-bg); 
-            padding: 16px 24px; 
-            border-bottom: 1px solid var(--border-color); 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-        }
+        nav { background: var(--card-bg); padding: 0 24px; display: flex; gap: 30px; border-bottom: 1px solid var(--border-color); position: sticky; top: 61px; z-index: 999; }
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 12px; font-weight: 700; padding: 18px 0; border-bottom: 3px solid transparent; cursor: pointer; text-transform: uppercase; }
+        nav a.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
 
-        .logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
-        .app-btn { 
-            background-color: #ffffff; 
-            color: #000; 
-            padding: 8px 18px; 
-            border-radius: 24px; 
-            text-decoration: none; 
-            font-weight: 700; 
-            font-size: 13px;
-        }
+        /* HERO SECTION FOR USER ONBOARDING */
+        .hero { padding: 60px 24px; text-align: center; background: linear-gradient(180deg, #1e293a 0%, #0b111a 100%); border-bottom: 1px solid var(--border-color); }
+        .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 16px; letter-spacing: -1px; }
+        .hero p { color: var(--text-secondary); font-size: 18px; max-width: 600px; margin: 0 auto; }
 
-        nav { 
-            background: var(--card-bg); 
-            padding: 0 24px; 
-            display: flex; 
-            gap: 30px; 
-            border-bottom: 1px solid var(--border-color); 
-            position: sticky; 
-            top: 61px; 
-            z-index: 999; 
-        }
-
-        nav a { 
-            color: var(--text-secondary); 
-            text-decoration: none; 
-            font-size: 13px; 
-            font-weight: 700; 
-            padding: 18px 0; 
-            border-bottom: 3px solid transparent; 
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-
-        nav a.active { 
-            color: var(--accent-blue); 
-            border-bottom-color: var(--accent-blue); 
-        }
-
-        .page-section { 
-            display: none; 
-            padding: 40px 20px; 
-            max-width: 800px; 
-            margin: auto; 
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
+        .page-section { display: none; padding: 40px 20px; max-width: 800px; margin: auto; animation: fadeIn 0.3s ease-in-out; }
         .page-section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* STANDARDIZED HEADERS AND STATS LABEL */
+        .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; }
+        h2 { color: var(--accent-blue); font-size: 20px; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+        .unit-label { color: var(--text-secondary); font-size: 12px; font-weight: 800; letter-spacing: 2px; }
 
-        /* ALL TITLES ARE BLUE BY DEFAULT */
-        h2 { color: var(--accent-blue); font-size: 24px; font-weight: 700; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .match-card, .info-card { background: var(--card-bg); padding: 24px; border-radius: 20px; border: 1px solid var(--border-color); margin-bottom: 24px; position: relative; overflow: hidden; }
         
-        .match-card, .info-card { 
-            background: var(--card-bg); 
-            padding: 24px; 
-            border-radius: 16px; 
-            border: 1px solid var(--border-color); 
-            margin-bottom: 20px;
-        }
+        /* UPDATED STATISTICS BADGE POSITION */
+        .community-card { background: rgba(124, 131, 255, 0.05); border: 1px dashed var(--accent-blue); padding: 20px; border-radius: 16px; text-align: center; margin-top: 40px; }
+        .community-card span { color: var(--accent-blue); font-weight: 800; }
 
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .feature-card { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid var(--border-color); }
-        .feature-card h3 { color: var(--accent-blue); margin-top: 0; font-size: 18px; }
-
-        .date-selector { 
-            display: flex; justify-content: space-between; align-items: center; 
-            background-color: rgba(30, 41, 58, 0.5); 
-            border: 1px solid var(--border-color); 
-            border-radius: 50px; padding: 8px 20px; margin-bottom: 30px;
-        }
-
-        .squad-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .squad-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .squad-row:last-child { border-bottom: none; }
-        .steps { font-weight: 800; font-variant-numeric: tabular-nums; font-size: 18px; }
+        .steps { font-weight: 800; font-variant-numeric: tabular-nums; font-size: 20px; color: var(--text-main); }
 
-        footer { text-align: center; padding: 60px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
+        /* FORM AND FOOTER STYLING */
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 14px; color: var(--text-secondary); }
+        input, select, textarea { width: 100%; padding: 14px; background: var(--bg-color); border: 1px solid var(--border-color); color: white; border-radius: 12px; font-family: inherit; }
+        .submit-btn { background: var(--accent-blue); color: white; border: none; padding: 16px; border-radius: 12px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 10px; transition: opacity 0.2s; }
+
+        footer { text-align: center; padding: 80px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
         .legal-links a { color: var(--accent-blue); text-decoration: none; margin: 0 10px; cursor: pointer; font-weight: 600; }
     </style>
 </head>
@@ -126,76 +66,96 @@
 
     <header>
         <div class="logo">PACELEAGUE</div>
-        <a href="#" class="app-btn">Download App</a>
+        <a href="#" class="app-btn">App laden</a>
     </header>
 
     <nav>
-        <a onclick="showSection('home')" id="nav-home" class="active">Home</a>
+        <a onclick="showSection('home')" id="nav-home" class="active">Live</a>
         <a onclick="showSection('features')" id="nav-features">Features</a>
         <a onclick="showSection('about')" id="nav-about">Über uns</a>
-        <a onclick="showSection('imprint')" id="nav-imprint">Impressum</a>
+        <a onclick="showSection('contact')" id="nav-contact">Crew</a>
     </nav>
 
+    <div class="hero" id="main-hero">
+        <h1>Erobere Wien Schritt für Schritt.</h1>
+        <p>Tritt einem Squad bei, repräsentiere deinen Bezirk und dominiere die PaceLeague Bestenlisten in Echtzeit.</p>
+    </div>
+
     <section id="home" class="page-section active">
-        <div class="date-selector">
-            <span style="color: var(--accent-blue); cursor: pointer;">&lt;</span>
-            <span style="font-weight: 800; letter-spacing: 1px;">HEUTE</span>
-            <span style="color: var(--accent-blue); cursor: pointer;">&gt;</span>
-        </div>
-        
-        <h2>Live Squad Matches</h2>
-        <div class="match-card">
-            <div style="font-size: 11px; color: var(--accent-red); font-weight: 800; margin-bottom: 12px; text-transform: uppercase;">Live • Wien</div>
-            <div class="squad-row"><span>Ottakringer Madrid</span><span class="steps">52.110</span></div>
-            <div class="squad-row"><span>Döner Bros (Favoriten)</span><span class="steps">49.800</span></div>
+        <div class="section-header">
+            <h2>Live Squad Matches</h2>
+            <div class="unit-label">SCHRITTE</div>
         </div>
 
-        <h2>Top Performer</h2>
+        <div class="match-card">
+            <div style="font-size: 11px; color: var(--accent-red); font-weight: 800; margin-bottom: 12px; text-transform: uppercase; display: flex; align-items: center; gap: 6px;">
+                <span style="width: 8px; height: 8px; background: var(--accent-red); border-radius: 50%;"></span> LIVE • WIEN
+            </div>
+            <div class="squad-row">
+                <span>Ottakringer Madrid</span>
+                <span class="steps" id="steps-ottakring">212.450</span>
+            </div>
+            <div class="squad-row">
+                <span>Döner Bros (Favoriten)</span>
+                <span class="steps" id="steps-favoriten">208.920</span>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>Top Performer</h2>
+            <div class="unit-label">INDIVIDUELL</div>
+        </div>
+
         <div class="match-card">
             <div class="squad-row">
-                <span>Goran S. <small style="color: var(--text-secondary); font-size: 12px;">(Bezirk 15)</small></span>
+                <span>Goran S. <small style="color: var(--text-secondary);">(Bezirk 15)</small></span>
                 <span class="steps" style="color: var(--accent-blue);">41.234</span>
             </div>
+        </div>
+
+        <div class="community-card">
+            Werde Teil der Bewegung. <span>Wien-weit über 5.000 aktive Läufer.</span>
         </div>
     </section>
 
     <section id="features" class="page-section">
         <h2>App Features</h2>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <h3>District Wars</h3>
-                <p style="color: var(--text-secondary); font-size: 14px;">Repräsentiere deinen Bezirk und sammle Punkte für die Wien-Tabelle.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Squad Challenges</h3>
-                <p style="color: var(--text-secondary); font-size: 14px;">Tritt in Echtzeit gegen andere Teams wie die Döner Bros an.</p>
-            </div>
+        <div class="info-card">
+            <p>Echtzeit-Tracking und Bezirks-Wettkämpfe direkt auf deinem Smartphone.</p>
         </div>
     </section>
 
     <section id="about" class="page-section">
         <h2>Über PaceLeague</h2>
         <div class="info-card">
-            <p style="color: var(--text-secondary);">PaceLeague ist die moderne Antwort auf Fitness-Tracking in Wien. Wir verbinden sportlichen Ehrgeiz mit Bezirksstolz.</p>
-            <p style="color: var(--text-secondary);"><b>Markenrecht:</b> Alle Inhalte sind markenrechtlich geschützt (Nizza-Klassen 9, 41, 42).</p>
+            <p>PaceLeague Solutions GmbH – Innovation aus dem Herzen Wiens.</p>
         </div>
     </section>
 
-    <section id="imprint" class="page-section">
-        <h2>Impressum</h2>
-        <div class="info-card" style="color: var(--text-secondary);">
-            <p><b style="color: var(--text-main);">PaceLeague Solutions GmbH</b><br>
-            Fenerbahce Straße 1907, 1010 Wien<br><br>
-            <b style="color: var(--text-main);">Geschäftsführer:</b> Ismet Ünal<br>
-            <b style="color: var(--text-main);">UID:</b> ATU98765432<br>
-            <b style="color: var(--text-main);">E-Mail:</b> contact@paceleague.at</p>
+    <section id="contact" class="page-section">
+        <h2>Werde Teil der Crew</h2>
+        <div class="info-card">
+            <form onsubmit="event.preventDefault(); alert('Anfrage gesendet!');">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" placeholder="Dein Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Rolle</label>
+                    <select>
+                        <option>Squad Kapitän</option>
+                        <option>Beta-Tester</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Jetzt bewerben</button>
+            </form>
         </div>
     </section>
 
     <section id="privacy" class="page-section">
         <h2>Datenschutz</h2>
-        <div class="info-card" style="color: var(--text-secondary);">
-            <p>Ihre Daten werden gemäß DSGVO verarbeitet. Wir speichern Schritte und Bezirkszuordnungen zur Berechnung der Rankings.</p>
+        <div class="info-card">
+            <a href="paceleague_dsgvo.pdf" target="_blank" style="color: var(--accent-blue); font-weight: bold; text-decoration: none;">📄 Offizielle DSGVO herunterladen</a>
         </div>
     </section>
 
@@ -203,19 +163,46 @@
         <p>&copy; 2026 PaceLeague Solutions GmbH</p>
         <div class="legal-links">
             <a onclick="showSection('privacy')">Datenschutz</a> | 
-            <a onclick="showSection('imprint')">Kontakt</a>
+            <a onclick="showSection('contact')">Impressum</a>
         </div>
     </footer>
 
     <script>
+        /* NAVIGATION LOGIC TO UPDATE URL-LIKE BEHAVIOR AND VISIBILITY */
         function showSection(sectionId) {
+            const hero = document.getElementById('main-hero');
+            
+            // HIDE HERO ON PAGES OTHER THAN HOME FOR BETTER FOCUS
+            if(sectionId === 'home') {
+                hero.style.display = 'block';
+            } else {
+                hero.style.display = 'none';
+            }
+
             document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
+            
             document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
             const activeNav = document.getElementById('nav-' + sectionId);
             if(activeNav) activeNav.classList.add('active');
+            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+
+        /* SIMULATE LIVE ACTIVITY DATA */
+        let ottakringSteps = 212450;
+        let favoritenSteps = 208920;
+
+        setInterval(() => {
+            ottakringSteps += Math.floor(Math.random() * 3) + 1;
+            favoritenSteps += Math.floor(Math.random() * 3) + 1;
+            
+            const ottElem = document.getElementById('steps-ottakring');
+            const favElem = document.getElementById('steps-favoriten');
+            
+            if(ottElem) ottElem.innerText = ottakringSteps.toLocaleString('de-DE');
+            if(favElem) favElem.innerText = favoritenSteps.toLocaleString('de-DE');
+        }, 3000);
     </script>
 </body>
 </html>
