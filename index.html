@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PaceLeague – Offizielle Website</title>
     <style>
-        /* DESIGN SYSTEM AND COLOR PALETTE */
+        /* DEFINE CORE DESIGN SYSTEM AND COLOR PALETTE */
         :root {
             --bg-color: #0b111a; 
             --card-bg: #1e293a; 
@@ -19,46 +19,59 @@
         * { box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: var(--text-main); margin: 0; background-color: var(--bg-color); }
 
-        /* HEADER AND NAVIGATION STYLING */
+        /* HEADER AND NAVIGATION DESIGN */
         header { background-color: var(--card-bg); padding: 16px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 22px; font-weight: 800; letter-spacing: -1px; }
-        .app-btn { background-color: #ffffff; color: #000; padding: 10px 20px; border-radius: 24px; text-decoration: none; font-weight: 700; font-size: 13px; }
+        
+        /* HEADER RIGHT SIDE CONTROLS */
+        .header-controls { display: flex; align-items: center; gap: 20px; }
+        
+        /* LANGUAGE SELECTOR STYLING */
+        .lang-switch { display: flex; gap: 10px; align-items: center; }
+        .lang-icon { width: 24px; height: 24px; cursor: pointer; border-radius: 50%; border: 2px solid transparent; transition: border-color 0.2s; overflow: hidden; display: flex; }
+        .lang-icon.active { border-color: var(--accent-blue); }
+        .lang-icon svg { width: 100%; height: 100%; object-fit: cover; }
+
+        .app-btn { background-color: #ffffff; color: #000; padding: 8px 18px; border-radius: 24px; text-decoration: none; font-weight: 700; font-size: 13px; }
 
         nav { background: var(--card-bg); padding: 0 24px; display: flex; gap: 30px; border-bottom: 1px solid var(--border-color); position: sticky; top: 61px; z-index: 999; }
-        nav a { color: var(--text-secondary); text-decoration: none; font-size: 12px; font-weight: 700; padding: 18px 0; border-bottom: 3px solid transparent; cursor: pointer; text-transform: uppercase; }
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 700; padding: 18px 0; border-bottom: 3px solid transparent; cursor: pointer; text-transform: uppercase; }
         nav a.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
 
-        /* HERO SECTION FOR USER ONBOARDING */
-        .hero { padding: 60px 24px; text-align: center; background: linear-gradient(180deg, #1e293a 0%, #0b111a 100%); border-bottom: 1px solid var(--border-color); }
-        .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 16px; letter-spacing: -1px; }
-        .hero p { color: var(--text-secondary); font-size: 18px; max-width: 600px; margin: 0 auto; }
+        /* WELCOME HERO SECTION FOR ONBOARDING */
+        .hero { padding: 60px 24px; text-align: center; border-bottom: 1px solid var(--border-color); background: rgba(30, 41, 58, 0.2); }
+        .hero h1 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
+        .hero p { color: var(--text-secondary); font-size: 16px; max-width: 600px; margin: 0 auto; }
 
-        .page-section { display: none; padding: 40px 20px; max-width: 800px; margin: auto; animation: fadeIn 0.3s ease-in-out; }
+        /* CONTENT SECTION LAYOUT AND ANIMATION */
+        .page-section { display: none; padding: 40px 20px; max-width: 900px; margin: auto; animation: fadeIn 0.3s ease-in-out; }
         .page-section.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* STANDARDIZED HEADERS AND STATS LABEL */
+        h2 { color: var(--accent-blue); font-size: 24px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
+        .data-card, .info-card { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid var(--border-color); margin-bottom: 24px; }
+
+        /* STANDARDIZED DATA TABLES FOR MATCHES */
         .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; }
-        h2 { color: var(--accent-blue); font-size: 20px; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
-        .unit-label { color: var(--text-secondary); font-size: 12px; font-weight: 800; letter-spacing: 2px; }
-
-        .match-card, .info-card { background: var(--card-bg); padding: 24px; border-radius: 20px; border: 1px solid var(--border-color); margin-bottom: 24px; position: relative; overflow: hidden; }
-        
-        /* UPDATED STATISTICS BADGE POSITION */
-        .community-card { background: rgba(124, 131, 255, 0.05); border: 1px dashed var(--accent-blue); padding: 20px; border-radius: 16px; text-align: center; margin-top: 40px; }
-        .community-card span { color: var(--accent-blue); font-weight: 800; }
-
+        .unit-label { color: var(--text-secondary); font-size: 11px; font-weight: 800; letter-spacing: 1px; }
         .squad-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .squad-row:last-child { border-bottom: none; }
         .steps { font-weight: 800; font-variant-numeric: tabular-nums; font-size: 20px; color: var(--text-main); }
 
-        /* FORM AND FOOTER STYLING */
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-size: 14px; color: var(--text-secondary); }
-        input, select, textarea { width: 100%; padding: 14px; background: var(--bg-color); border: 1px solid var(--border-color); color: white; border-radius: 12px; font-family: inherit; }
-        .submit-btn { background: var(--accent-blue); color: white; border: none; padding: 16px; border-radius: 12px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 10px; transition: opacity 0.2s; }
+        /* GRID SYSTEM FOR APP FEATURES */
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .feature-card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); }
+        .feature-card h3 { color: var(--accent-blue); font-size: 16px; margin-bottom: 10px; }
+        .feature-card p { font-size: 13px; color: var(--text-secondary); margin: 0; }
 
-        footer { text-align: center; padding: 80px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
+        /* FORM ELEMENT STYLING */
+        .form-group { margin-bottom: 15px; }
+        input, select, textarea { width: 100%; padding: 12px; background: var(--bg-color); border: 1px solid var(--border-color); color: white; border-radius: 8px; font-family: inherit; }
+        .submit-btn { background: var(--accent-blue); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 10px; }
+
+        /* FOOTER AND COMMUNITY BADGES */
+        .community-card { background: rgba(124, 131, 255, 0.05); border: 1px dashed var(--accent-blue); padding: 20px; border-radius: 12px; text-align: center; margin-top: 40px; }
+        footer { text-align: center; padding: 60px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
         .legal-links a { color: var(--accent-blue); text-decoration: none; margin: 0 10px; cursor: pointer; font-weight: 600; }
     </style>
 </head>
@@ -66,19 +79,29 @@
 
     <header>
         <div class="logo">PACELEAGUE</div>
-        <a href="#" class="app-btn">App laden</a>
+        <div class="header-controls">
+            <div class="lang-switch">
+                <div class="lang-icon active" title="Deutsch">
+                    <svg viewBox="0 0 512 512"><path fill="#ffce44" d="M0 373.3h512V512H0z"/><path d="M0 0h512v138.7H0z"/><path fill="#d00" d="M0 138.7h512v234.6H0z"/></svg>
+                </div>
+                <div class="lang-icon" title="English">
+                    <svg viewBox="0 0 512 512"><path fill="#00247d" d="M0 0h512v512H0z"/><path stroke="#fff" stroke-width="64" d="M0 0l512 512M512 0L0 512"/><path stroke="#cf142b" stroke-width="40" d="M0 0l512 512M512 0L0 512"/><path stroke="#fff" stroke-width="107" d="M256 0v512M0 256h512"/><path stroke="#cf142b" stroke-width="64" d="M256 0v512M0 256h512"/></svg>
+                </div>
+            </div>
+            <a href="#" class="app-btn">Download App</a>
+        </div>
     </header>
 
     <nav>
-        <a onclick="showSection('home')" id="nav-home" class="active">Live</a>
+        <a onclick="showSection('home')" id="nav-home" class="active">Home</a>
         <a onclick="showSection('features')" id="nav-features">Features</a>
         <a onclick="showSection('about')" id="nav-about">Über uns</a>
-        <a onclick="showSection('contact')" id="nav-contact">Crew</a>
+        <a onclick="showSection('contact')" id="nav-contact">Contact</a>
     </nav>
 
     <div class="hero" id="main-hero">
-        <h1>CEREN ÜNAL SELAM</h1>
-        <p>Tritt einem Squad bei, repräsentiere deinen Bezirk und dominiere die PaceLeague Bestenlisten in Echtzeit.</p>
+        <h1>Move. Compete. Win.</h1>
+        <p>Treten Sie der größten digitalen Schritt-Community Wiens bei. Gründen Sie Ihr Squad und verteidigen Sie Ihren Bezirk.</p>
     </div>
 
     <section id="home" class="page-section active">
@@ -87,10 +110,8 @@
             <div class="unit-label">SCHRITTE</div>
         </div>
 
-        <div class="match-card">
-            <div style="font-size: 11px; color: var(--accent-red); font-weight: 800; margin-bottom: 12px; text-transform: uppercase; display: flex; align-items: center; gap: 6px;">
-                <span style="width: 8px; height: 8px; background: var(--accent-red); border-radius: 50%;"></span> LIVE • WIEN
-            </div>
+        <div class="data-card">
+            <div style="font-size: 11px; color: var(--accent-red); font-weight: 800; margin-bottom: 12px; text-transform: uppercase;">Live • Wien (5 vs 5)</div>
             <div class="squad-row">
                 <span>Ottakringer Madrid</span>
                 <span class="steps" id="steps-ottakring">212.450</span>
@@ -106,7 +127,7 @@
             <div class="unit-label">INDIVIDUELL</div>
         </div>
 
-        <div class="match-card">
+        <div class="data-card">
             <div class="squad-row">
                 <span>Goran S. <small style="color: var(--text-secondary);">(Bezirk 15)</small></span>
                 <span class="steps" style="color: var(--accent-blue);">41.234</span>
@@ -114,48 +135,90 @@
         </div>
 
         <div class="community-card">
-            Werde Teil der Bewegung. <span>Wien-weit über 5.000 aktive Läufer.</span>
+            Werden Sie Teil der Bewegung. <span style="color: var(--accent-blue); font-weight: 800;">Wien-weit über 5.000 aktive Läufer.</span>
         </div>
     </section>
 
     <section id="features" class="page-section">
         <h2>App Features</h2>
-        <div class="info-card">
-            <p>Echtzeit-Tracking und Bezirks-Wettkämpfe direkt auf deinem Smartphone.</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>5v5 Squad Battles</h3>
+                <p>Gründen Sie Ihr eigenes Squad oder treten Sie einem bei. Kämpfen Sie in Echtzeit gegen andere Teams aus Wien.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Solo-Rankings</h3>
+                <p>Beweisen Sie Ihre persönliche Leistung. Dominieren Sie die Bestenlisten Ihres Bezirks und werden Sie die Nummer 1.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Wiener Partner-Deals</h3>
+                <p>Top-Performer erhalten exklusive Gutscheine bei lokalen Partnern wie Fitness-Shops, Cafés und Wiener Unternehmen.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Avatar & Skins</h3>
+                <p>Personalisieren Sie Ihren digitalen Läufer. Schalten Sie durch Leistung neue Skins, Kleidung und Accessoires frei.</p>
+            </div>
         </div>
     </section>
 
     <section id="about" class="page-section">
         <h2>Über PaceLeague</h2>
         <div class="info-card">
-            <p>PaceLeague Solutions GmbH – Innovation aus dem Herzen Wiens.</p>
+            <p>PaceLeague ist ein innovatives Wiener Startup, das körperliche Aktivität durch Gamification fördert. Unser Ziel ist es, den sportlichen Geist der Wiener Bezirke digital zu vernetzen.</p>
+            <hr style="border-color: var(--border-color); margin: 20px 0;">
+            <p><strong>Markenschutz:</strong> Unsere Technologien und Designs sind rechtlich abgesichert:</p>
+            <ul style="font-size: 14px; color: var(--text-secondary);">
+                <li><strong>Wortmarke:</strong> "PaceLeague"</li>
+                <li><strong>Bildmarke:</strong> Dynamic-P Icon</li>
+                <li><strong>Nizza-Klassen:</strong> 9 (Software), 41 (Sport), 42 (IT-Dienstleistungen)</li>
+            </ul>
         </div>
     </section>
 
     <section id="contact" class="page-section">
-        <h2>Werde Teil der Crew</h2>
+        <h2>Kontakt & Crew</h2>
         <div class="info-card">
-            <form onsubmit="event.preventDefault(); alert('Anfrage gesendet!');">
+            <p style="font-size: 14px; margin-bottom: 20px;">Haben Sie Fragen oder möchten Sie Teil der PaceLeague-Crew werden?</p>
+            <form onsubmit="event.preventDefault(); alert('Vielen Dank! Wir haben Ihre Nachricht erhalten.');">
                 <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" placeholder="Dein Name" required>
+                    <input type="text" placeholder="Ihr Name" required>
                 </div>
                 <div class="form-group">
-                    <label>Rolle</label>
+                    <input type="email" placeholder="E-Mail Adresse" required>
+                </div>
+                <div class="form-group">
                     <select>
-                        <option>Squad Kapitän</option>
-                        <option>Beta-Tester</option>
+                        <option>Allgemeine Anfrage</option>
+                        <option>Bewerbung als Squad-Kapitän</option>
+                        <option>App Beta-Tester</option>
+                        <option>Kooperationspartner</option>
                     </select>
                 </div>
-                <button type="submit" class="submit-btn">Jetzt bewerben</button>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="Ihre Nachricht..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Absenden</button>
             </form>
+        </div>
+    </section>
+
+    <section id="imprint" class="page-section">
+        <h2>Impressum</h2>
+        <div class="info-card" style="font-size: 14px; color: var(--text-secondary);">
+            <p><strong>PaceLeague Solutions GmbH</strong><br>
+            Fenerbahce Straße 1907, 1010 Wien<br><br>
+            <strong>Geschäftsführer:</strong> Ismet Ünal<br>
+            <strong>UID-Nummer:</strong> ATU98765432<br>
+            <strong>Firmenbuchnummer:</strong> FN 123456 x<br>
+            <strong>Gerichtsstand:</strong> Handelsgericht Wien</p>
         </div>
     </section>
 
     <section id="privacy" class="page-section">
         <h2>Datenschutz</h2>
         <div class="info-card">
-            <a href="paceleague_dsgvo.pdf" target="_blank" style="color: var(--accent-blue); font-weight: bold; text-decoration: none;">📄 Offizielle DSGVO herunterladen</a>
+            <p style="font-size: 14px; margin-bottom: 20px;">Ihre Daten werden gemäß DSGVO verarbeitet. Laden Sie für Details bitte unser PDF-Dokument herunter.</p>
+            <a href="paceleague_dsgv.pdf" target="_blank" style="color: var(--accent-blue); font-weight: bold; text-decoration: none;">📄 Vollständige DSGVO herunterladen (PDF)</a>
         </div>
     </section>
 
@@ -163,21 +226,16 @@
         <p>&copy; 2026 PaceLeague Solutions GmbH</p>
         <div class="legal-links">
             <a onclick="showSection('privacy')">Datenschutz</a> | 
-            <a onclick="showSection('contact')">Impressum</a>
+            <a onclick="showSection('imprint')">Impressum</a> | 
+            <a onclick="showSection('contact')">Kontakt</a>
         </div>
     </footer>
 
     <script>
-        /* NAVIGATION LOGIC TO UPDATE URL-LIKE BEHAVIOR AND VISIBILITY */
+        /* MAIN NAVIGATION ENGINE TO SWITCH SECTIONS AND HERO VISIBILITY */
         function showSection(sectionId) {
             const hero = document.getElementById('main-hero');
-            
-            // HIDE HERO ON PAGES OTHER THAN HOME FOR BETTER FOCUS
-            if(sectionId === 'home') {
-                hero.style.display = 'block';
-            } else {
-                hero.style.display = 'none';
-            }
+            hero.style.display = (sectionId === 'home') ? 'block' : 'none';
 
             document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
             document.getElementById(sectionId).classList.add('active');
@@ -189,11 +247,12 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        /* SIMULATE LIVE ACTIVITY DATA */
+        /* LIVE DATA SIMULATION FOR STEP COUNTERS */
         let ottakringSteps = 212450;
         let favoritenSteps = 208920;
 
         setInterval(() => {
+            /* ADD RANDOM INCREMENTS TO SIMULATE USER ACTIVITY */
             ottakringSteps += Math.floor(Math.random() * 3) + 1;
             favoritenSteps += Math.floor(Math.random() * 3) + 1;
             
