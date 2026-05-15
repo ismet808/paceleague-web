@@ -152,11 +152,11 @@
             </div>
             <div class="feature-card">
                 <h3>Wiener Partner-Deals</h3>
-                <p>Top-Performer erhalten exklusive Gutscheine bei lokalen Partnern wie Fitness-Shops, Cafés und Wiener Unternehmen.</p>
+                <p>Top-Performer erhalten exklusive Gutscheine bei lokalen Partnern.</p>
             </div>
             <div class="feature-card">
                 <h3>Avatar & Skins</h3>
-                <p>Personalisieren Sie Ihren digitalen Läufer. Schalten Sie durch Leistung neue Skins, Kleidung und Accessoires frei.</p>
+                <p>Personalisieren Sie Ihren digitalen Läufer mit exklusiven Accessoires.</p>
             </div>
         </div>
     </section>
@@ -164,39 +164,18 @@
     <section id="about" class="page-section">
         <h2>Über PaceLeague</h2>
         <div class="info-card">
-            <p>PaceLeague ist ein innovatives Wiener Startup, das körperliche Aktivität durch Gamification fördert. Unser Ziel ist es, den sportlichen Geist der Wiener Bezirke digital zu vernetzen.</p>
+            <p>PaceLeague ist ein innovatives Wiener Startup, das körperliche Aktivität durch Gamification fördert.</p>
             <hr style="border-color: var(--border-color); margin: 20px 0;">
-            <p><strong>Markenschutz:</strong> Unsere Technologien und Designs sind rechtlich abgesichert:</p>
-            <ul style="font-size: 14px; color: var(--text-secondary);">
-                <li><strong>Wortmarke:</strong> "PaceLeague"</li>
-                <li><strong>Bildmarke:</strong> Dynamic-P Icon</li>
-                <li><strong>Nizza-Klassen:</strong> 9 (Software), 41 (Sport), 42 (IT-Dienstleistungen)</li>
-            </ul>
+            <p><strong>Markenschutz:</strong> Wortmarke "PaceLeague", Nizza-Klassen 9, 41, 42.</p>
         </div>
     </section>
 
     <section id="contact" class="page-section">
         <h2>Kontakt & Crew</h2>
         <div class="info-card">
-            <p style="font-size: 14px; margin-bottom: 20px;">Haben Sie Fragen oder möchten Sie Teil der PaceLeague-Crew werden?</p>
-            <form onsubmit="event.preventDefault(); alert('Vielen Dank! Wir haben Ihre Nachricht erhalten.');">
-                <div class="form-group">
-                    <input type="text" placeholder="Ihr Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="E-Mail Adresse" required>
-                </div>
-                <div class="form-group">
-                    <select>
-                        <option>Allgemeine Anfrage</option>
-                        <option>Bewerbung als Squad-Kapitän</option>
-                        <option>App Beta-Tester</option>
-                        <option>Kooperationspartner</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <textarea rows="4" placeholder="Ihre Nachricht..."></textarea>
-                </div>
+            <form onsubmit="event.preventDefault(); alert('Vielen Dank!');">
+                <div class="form-group"><input type="text" placeholder="Ihr Name" required></div>
+                <div class="form-group"><input type="email" placeholder="E-Mail Adresse" required></div>
                 <button type="submit" class="submit-btn">Absenden</button>
             </form>
         </div>
@@ -207,39 +186,46 @@
         <div class="info-card" style="font-size: 14px; color: var(--text-secondary);">
             <p><strong>PaceLeague Solutions GmbH</strong><br>
             Fenerbahce Straße 1907, 1010 Wien<br><br>
-            <strong>Geschäftsführer:</strong> Ismet Ünal<br>
-            <strong>UID-Nummer:</strong> ATU98765432<br>
-            <strong>Firmenbuchnummer:</strong> FN 123456 x<br>
-            <strong>Gerichtsstand:</strong> Handelsgericht Wien</p>
+            <strong>Geschäftsführer:</strong> Ismet Ünal</p>
         </div>
     </section>
 
     <section id="privacy" class="page-section">
         <h2>Datenschutz</h2>
-        <div class="info-card">
-            <p style="font-size: 14px; margin-bottom: 20px;">Ihre Daten werden gemäß DSGVO verarbeitet. Laden Sie für Details bitte unser PDF-Dokument herunter.</p>
-            <a href="paceleague_dsgv.pdf" target="_blank" style="color: var(--accent-blue); font-weight: bold; text-decoration: none;">📄 Vollständige DSGVO herunterladen (PDF)</a>
+        <div class="info-card" style="text-align: center;">
+            <p style="font-size: 14px; margin-bottom: 20px; color: var(--text-secondary);">Um unsere vollständige Datenschutzerklärung zu lesen, klicken Sie bitte auf den Button unten.</p>
+            <a href="paceleague_dsgv.pdf" target="_blank" style="display: inline-block; background: var(--accent-blue); color: white; padding: 12px 24px; border-radius: 50px; font-weight: 800; text-decoration: none;">
+                📄 DSGVO PDF ÖFFNEN
+            </a>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2026 PaceLeague Solutions GmbH</p>
         <div class="legal-links">
-            <a onclick="showSection('privacy')">Datenschutz</a> | 
-            <a onclick="showSection('imprint')">Impressum</a> | 
-            <a onclick="showSection('contact')">Kontakt</a>
+            <a href="javascript:void(0)" onclick="showSection('privacy')">Datenschutz</a> | 
+            <a href="javascript:void(0)" onclick="showSection('imprint')">Impressum</a> | 
+            <a href="javascript:void(0)" onclick="showSection('contact')">Kontakt</a>
         </div>
     </footer>
 
     <script>
-        /* MAIN NAVIGATION ENGINE TO SWITCH SECTIONS AND HERO VISIBILITY */
+        /* CORE NAVIGATION ENGINE - SWITCHES SECTIONS AND HERO */
         function showSection(sectionId) {
             const hero = document.getElementById('main-hero');
             hero.style.display = (sectionId === 'home') ? 'block' : 'none';
 
-            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active');
+            // HIDE ALL SECTIONS
+            document.querySelectorAll('.page-section').forEach(s => s.style.display = 'none');
             
+            // SHOW TARGET SECTION
+            const target = document.getElementById(sectionId);
+            if(target) {
+                target.style.display = 'block';
+                target.classList.add('active');
+            }
+            
+            // UPDATE NAV STATES
             document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
             const activeNav = document.getElementById('nav-' + sectionId);
             if(activeNav) activeNav.classList.add('active');
@@ -247,18 +233,15 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        /* LIVE DATA SIMULATION FOR STEP COUNTERS */
+        /* LIVE STEP COUNTER EMULATION */
         let ottakringSteps = 212450;
         let favoritenSteps = 208920;
 
         setInterval(() => {
-            /* ADD RANDOM INCREMENTS TO SIMULATE USER ACTIVITY */
             ottakringSteps += Math.floor(Math.random() * 3) + 1;
             favoritenSteps += Math.floor(Math.random() * 3) + 1;
-            
             const ottElem = document.getElementById('steps-ottakring');
             const favElem = document.getElementById('steps-favoriten');
-            
             if(ottElem) ottElem.innerText = ottakringSteps.toLocaleString('de-DE');
             if(favElem) favElem.innerText = favoritenSteps.toLocaleString('de-DE');
         }, 3000);
