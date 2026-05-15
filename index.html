@@ -25,7 +25,6 @@
         
         .header-controls { display: flex; align-items: center; gap: 20px; }
         
-        /* LANGUAGE SELECTOR STYLING */
         .lang-switch { display: flex; gap: 10px; align-items: center; }
         .lang-icon { width: 24px; height: 24px; cursor: pointer; border-radius: 50%; border: 2px solid transparent; transition: border-color 0.2s; overflow: hidden; display: flex; opacity: 0.5; }
         .lang-icon.active { border-color: var(--accent-blue); opacity: 1; }
@@ -56,11 +55,13 @@
 
         .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; }
         .unit-label { color: var(--text-secondary); font-size: 11px; font-weight: 800; letter-spacing: 1px; }
-        .squad-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .squad-row:last-child { border-bottom: none; }
-        .steps { font-weight: 800; font-variant-numeric: tabular-nums; font-size: 20px; color: var(--text-main); }
         
-        .profile-img { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; margin-right: 10px; vertical-align: middle; border: 1px solid var(--accent-blue); }
+        /* ENHANCED SQUAD ROW FOR BETTER VISIBILITY (50% INCREASED) */
+        .squad-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .squad-row:last-child { border-bottom: none; }
+        .team-info { display: flex; align-items: center; font-size: 21px; font-weight: 700; }
+        .profile-img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; margin-right: 15px; border: 2px solid var(--accent-blue); }
+        .steps { font-weight: 800; font-variant-numeric: tabular-nums; font-size: 30px; color: var(--text-main); }
 
         /* FEATURE GRID */
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
@@ -119,11 +120,17 @@
         <div class="data-card">
             <div style="font-size: 11px; color: var(--accent-red); font-weight: 800; margin-bottom: 12px; text-transform: uppercase;">Live • Wien (5 vs 5)</div>
             <div class="squad-row">
-                <span><img src="logo_ottakring.png" class="profile-img">Ottakringer Madrid</span>
+                <div class="team-info">
+                    <img src="logo_ottakring.png" class="profile-img">
+                    <span>Ottakringer Madrid</span>
+                </div>
                 <span class="steps" id="steps-ottakring">212.450</span>
             </div>
             <div class="squad-row">
-                <span><img src="logo_favoriten.png" class="profile-img">Döner Bros (Favoriten)</span>
+                <div class="team-info">
+                    <img src="logo_favoriten.png" class="profile-img">
+                    <span>Döner Bros (Favoriten)</span>
+                </div>
                 <span class="steps" id="steps-favoriten">208.920</span>
             </div>
         </div>
@@ -135,7 +142,10 @@
 
         <div class="data-card">
             <div class="squad-row">
-                <span><img src="goran_profil.jpg" class="profile-img">Goran S. <small style="color: var(--text-secondary);">(Bezirk 15)</small></span>
+                <div class="team-info">
+                    <img src="goran_profil.jpg" class="profile-img">
+                    <span>Goran S. <small style="color: var(--text-secondary);">(Bezirk 15)</small></span>
+                </div>
                 <span class="steps" style="color: var(--accent-blue);">41.234</span>
             </div>
         </div>
@@ -280,11 +290,10 @@
             }
         };
 
-        /* FUNCTION TO SWITCH LANGUAGES DYNAMICALLY */
+        /* LANGUAGE SWITCHER */
         function setLanguage(lang) {
             document.querySelectorAll('.lang-icon').forEach(icon => icon.classList.remove('active'));
             document.getElementById('lang-' + lang).classList.add('active');
-            
             const t = translations[lang];
             document.getElementById('nav-home').innerText = t.home;
             document.getElementById('nav-features').innerText = t.features;
@@ -293,7 +302,6 @@
             document.getElementById('link-priv').innerText = t.privT;
             document.getElementById('link-imp').innerText = t.impT;
             document.getElementById('link-cont').innerText = t.contact;
-            
             document.getElementById('hero-title').innerText = t.heroT;
             document.getElementById('hero-desc').innerText = t.heroD;
             document.getElementById('title-live').innerText = t.liveT;
@@ -301,19 +309,16 @@
             document.getElementById('title-performer').innerText = t.performerT;
             document.getElementById('label-individual').innerText = t.indivL;
             document.getElementById('comm-card').innerHTML = t.commC;
-            
             document.getElementById('title-features').innerText = t.featT;
             document.getElementById('f1-t').innerText = t.f1t; document.getElementById('f1-p').innerText = t.f1p;
             document.getElementById('f2-t').innerText = t.f2t; document.getElementById('f2-p').innerText = t.f2p;
             document.getElementById('f3-t').innerText = t.f3t; document.getElementById('f3-p').innerText = t.f3p;
             document.getElementById('f4-t').innerText = t.f4t; document.getElementById('f4-p').innerText = t.f4p;
-            
             document.getElementById('title-about').innerText = t.aboutT;
             document.getElementById('about-p1').innerText = t.aboutP1;
             document.getElementById('about-brand').innerText = t.brand;
             document.getElementById('about-p2').innerText = t.aboutP2;
             document.getElementById('license-txt').innerHTML = t.license;
-            
             document.getElementById('title-contact').innerText = t.contT;
             document.getElementById('contact-p').innerText = t.contP;
             document.getElementById('lbl-name').innerText = t.lblName;
@@ -324,7 +329,6 @@
             document.getElementById('lbl-msg').innerText = t.lblMsg;
             document.getElementById('txt-msg').placeholder = t.msgPh;
             document.getElementById('btn-submit').innerText = t.btnSub;
-            
             document.getElementById('title-imprint').innerText = t.impT;
             document.getElementById('lbl-manager').innerText = t.lblMan;
             document.getElementById('title-privacy').innerText = t.privT;
@@ -333,7 +337,7 @@
             document.getElementById('btn-download').innerText = t.btnDown;
         }
 
-        /* CORE NAVIGATION ENGINE */
+        /* NAVIGATION ENGINE */
         function showSection(sectionId) {
             const hero = document.getElementById('main-hero');
             hero.style.display = (sectionId === 'home') ? 'block' : 'none';
@@ -349,7 +353,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        /* LIVE DATA SIMULATION */
+        /* DATA EMULATION */
         let ottakringSteps = 212450;
         let favoritenSteps = 208920;
         setInterval(() => {
