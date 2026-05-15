@@ -56,20 +56,19 @@
         .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; }
         .unit-label { color: var(--text-secondary); font-size: 11px; font-weight: 800; letter-spacing: 1px; }
         
-        /* ENHANCED SQUAD ROW FOR BETTER VISIBILITY (50% INCREASED) */
         .squad-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .squad-row:last-child { border-bottom: none; }
         .team-info { display: flex; align-items: center; font-size: 21px; font-weight: 700; }
         .profile-img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; margin-right: 15px; border: 2px solid var(--accent-blue); }
         .steps { font-weight: 800; font-variant-numeric: tabular-nums; font-size: 30px; color: var(--text-main); }
 
-        /* FEATURE GRID */
+        /* GRID SYSTEM FOR FEATURES */
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .feature-card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); }
         .feature-card h3 { color: var(--accent-blue); font-size: 16px; margin-bottom: 10px; }
         .feature-card p { font-size: 13px; color: var(--text-secondary); margin: 0; }
 
-        /* FORM STYLING */
+        /* FORM COMPONENT STYLING */
         .form-group { margin-bottom: 15px; }
         label { display: block; margin-bottom: 5px; font-size: 14px; color: var(--text-secondary); }
         input, select, textarea { width: 100%; padding: 12px; background: var(--bg-color); border: 1px solid var(--border-color); color: white; border-radius: 8px; font-family: inherit; }
@@ -177,24 +176,23 @@
         </div>
     </section>
 
-   <section id="about" class="page-section">
-    <h2 id="title-about">Über PaceLeague</h2>
-    <div class="info-card">
-        <p id="about-p1">PaceLeague ist ein innovatives Wiener Startup, das körperliche Aktivität durch Gamification fördert.</p>
-        <hr style="border-color: var(--border-color); margin: 20px 0;">
-        <p><strong>Markenschutz:</strong> Wortmarke "PaceLeague", Nizza-Klassen 9, 41, 42.</p>
-        
-        <div class="license-box" id="license-txt">
-            <strong>Lizenz & Bildnachweise:</strong><br>
-            Das auf dieser Website verwendete Bildmaterial stammt von <b>Unsplash</b> und <b>Pixabay</b>. Gemäß deren Lizenzen sind diese Bilder zur freien Verwendung (kommerziell & nicht-kommerziell) ohne Genehmigung gestattet.
+    <section id="about" class="page-section">
+        <h2 id="title-about">Über PaceLeague</h2>
+        <div class="info-card">
+            <p id="about-p1">PaceLeague ist ein innovatives Wiener Startup, das körperliche Aktivität durch Gamification fördert.</p>
+            <hr style="border-color: var(--border-color); margin: 20px 0;">
+            <p><strong id="about-brand">Markenschutz:</strong> <span id="about-p2">Wortmarke "PaceLeague", Nizza-Klassen 9, 41, 42.</span></p>
+            <div class="license-box" id="license-txt">
+                <strong>Lizenz & Bildnachweise:</strong><br>
+                Das auf dieser Website verwendete Bildmaterial stammt von <b>Unsplash</b> und <b>Pixabay</b>. Gemäß deren Lizenzen sind diese Bilder zur freien Verwendung gestattet.
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="contact" class="page-section">
         <h2 id="title-contact">Kontakt & Crew</h2>
         <div class="info-card">
-            <p style="font-size: 14px; margin-bottom: 20px;" id="contact-p">Haben Sie Fragen oder möchten Sie Teil der PaceLeague-Crew werden?</p>
+            <p style="font-size: 14px; margin-bottom: 20px;" id="contact-p">Haben Sie Fragen veya möchten Sie Teil der PaceLeague-Crew werden?</p>
             <form onsubmit="event.preventDefault(); alert('Vielen Dank!');">
                 <div class="form-group">
                     <label id="lbl-name">Ihr Name</label>
@@ -227,10 +225,11 @@
         <div class="info-card" style="font-size: 14px; color: var(--text-secondary);">
             <p><strong>PaceLeague Solutions GmbH</strong><br>
             Fenerbahce Straße 1907, 1010 Wien<br><br>
-            <strong>Geschäftsführer (CEO):</strong> Ismet Ünal<br>
-            <strong>Geschäftsführer (CEO):</strong> Burak Özbey<br><br>
-            <strong>Firmenbuchnummer:</strong> FN 123456 x<br>
-            <strong>Gerichtsstand:</strong> Handelsgericht Wien</p>
+            <strong id="lbl-manager">Geschäftsführer:</strong><br>
+            Ismet Ünal (CEO)<br>
+            Burak Özbey (CEO)<br><br>
+            <strong id="lbl-fb">Firmenbuchnummer:</strong> FN 123456 x<br>
+            <strong id="lbl-gs">Gerichtsstand:</strong> <span id="val-gs">Handelsgericht Wien</span></p>
         </div>
     </section>
 
@@ -256,51 +255,53 @@
     <script>
         /* DICTIONARY FOR MULTI-LANGUAGE SUPPORT */
         const translations = {
-    de: {
-        home: "Home", features: "Features", about: "Über uns", contact: "Kontakt",
-        heroT: "Move. Compete. Win.", heroD: "Treten Sie der größten digitalen Schritt-Community Wiens bei. Gründen Sie Ihr Squad und verteidigen Sie Ihren Bezirk.",
-        liveT: "Live Squad Matches", stepsL: "SCHRITTE", performerT: "Top Performer", indivL: "INDIVIDUELL",
-        commC: 'Werden Sie Teil der Bewegung. <span style="color: var(--accent-blue); font-weight: 800;">Wien-weit über 5.000 aktive Läufer.</span>',
-        featT: "App Features", f1t: "5v5 Squad Battles", f1p: "Gründen Sie Ihr eigenes Squad oder treten Sie einem bei. Kämpfen Sie in Echtzeit gegen andere Teams aus Wien.",
-        f2t: "Solo-Rankings", f2p: "Beweisen Sie Ihre persönliche Leistung. Dominieren Sie die Bestenlisten Ihres Bezirks und werden Sie die Nummer 1.",
-        f3t: "Wiener Partner-Deals", f3p: "Top-Performer erhalten exklusive Gutscheine bei lokalen Partnern.",
-        f4t: "Avatar & Skins", f4p: "Personalisieren Sie Ihren digitalen Läufer mit exklusiven Accessoires.",
-        aboutT: "Über PaceLeague", aboutP1: "PaceLeague ist ein innovatives Wiener Startup, das körperliche Aktivität durch Gamification fördert.",
-        brand: "Markenschutz:", aboutP2: 'Wortmarke "PaceLeague", Nizza-Klassen 9, 41, 42.',
-        license: '<strong>Lizenz & Bildnachweise:</strong><br>Das auf dieser Website verwendete Bildmaterial stammt von <b>Unsplash</b> und <b>Pixabay</b>. Gemäß deren Lizenzen sind diese Bilder zur freien Verwendung gestattet.',
-        contT: "Kontakt & Crew", contP: "Haben Sie Fragen oder möchten Sie Teil der PaceLeague-Crew werden?",
-        lblName: "Ihr Name", lblMail: "E-Mail Adresse", lblInt: "Interesse", opt1: "Allgemeine Anfrage", opt2: "Bewerbung als Squad-Kapitän", opt3: "App Beta-Tester", opt4: "Kooperationspartner",
-        lblMsg: "Nachricht", msgPh: "Ihre Nachricht an uns...", btnSub: "Absenden",
-        impT: "Impressum", lblMan: "Geschäftsführer:", lblFb: "Firmenbuchnummer:", lblGs: "Gerichtsstand:", valGs: "Handelsgericht Wien",
-        privT: "Datenschutz", privP: "Um unsere vollständige Datenschutzerklärung zu lesen, klicken Sie bitte auf den Button unten.",
-        btnPdf: "📄 DSGVO PDF ÖFFNEN", btnDown: "Download App"
-    },
-    en: {
-        home: "Home", features: "Features", about: "About Us", contact: "Contact",
-        heroT: "Move. Compete. Win.", heroD: "Join Vienna's largest digital step community. Create your squad and defend your district.",
-        liveT: "Live Squad Matches", stepsL: "STEPS", performerT: "Top Performer", indivL: "INDIVIDUAL",
-        commC: 'Join the movement. <span style="color: var(--accent-blue); font-weight: 800;">Over 5,000 active runners Vienna-wide.</span>',
-        featT: "App Features", f1t: "5v5 Squad Battles", f1p: "Create your own squad or join one. Fight in real-time against other teams from Vienna.",
-        f2t: "Solo Rankings", f2p: "Prove your personal performance. Dominate your district's leaderboards and become number 1.",
-        f3t: "Vienna Partner Deals", f3p: "Top performers receive exclusive vouchers from local partners.",
-        f4t: "Avatar & Skins", f4p: "Personalize your digital runner with exclusive accessories.",
-        aboutT: "About PaceLeague", aboutP1: "PaceLeague is an innovative Vienna-based startup promoting physical activity through gamification.",
-        brand: "Trademark:", aboutP2: 'Word mark "PaceLeague", Nice classes 9, 41, 42.',
-        license: '<strong>License & Credits:</strong><br>The imagery used on this website is sourced from <b>Unsplash</b> and <b>Pixabay</b>. Under their licenses, these images are free to use.',
-        contT: "Contact & Crew", contP: "Do you have questions or want to join the PaceLeague crew?",
-        lblName: "Your Name", lblMail: "Email Address", lblInt: "Interest", opt1: "General Inquiry", opt2: "Squad Captain Application", opt3: "App Beta Tester", opt4: "Cooperation Partner",
-        lblMsg: "Message", msgPh: "Your message to us...", btnSub: "Submit",
-        impT: "Imprint", lblMan: "Managing Directors:", lblFb: "Commercial Register No:", lblGs: "Place of Jurisdiction:", valGs: "Commercial Court Vienna",
-        privT: "Privacy Policy", privP: "To read our full privacy policy, please click the button below.",
-        btnPdf: "📄 OPEN GDPR PDF", btnDown: "Download App"
-    }
-};
+            de: {
+                home: "Home", features: "Features", about: "Über uns", contact: "Kontakt",
+                heroT: "Move. Compete. Win.", heroD: "Treten Sie der größten digitalen Schritt-Community Wiens bei. Gründen Sie Ihr Squad und verteidigen Sie Ihren Bezirk.",
+                liveT: "Live Squad Matches", stepsL: "SCHRITTE", performerT: "Top Performer", indivL: "INDIVIDUELL",
+                commC: 'Werden Sie Teil der Bewegung. <span style="color: var(--accent-blue); font-weight: 800;">Wien-weit über 5.000 aktive Läufer.</span>',
+                featT: "App Features", f1t: "5v5 Squad Battles", f1p: "Gründen Sie Ihr eigenes Squad veya treten Sie einem bei. Kämpfen Sie in Echtzeit gegen andere Teams aus Wien.",
+                f2t: "Solo-Rankings", f2p: "Beweisen Sie Ihre persönliche Leistung. Dominieren Sie die Bestenlisten Ihres Bezirks und werden Sie die Nummer 1.",
+                f3t: "Wiener Partner-Deals", f3p: "Top-Performer erhalten exklusive Gutscheine bei lokalen Partnern.",
+                f4t: "Avatar & Skins", f4p: "Personalisieren Sie Ihren digitalen Läufer mit exklusiven Accessoires.",
+                aboutT: "Über PaceLeague", aboutP1: "PaceLeague ist ein innovatives Wiener Startup, das körperliche Aktivität durch Gamification fördert.",
+                brand: "Markenschutz:", aboutP2: 'Wortmarke "PaceLeague", Nizza-Klassen 9, 41, 42.',
+                license: '<strong>Lizenz & Bildnachweise:</strong><br>Das auf dieser Website verwendete Bildmaterial stammt von <b>Unsplash</b> und <b>Pixabay</b>. Gemäß deren Lizenzen sind diese Bilder zur freien Verwendung gestattet.',
+                contT: "Kontakt & Crew", contP: "Haben Sie Fragen veya möchten Sie Teil der PaceLeague-Crew werden?",
+                lblName: "Ihr Name", lblMail: "E-Mail Adresse", lblInt: "Interesse", opt1: "Allgemeine Anfrage", opt2: "Bewerbung als Squad-Kapitän", opt3: "App Beta-Tester", opt4: "Kooperationspartner",
+                lblMsg: "Nachricht", msgPh: "Ihre Nachricht an uns...", btnSub: "Absenden",
+                impT: "Impressum", lblMan: "Geschäftsführer:", lblFb: "Firmenbuchnummer:", lblGs: "Gerichtsstand:", valGs: "Handelsgericht Wien",
+                privT: "Datenschutz", privP: "Um unsere vollständige Datenschutzerklärung zu lesen, klicken Sie bitte auf den Button unten.",
+                btnPdf: "📄 DSGVO PDF ÖFFNEN", btnDown: "Download App"
+            },
+            en: {
+                home: "Home", features: "Features", about: "About Us", contact: "Contact",
+                heroT: "Move. Compete. Win.", heroD: "Join Vienna's largest digital step community. Create your squad and defend your district.",
+                liveT: "Live Squad Matches", stepsL: "STEPS", performerT: "Top Performer", indivL: "INDIVIDUAL",
+                commC: 'Join the movement. <span style="color: var(--accent-blue); font-weight: 800;">Over 5,000 active runners Vienna-wide.</span>',
+                featT: "App Features", f1t: "5v5 Squad Battles", f1p: "Create your own squad or join one. Fight in real-time against other teams from Vienna.",
+                f2t: "Solo Rankings", f2p: "Prove your personal performance. Dominate your district's leaderboards and become number 1.",
+                f3t: "Vienna Partner Deals", f3p: "Top performers receive exclusive vouchers from local partners.",
+                f4t: "Avatar & Skins", f4p: "Personalize your digital runner with exclusive accessories.",
+                aboutT: "About PaceLeague", aboutP1: "PaceLeague is an innovative Vienna-based startup promoting physical activity through gamification.",
+                brand: "Trademark:", aboutP2: 'Word mark "PaceLeague", Nice classes 9, 41, 42.',
+                license: '<strong>License & Credits:</strong><br>The imagery used on this website is sourced from <b>Unsplash</b> and <b>Pixabay</b>. Under their licenses, these images are free to use.',
+                contT: "Contact & Crew", contP: "Do you have questions or want to join the PaceLeague crew?",
+                lblName: "Your Name", lblMail: "Email Address", lblInt: "Interest", opt1: "General Inquiry", opt2: "Squad Captain Application", opt3: "App Beta Tester", opt4: "Cooperation Partner",
+                lblMsg: "Message", msgPh: "Your message to us...", btnSub: "Submit",
+                impT: "Imprint", lblMan: "Managing Directors:", lblFb: "Commercial Register No:", lblGs: "Place of Jurisdiction:", valGs: "Commercial Court Vienna",
+                privT: "Privacy Policy", privP: "To read our full privacy policy, please click the button below.",
+                btnPdf: "📄 OPEN GDPR PDF", btnDown: "Download App"
+            }
+        };
 
-        /* LANGUAGE SWITCHER */
+        /* LANGUAGE SWITCHER LOGIC */
         function setLanguage(lang) {
             document.querySelectorAll('.lang-icon').forEach(icon => icon.classList.remove('active'));
             document.getElementById('lang-' + lang).classList.add('active');
             const t = translations[lang];
+            
+            // NAVIGATION & HEADERS
             document.getElementById('nav-home').innerText = t.home;
             document.getElementById('nav-features').innerText = t.features;
             document.querySelector('.txt-about-nav').innerText = t.about;
@@ -308,6 +309,8 @@
             document.getElementById('link-priv').innerText = t.privT;
             document.getElementById('link-imp').innerText = t.impT;
             document.getElementById('link-cont').innerText = t.contact;
+            
+            // HERO & HOME
             document.getElementById('hero-title').innerText = t.heroT;
             document.getElementById('hero-desc').innerText = t.heroD;
             document.getElementById('title-live').innerText = t.liveT;
@@ -315,16 +318,22 @@
             document.getElementById('title-performer').innerText = t.performerT;
             document.getElementById('label-individual').innerText = t.indivL;
             document.getElementById('comm-card').innerHTML = t.commC;
+            
+            // FEATURES
             document.getElementById('title-features').innerText = t.featT;
             document.getElementById('f1-t').innerText = t.f1t; document.getElementById('f1-p').innerText = t.f1p;
             document.getElementById('f2-t').innerText = t.f2t; document.getElementById('f2-p').innerText = t.f2p;
             document.getElementById('f3-t').innerText = t.f3t; document.getElementById('f3-p').innerText = t.f3p;
             document.getElementById('f4-t').innerText = t.f4t; document.getElementById('f4-p').innerText = t.f4p;
+            
+            // ABOUT
             document.getElementById('title-about').innerText = t.aboutT;
             document.getElementById('about-p1').innerText = t.aboutP1;
             document.getElementById('about-brand').innerText = t.brand;
             document.getElementById('about-p2').innerText = t.aboutP2;
             document.getElementById('license-txt').innerHTML = t.license;
+            
+            // CONTACT
             document.getElementById('title-contact').innerText = t.contT;
             document.getElementById('contact-p').innerText = t.contP;
             document.getElementById('lbl-name').innerText = t.lblName;
@@ -335,15 +344,17 @@
             document.getElementById('lbl-msg').innerText = t.lblMsg;
             document.getElementById('txt-msg').placeholder = t.msgPh;
             document.getElementById('btn-submit').innerText = t.btnSub;
+            
+            // IMPRESSUM & PRIVACY
             document.getElementById('title-imprint').innerText = t.impT;
             document.getElementById('lbl-manager').innerText = t.lblMan;
+            document.getElementById('lbl-fb').innerText = t.lblFb;
+            document.getElementById('lbl-gs').innerText = t.lblGs;
+            document.getElementById('val-gs').innerText = t.valGs;
             document.getElementById('title-privacy').innerText = t.privT;
             document.getElementById('priv-p').innerText = t.privP;
             document.getElementById('btn-pdf').innerText = t.btnPdf;
             document.getElementById('btn-download').innerText = t.btnDown;
-            document.getElementById('lbl-fb').innerText = t.lblFb;
-            document.getElementById('lbl-gs').innerText = t.lblGs;
-            document.getElementById('val-gs').innerText = t.valGs;
         }
 
         /* NAVIGATION ENGINE */
@@ -362,7 +373,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        /* DATA EMULATION */
+        /* LIVE STEP COUNTER EMULATION */
         let ottakringSteps = 212450;
         let favoritenSteps = 208920;
         setInterval(() => {
