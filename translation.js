@@ -58,6 +58,8 @@ const translations = {
 };
 
 function setLanguage(lang) {
+    localStorage.setItem('paceleague_lang', lang);
+
     document.querySelectorAll('.lang-icon').forEach(icon => icon.classList.remove('active'));
     const activeIcon = document.getElementById('lang-' + lang);
     if(activeIcon) activeIcon.classList.add('active');
@@ -66,18 +68,15 @@ function setLanguage(lang) {
     const setText = (id, text) => { let el = document.getElementById(id); if(el) el.innerText = text; };
     const setHtml = (id, html) => { let el = document.getElementById(id); if(el) el.innerHTML = html; };
 
-    // Navigation & Common
     setText('nav-home', t.home); setText('nav-features', t.features); setText('nav-about', t.about); setText('nav-contact', t.contact);
     setText('btn-download', t.btnDown); setText('skip-link', t.skipLink); setText('cookie-text', t.cookieText); setText('cookie-btn', t.cookieBtn);
     setText('link-acc', t.linkAcc); setText('link-priv', t.linkPriv); setText('link-imp', t.linkImp); setText('link-cont', t.linkCont); setText('link-lic', t.linkLic);
 
-    // Index.html variables
     setText('hero-title', t.heroT); setText('hero-desc', t.heroD); setText('title-live', t.liveT); setText('label-steps', t.stepsL);
     setText('title-performer', t.performerT); setText('label-individual', t.indivL); setHtml('comm-card', t.commC);
     setText('title-features', t.featT); setText('f1-t', t.f1t); setText('f1-p', t.f1p); setText('f2-t', t.f2t); setText('f2-p', t.f2p);
     setText('f3-t', t.f3t); setText('f3-p', t.f3p); setText('f4-t', t.f4t); setText('f4-p', t.f4p);
 
-    // About.html variables
     setText('title-about', t.aboutT); setText('about-h1', t.aboutH1); setHtml('about-p1', t.aboutP1);
     setText('about-h2', t.aboutH2); setText('about-p2', t.aboutP2); setText('job1', t.job1); setText('job2', t.job2); setText('job3', t.job3); setText('job4', t.job4); setText('job5', t.job5);
     setText('about-h3', t.aboutH3); setText('about-p3', t.aboutP3); setHtml('prod-l1', t.prodL1); setHtml('prod-l2', t.prodL2); setHtml('prod-l3', t.prodL3); setHtml('prod-l4', t.prodL4); setHtml('prod-l5', t.prodL5); setHtml('prod-l6', t.prodL6);
@@ -85,3 +84,8 @@ function setLanguage(lang) {
     setText('about-h6', t.aboutH6); setHtml('brand-l1', t.brandL1); setHtml('brand-l2', t.brandL2); setHtml('brand-l3', t.brandL3);
     setText('brand-t1', t.brandT1); setText('brand-t2', t.brandT2); setText('brand-note', t.brandNote);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('paceleague_lang') || 'de';
+    setLanguage(savedLang);
+});
