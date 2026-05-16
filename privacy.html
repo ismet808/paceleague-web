@@ -35,19 +35,18 @@
         nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 700; padding: 18px 0; border-bottom: 3px solid transparent; cursor: pointer; text-transform: uppercase; }
         nav a:hover, nav a.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
 
-        .page-section { padding: 40px 20px; max-width: 800px; margin: auto; }
+        .page-section { padding: 40px 20px; max-width: 900px; margin: auto; }
 
         h2 { color: var(--accent-blue); font-size: 24px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
         .info-card { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid var(--border-color); margin-bottom: 24px; }
-        
-        h3 { color: #ffffff; font-size: 16px; margin-top: 24px; margin-bottom: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-        p { color: var(--text-secondary); font-size: 14px; margin-bottom: 16px; }
 
         footer { text-align: center; padding: 60px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); margin-top: 40px; }
         .legal-links a { color: var(--accent-blue); text-decoration: none; margin: 0 10px; cursor: pointer; font-weight: 600; }
     </style>
 </head>
 <body>
+
+    <a href="#privacy" id="skip-link" style="position: absolute; top: -40px; left: 0; background: var(--accent-blue); color: white; padding: 8px; z-index: 2001; transition: top 0.2s;" onfocus="this.style.top='0px'" onblur="this.style.top='-40px'">Zum Inhalt springen</a>
 
     <header>
         <div class="logo">PACELEAGUE</div>
@@ -72,25 +71,28 @@
     </nav>
 
     <main>
-        <section id="privacy" class="page-section">
-            <h2 id="title-privacy">Datenschutzerklärung</h2>
+        <section id="privacy" class="page-section" style="display: block;">
+            <h2 id="title-privacy">Datenschutz</h2>
             <div class="info-card">
-                <p id="priv-intro">Der Schutz Ihrer Daten ist uns wichtig. Nachfolgend erklären wir, wie wir mit personenbezogenen Daten umgehen.</p>
+                <h3 id="priv-h1" style="color: var(--accent-blue); margin-top: 0; font-size: 18px;">Verantwortlicher</h3>
+                <p id="priv-p1" style="color: var(--text-secondary); font-size: 14px;">PaceLeague Solutions GmbH, Fenerbahce Straße 1907, 1010 Wien</p>
 
-                <h3 id="priv-h1">1. Erhebung und Speicherung personenbezogener Daten</h3>
-                <p id="priv-p1">Wenn Sie unsere Website besuchen oder unsere App nutzen, speichern wir temporär Logfiles (IP-Adresse, Datum, Uhrzeit, Browsertyp). Für die Nutzung der App ist die Registrierung mit einer E-Mail-Adresse notwendig. Diese Daten werden ausschließlich zur Bereitstellung unserer Dienste verwendet.</p>
+                <h3 id="priv-h2" style="color: var(--accent-blue); margin-top: 20px; font-size: 18px;">Welche Daten wir erheben</h3>
+                <ul style="color: var(--text-secondary); font-size: 14px; line-height: 1.8;">
+                    <li id="priv-l1"><strong>Kontaktformulardaten:</strong> Name und E-Mail-Adresse (Art. 6 Abs. 1 lit. b DSGVO).</li>
+                    <li id="priv-l2"><strong>Fitnessdaten:</strong> Schrittzähler-Daten mit Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).</li>
+                    <li id="priv-l3"><strong>Technische Daten:</strong> IP-Adresse (Art. 6 Abs. 1 lit. f DSGVO).</li>
+                </ul>
 
-                <h3 id="priv-h2">2. Standortdaten und Schrittzähler</h3>
-                <p id="priv-p2">Die App PaceLeague benötigt Zugriff auf die Fitness-Daten Ihres Smartphones (Schrittzähler), um die Distanzen und Matches zu berechnen. Standortdaten werden zur Zuordnung des Bezirks erhoben, jedoch nicht dauerhaft als Bewegungsprofil gespeichert.</p>
+                <h3 id="priv-h3" style="color: var(--accent-blue); margin-top: 20px; font-size: 18px;">Nutzerrechte</h3>
+                <p id="priv-p2" style="color: var(--text-secondary); font-size: 14px;">Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch, Datenübertragbarkeit.</p>
 
-                <h3 id="priv-h3">3. Datenweitergabe an Dritte</h3>
-                <p id="priv-p3">Es erfolgt keine Weitergabe Ihrer Daten an unbefugte Dritte. Analyse-Tools (z.B. für Absturzberichte in der App) werden nur pseudonymisiert genutzt.</p>
-
-                <h3 id="priv-h4">4. Ihre Rechte (DSGVO)</h3>
-                <p id="priv-p4">Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer gespeicherten Daten. Wenden Sie sich hierzu bitte an contact@paceleague.at.</p>
+                <h3 id="priv-h4" style="color: var(--accent-blue); margin-top: 20px; font-size: 18px;">Beschwerderecht & Hosting</h3>
+                <p id="priv-p3" style="color: var(--text-secondary); font-size: 14px;">Beschwerderecht bei der österreichischen Datenschutzbehörde (<a href="https://www.dsb.gv.at" target="_blank" style="color: var(--accent-blue);" id="priv-link-dsb">dsb.gv.at</a>). Hosting über Cloudflare Pages.</p>
 
                 <div style="text-align: center; margin-top: 30px;">
-                    <a href="assets/gdpr_compliance_2026.pdf" target="_blank" style="display: inline-block; background: var(--accent-blue); color: white; padding: 12px 24px; border-radius: 50px; font-weight: 800; text-decoration: none;" id="btn-pdf" aria-label="DSGVO PDF Dokument öffnen">
+                    <p style="font-size: 14px; margin-bottom: 20px; color: var(--text-secondary);" id="priv-p">Um unsere vollständige Datenschutzerklärung zu lesen, klicken Sie bitte auf den Button unten.</p>
+                    <a href="paceleague_dsgv.pdf" target="_blank" style="display: inline-block; background: var(--accent-blue); color: white; padding: 12px 24px; border-radius: 50px; font-weight: 800; text-decoration: none;" id="btn-pdf" aria-label="DSGVO PDF Dokument öffnen">
                         📄 DSGVO PDF ÖFFNEN
                     </a>
                 </div>
@@ -118,29 +120,33 @@
     <script>
         const localTranslations = {
             de: {
-                titlePrivacy: "Datenschutzerklärung",
-                privIntro: "Der Schutz Ihrer Daten ist uns wichtig. Nachfolgend erklären wir, wie wir mit personenbezogenen Daten umgehen.",
-                privH1: "1. Erhebung und Speicherung personenbezogener Daten",
-                privP1: "Wenn Sie unsere Website besuchen oder unsere App nutzen, speichern wir temporär Logfiles (IP-Adresse, Datum, Uhrzeit, Browsertyp). Für die Nutzung der App ist die Registrierung mit einer E-Mail-Adresse notwendig. Diese Daten werden ausschließlich zur Bereitstellung unserer Dienste verwendet.",
-                privH2: "2. Standortdaten und Schrittzähler",
-                privP2: "Die App PaceLeague benötigt Zugriff auf die Fitness-Daten Ihres Smartphones (Schrittzähler), um die Distanzen und Matches zu berechnen. Standortdaten werden zur Zuordnung des Bezirks erhoben, jedoch nicht dauerhaft als Bewegungsprofil gespeichert.",
-                privH3: "3. Datenweitergabe an Dritte",
-                privP3: "Es erfolgt keine Weitergabe Ihrer Daten an unbefugte Dritte. Analyse-Tools (z.B. für Absturzberichte in der App) werden nur pseudonymisiert genutzt.",
-                privH4: "4. Ihre Rechte (DSGVO)",
-                privP4: "Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer gespeicherten Daten. Wenden Sie sich hierzu bitte an contact@paceleague.at.",
+                titlePrivacy: "Datenschutz",
+                privH1: "Verantwortlicher",
+                privP1: "PaceLeague Solutions GmbH, Fenerbahce Straße 1907, 1010 Wien",
+                privH2: "Welche Daten wir erheben",
+                privL1: "<strong>Kontaktformulardaten:</strong> Name und E-Mail-Adresse (Art. 6 Abs. 1 lit. b DSGVO).",
+                privL2: "<strong>Fitnessdaten:</strong> Schrittzähler-Daten mit Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).",
+                privL3: "<strong>Technische Daten:</strong> IP-Adresse (Art. 6 Abs. 1 lit. f DSGVO).",
+                privH3: "Nutzerrechte",
+                privP2: "Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch, Datenübertragbarkeit.",
+                privH4: "Beschwerderecht & Hosting",
+                privP3: "Beschwerderecht bei der österreichischen Datenschutzbehörde (dsb.gv.at). Hosting über Cloudflare Pages.",
+                privP: "Um unsere vollständige Datenschutzerklärung zu lesen, klicken Sie bitte auf den Button unten.",
                 btnPdf: "📄 DSGVO PDF ÖFFNEN"
             },
             en: {
                 titlePrivacy: "Privacy Policy",
-                privIntro: "The protection of your data is important to us. Below we explain how we handle personal data.",
-                privH1: "1. Collection and Storage of Personal Data",
-                privP1: "When you visit our website or use our app, we temporarily store log files (IP address, date, time, browser type). To use the app, registration with an email address is required. This data is used KPI exclusively to provide our services.",
-                privH2: "2. Location Data and Step Counter",
-                privP2: "The PaceLeague app requires access to your smartphone's fitness data (step counter) to calculate distances and matches. Location data is collected to assign the district, but is not permanently stored as a movement profile.",
-                privH3: "3. Data Transfer to Third Parties",
-                privP3: "Your data will not be transferred to unauthorized third parties. Analysis tools (e.g. for crash reports in the app) are only used in a pseudonymized form.",
-                privH4: "4. Your Rights (GDPR)",
-                privP4: "You have the right to information, correction, deletion, and restriction of the processing of your stored data. Please contact contact@paceleague.at for this purpose.",
+                privH1: "Data Controller",
+                privP1: "PaceLeague Solutions GmbH, Fenerbahce Straße 1907, 1010 Vienna",
+                privH2: "Data We Collect",
+                privL1: "<strong>Contact Form Data:</strong> Name and email address (Art. 6 Abs. 1 lit. b GDPR).",
+                privL2: "<strong>Fitness Data:</strong> Step counter data with consent (Art. 6 Abs. 1 lit. a GDPR).",
+                privL3: "<strong>Technical Data:</strong> IP address (Art. 6 Abs. 1 lit. f GDPR).",
+                privH3: "User Rights",
+                privP2: "Access, rectification, erasure, restriction, objection, data portability.",
+                privH4: "Right to Complain & Hosting",
+                privP3: "Right to complain to the Austrian Data Protection Authority (dsb.gv.at). Hosting via Cloudflare Pages.",
+                privP: "To read our full privacy policy, please click the button below.",
                 btnPdf: "📄 OPEN GDPR PDF"
             }
         };
@@ -155,17 +161,32 @@
             if (!t) return;
 
             const setText = (id, text) => { let el = document.getElementById(id); if(el) el.innerText = text; };
+            const setHtml = (id, html) => { let el = document.getElementById(id); if(el) el.innerHTML = html; };
 
             setText('title-privacy', t.titlePrivacy);
-            setText('priv-intro', t.privIntro);
             setText('priv-h1', t.privH1);
             setText('priv-p1', t.privP1);
             setText('priv-h2', t.privH2);
-            setText('priv-p2', t.privP2);
+            setHtml('priv-l1', t.privL1);
+            setHtml('priv-l2', t.privL2);
+            setHtml('priv-l3', t.privL3);
             setText('priv-h3', t.privH3);
-            setText('priv-p3', t.privP3);
+            setText('priv-p2', t.privP2);
             setText('priv-h4', t.privH4);
-            setText('priv-p4', t.privP4);
+            
+            let linkDsb = document.getElementById('priv-link-dsb');
+            if (linkDsb) {
+                linkDsb.remove();
+            }
+            setHtml('priv-p3', t.privP3);
+            let updatedP3 = document.getElementById('priv-p3');
+            if (updatedP3 && lang === 'de') {
+                updatedP3.innerHTML = 'Beschwerderecht bei der österreichischen Datenschutzbehörde (<a href="https://www.dsb.gv.at" target="_blank" style="color: var(--accent-blue);" id="priv-link-dsb">dsb.gv.at</a>). Hosting über Cloudflare Pages.';
+            } else if (updatedP3 && lang === 'en') {
+                updatedP3.innerHTML = 'Right to complain to the Austrian Data Protection Authority (<a href="https://www.dsb.gv.at" target="_blank" style="color: var(--accent-blue);" id="priv-link-dsb">dsb.gv.at</a>). Hosting via Cloudflare Pages.';
+            }
+
+            setText('priv-p', t.privP);
             setText('btn-pdf', t.btnPdf);
         };
 
@@ -175,4 +196,4 @@
         });
     </script>
 </body>
-</html>
+</html>S
