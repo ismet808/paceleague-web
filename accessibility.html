@@ -97,64 +97,64 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Alt Text (1.1.1)</td>
+                            <td id="acc-td1-1">Alt Text (1.1.1)</td>
                             <td id="acc-td1-2">Alternative Texte für Bilder</td>
-                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                            <td><span class="badge badge-done" id="acc-status1">Umgesetzt</span></td>
                         </tr>
                         <tr>
-                            <td>Semantisches HTML (1.3.1)</td>
+                            <td id="acc-td2-1">Semantisches HTML (1.3.1)</td>
                             <td id="acc-td2-2">Strukturierung durch semantische Tags</td>
-                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                            <td><span class="badge badge-done" id="acc-status2">Umgesetzt</span></td>
                         </tr>
                         <tr>
-                            <td>Kontrast (1.4.3)</td>
+                            <td id="acc-td3-1">Kontrast (1.4.3)</td>
                             <td id="acc-td3-2">Minimum 4,5:1 Kontrastverhältnis</td>
-                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                            <td><span class="badge badge-done" id="acc-status3">Umgesetzt</span></td>
                         </tr>
                         <tr>
-                            <td>Reflow 320px (1.4.10)</td>
+                            <td id="acc-td4-1">Reflow 320px (1.4.10)</td>
                             <td id="acc-td4-2">Responsive Design ohne horizontales Scrollen</td>
-                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                            <td><span class="badge badge-done" id="acc-status4">Umgesetzt</span></td>
                         </tr>
                         <tr>
                             <td id="acc-td5-1">Tastaturnavigation (2.1.1)</td>
                             <td id="acc-td5-2">Bedienbarkeit vollständig per Tastatur</td>
-                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                            <td><span class="badge badge-done" id="acc-status5">Umgesetzt</span></td>
                         </tr>
                         <tr>
-                            <td>aria-live für Live-Updates (2.4.3)</td>
+                            <td id="acc-td6-1">aria-live für Live-Updates (2.4.3)</td>
                             <td id="acc-td6-2">Die automatisch aktualisierten Schrittzähler auf der Startseite werden Screenreadern über aria-live mitgeteilt.</td>
-                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                            <td><span class="badge badge-done" id="acc-status6">Umgesetzt</span></td>
                         </tr>
                         <tr>
-                            <td>Skip-Link (2.4.1)</td>
+                            <td id="acc-td7-1">Skip-Link (2.4.1)</td>
                             <td id="acc-td7-2">Möglichkeit, Bereiche zu überspringen.</td>
-                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                            <td><span class="badge badge-done" id="acc-status7">Umgesetzt</span></td>
                         </tr>
                         <tr>
                             <td id="acc-td8-1">Seitentitel (2.4.2)</td>
                             <td id="acc-td8-2">Aussagekräftige und eindeutige Titel</td>
-                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                            <td><span class="badge badge-done" id="acc-status8">Umgesetzt</span></td>
                         </tr>
                         <tr>
                             <td id="acc-td9-1">Fokus sichtbar (2.4.7)</td>
                             <td id="acc-td9-2">Visuelle Hervorhebung des aktiven Fokus</td>
-                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                            <td><span class="badge badge-done" id="acc-status9">Umgesetzt</span></td>
                         </tr>
                         <tr>
                             <td id="acc-td10-1">Sprache lang=de (3.1.1)</td>
                             <td id="acc-td10-2">Hauptsprache im HTML-Tag deklariert</td>
-                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                            <td><span class="badge badge-done" id="acc-status10">Umgesetzt</span></td>
                         </tr>
                         <tr>
                             <td id="acc-td11-1">Formular-Labels (3.3.2)</td>
                             <td id="acc-td11-2">Korrekte Beschriftung aller Eingabefelder</td>
-                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                            <td><span class="badge badge-done" id="acc-status11">Umgesetzt</span></td>
                         </tr>
                         <tr>
-                            <td>ARIA (4.1.2)</td>
+                            <td id="acc-td12-1">ARIA (4.1.2)</td>
                             <td id="acc-td12-2">Zusätzliche Kontext-Informationen</td>
-                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                            <td><span class="badge badge-done" id="acc-status12">Umgesetzt</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -190,5 +190,141 @@
     </footer>
 
     <script src="translation.js"></script>
+    <script>
+        const localTranslations = {
+            de: {
+                titleAcc: "Barrierefreiheitserklärung",
+                accP1: "Wir versuchen die Website so zu bauen dass sie für alle nutzbar ist, also auch für Leute die einen Screenreader benutzen oder nur mit der Tastatur navigieren. WCAG 2.2 AA ist das Ziel, ob wir überall hinkommen ist eine andere Frage, aber wir arbeiten dran.",
+                accH1: "Stand der Vereinbarkeit",
+                accP2: "Die meisten Punkte aus WCAG 2.2 AA sind umgesetzt. Ein paar Sachen laufen noch, hauptsächlich bei dynamischen Inhalten.",
+                accTh1: "Kriterium",
+                accTh2: "Beschreibung",
+                accTh3: "Status",
+                accTd11: "Alt Text (1.1.1)",
+                accTd12: "Alternative Texte für Bilder",
+                accTd21: "Semantisches HTML (1.3.1)",
+                accTd22: "Strukturierung durch semantische Tags",
+                accTd31: "Kontrast (1.4.3)",
+                accTd32: "Minimum 4,5:1 Kontrastverhältnis",
+                accTd41: "Reflow 320px (1.4.10)",
+                accTd42: "Responsive Design ohne horizontales Scrollen",
+                accTd51: "Tastaturnavigation (2.1.1)",
+                accTd52: "Bedienbarkeit vollständig per Tastatur",
+                accTd61: "aria-live für Live-Updates (2.4.3)",
+                accTd62: "Die automatisch aktualisierten Schrittzähler auf der Startseite werden Screenreadern über aria-live mitgeteilt.",
+                accTd71: "Skip-Link (2.4.1)",
+                accTd72: "Möglichkeit, Bereiche zu überspringen.",
+                accTd81: "Seitentitel (2.4.2)",
+                accTd82: "Aussagekräftige und eindeutige Titel",
+                accTd91: "Fokus sichtbar (2.4.7)",
+                accTd92: "Visuelle Hervorhebung des aktiven Fokus",
+                accTd101: "Sprache lang=de (3.1.1)",
+                accTd102: "Hauptsprache im HTML-Tag deklariert",
+                accTd111: "Formular-Labels (3.3.2)",
+                accTd112: "Korrekte Beschriftung aller Eingabefelder",
+                accTd121: "ARIA (4.1.2)",
+                accTd122: "Zusätzliche Kontext-Informationen",
+                statusDone: "Umgesetzt",
+                accH2: "Erstellung dieser Erklärung",
+                accP3: "Geschrieben im Mai 2026, getestet mit WAVE und manuell mit Tastatur durchgeklickt. Kein automatisiertes Tool ersetzt das wirklich.",
+                accH3: "Feedback und Kontakt",
+                accP4: "Wenn irgendwas nicht funktioniert oder schwer zugänglich ist einfach eine Mail an contact@paceleague.at schicken. Wir schauen es uns an, normalerweise innerhalb von ein paar Tagen.",
+                accH4: "Durchsetzungsverfahren",
+                accP5: "Wer mit unserer Antwort nicht zufrieden ist kann sich ans Bundesministerium für Digitalisierung wenden: bmdw.gv.at",
+                accP6: "PaceLeague hat weniger als 10 Mitarbeiter und fällt damit unter die Kleinstunternehmen-Regelung nach § 6 BaFG. Für ein paar noch offene Punkte machen wir davon Gebrauch."
+            },
+            en: {
+                titleAcc: "Accessibility Statement",
+                accP1: "We try to build the website so that it can be used by everyone, including people who use a screen reader or only navigate with the keyboard. WCAG 2.2 AA is the goal, whether we reach it everywhere is another question, but we are working on it.",
+                accH1: "Compliance Status",
+                accP2: "Most points from WCAG 2.2 AA have been implemented. A few things are still in progress, mainly with dynamic content.",
+                accTh1: "Criterion",
+                accTh2: "Description",
+                accTh3: "Status",
+                accTd11: "Alt Text (1.1.1)",
+                accTd12: "Alternative texts for images",
+                accTd21: "Semantic HTML (1.3.1)",
+                accTd22: "Structuring through semantic tags",
+                accTd31: "Contrast (1.4.3)",
+                accTd32: "Minimum 4.5:1 contrast ratio",
+                accTd41: "Reflow 320px (1.4.10)",
+                accTd42: "Responsive design without horizontal scrolling",
+                accTd51: "Keyboard Navigation (2.1.1)",
+                accTd52: "Full usability via keyboard",
+                accTd61: "aria-live for Live Updates (2.4.3)",
+                accTd62: "The automatically updated step counters on the homepage are announced to screen readers via aria-live.",
+                accTd71: "Skip Link (2.4.1)",
+                accTd72: "Possibility to skip areas.",
+                accTd81: "Page Title (2.4.2)",
+                accTd82: "Meaningful and unique titles",
+                accTd91: "Focus Visible (2.4.7)",
+                accTd92: "Visual highlighting of the active focus",
+                accTd101: "Language lang=de (3.1.1)",
+                accTd102: "Main language declared in the HTML tag",
+                accTd111: "Form Labels (3.3.2)",
+                accTd112: "Correct labeling of all input fields",
+                accTd121: "ARIA (4.1.2)",
+                accTd122: "Additional context information",
+                statusDone: "Implemented",
+                accH2: "Preparation of this statement",
+                accP3: "Written in May 2026, tested with WAVE and manually clicked through with a keyboard. No automated tool truly replaces this.",
+                accH3: "Feedback and Contact",
+                accP4: "If anything does not work or is difficult to access, simply send an email to contact@paceleague.at. We will look into it, usually within a few days.",
+                accH4: "Enforcement Procedure",
+                accP5: "Anyone who is not satisfied with our response can contact the Federal Ministry for Digitalization: bmdw.gv.at",
+                accP6: "PaceLeague has fewer than 10 employees and therefore falls under the micro-enterprise regulation according to § 6 BaFG. We make use of this for a few remaining open points."
+            }
+        };
+
+        const originalSetLanguage = window.setLanguage;
+        window.setLanguage = function(lang) {
+            if (typeof originalSetLanguage === 'function') {
+                originalSetLanguage(lang);
+            }
+            
+            const t = localTranslations[lang];
+            if (!t) return;
+
+            const setText = (id, text) => { let el = document.getElementById(id); if(el) el.innerText = text; };
+
+            setText('title-acc', t.titleAcc);
+            setText('acc-p1', t.accP1);
+            setText('acc-h1', t.accH1);
+            setText('acc-p2', t.accP2);
+            setText('acc-th1', t.accTh1);
+            setText('acc-th2', t.accTh2);
+            setText('acc-th3', t.accTh3);
+            
+            setText('acc-td1-1', t.accTd11); setText('acc-td1-2', t.accTd12);
+            setText('acc-td2-1', t.accTd21); setText('acc-td2-2', t.accTd22);
+            setText('acc-td3-1', t.accTd31); setText('acc-td3-2', t.accTd32);
+            setText('acc-td4-1', t.accTd41); setText('acc-td4-2', t.accTd42);
+            setText('acc-td5-1', t.accTd51); setText('acc-td5-2', t.accTd52);
+            setText('acc-td6-1', t.accTd61); setText('acc-td6-2', t.accTd62);
+            setText('acc-td7-1', t.accTd71); setText('acc-td7-2', t.accTd72);
+            setText('acc-td8-1', t.accTd81); setText('acc-td8-2', t.accTd82);
+            setText('acc-td9-1', t.accTd91); setText('acc-td9-2', t.accTd92);
+            setText('acc-td10-1', t.accTd101); setText('acc-td10-2', t.accTd102);
+            setText('acc-td11-1', t.accTd111); setText('acc-td11-2', t.accTd112);
+            setText('acc-td12-1', t.accTd121); setText('acc-td12-2', t.accTd122);
+
+            for (let i = 1; i <= 12; i++) {
+                setText('acc-status' + i, t.statusDone);
+            }
+
+            setText('acc-h2', t.accH2);
+            setText('acc-p3', t.accP3);
+            setText('acc-h3', t.accH3);
+            setText('acc-p4', t.accP4);
+            setText('acc-h4', t.accH4);
+            setText('acc-p5', t.accP5);
+            setText('acc-p6', t.accP6);
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('paceleague_lang') || 'de';
+            setLanguage(savedLang);
+        });
+    </script>
 </body>
 </html>
