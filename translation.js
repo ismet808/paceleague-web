@@ -11,8 +11,8 @@ const translations = {
         
         aboutT: "Über PaceLeague", aboutH1: "Das Unternehmen", 
         aboutP1: "<strong>PaceLeague Solutions GmbH</strong><br>Gegründet 2026 in Wien<br>Fenerbahce Straße 1907, 1010 Wien<br>E-Mail: contact@paceleague.at<br>Unternehmensgegenstand: Entwicklung von mobiler Fitness-Software",
-        aboutH2: "Unser Team", aboutP2: "Hinter PaceLeague stehen 5 engagierte Köpfe:",
-        job1: "CEO", job2: "CEO", job3: "Mobile Development", job4: "UI/UX Design", job5: "Backend Infrastruktur",
+        aboutH2: "Unser Team", aboutP2: "Hinter PaceLeague stehen 6 engagierte Köpfe:",
+        job1: "CEO", job2: "CEO", job3: "Mobile Development", job4: "UI/UX Design", job5: "Backend Infrastruktur", job6: "Softwareentwickler",
         aboutH3: "Unser Produkt", aboutP3: "PaceLeague ist eine moderne Schrittzähler und Gamification App für iOS und Android. Sie motiviert durch spielerische Elemente zu mehr Bewegung im Alltag.",
         prodL1: "👟 <strong>Schrittzählung:</strong> Präzise Erfassung der täglichen Bewegung.", prodL2: "⚔️ <strong>5v5 Squad Battles:</strong> In Teams antreten und Bezirke erobern.",
         prodL3: "🏆 <strong>Solo-Rankings:</strong> Leistung mit anderen Läufern in Wien vergleichen.", prodL4: "👕 <strong>Avatar und Skins:</strong> Den digitalen Charakter individuell anpassen.",
@@ -25,7 +25,7 @@ const translations = {
         brandT1: "1. Wortbildmarke: PaceLeague", brandT2: "2. Bildmarke: Pace (Favicon-Logo)", brandNote: "Hinweis: Eine markenrechtliche Prüfung wurde in den Datenbanken von EUIPO und TMview durchgeführt, um rechtliche Konflikte auszuschließen.",
 
         cookieText: "Diese Website verwendet Cookies zu Analysezwecken.", cookieBtn: "Akzeptieren", skipLink: "Zum Inhalt springen",
-        linkAcc: "Barrierefreiheit", linkPriv: "Datenschutz", linkImp: "Impressum", linkCont: "Kontakt", linkLic: "Lizenz", btnDown: "Download App"
+        linkAcc: "Barrierefreiheit", linkPriv: "Datenschutz", linkImp: "Impressum", linkCont: "Kontakt", linkLic: "Lizenz", btnDown: "Download App", dist19: "Bezirk 19"
     },
     en: {
         home: "Home", features: "Features", about: "About Us", contact: "Contact",
@@ -39,8 +39,8 @@ const translations = {
 
         aboutT: "About PaceLeague", aboutH1: "The Company", 
         aboutP1: "<strong>PaceLeague Solutions GmbH</strong><br>Founded 2026 in Vienna<br>Fenerbahce Straße 1907, 1010 Vienna<br>Email: contact@paceleague.at<br>Business Object: Development of mobile fitness software",
-        aboutH2: "Our Team", aboutP2: "Behind PaceLeague are 5 dedicated minds:",
-        job1: "CEO", job2: "CEO", job3: "Mobile Development", job4: "UI/UX Design", job5: "Backend Infrastructure",
+        aboutH2: "Our Team", aboutP2: "Behind PaceLeague are 6 dedicated minds:",
+        job1: "CEO", job2: "CEO", job3: "Mobile Development", job4: "UI/UX Design", job5: "Backend Infrastructure", job6: "Software Developer",
         aboutH3: "Our Product", aboutP3: "PaceLeague is a modern step counter and gamification app for iOS and Android. It motivates through playful elements to get more movement in everyday life.",
         prodL1: "👟 <strong>Step Counting:</strong> Precise tracking of daily movement.", prodL2: "⚔️ <strong>5v5 Squad Battles:</strong> Compete in teams and conquer districts.",
         prodL3: "🏆 <strong>Solo Rankings:</strong> Compare performance with other runners in Vienna.", prodL4: "👕 <strong>Avatar and Skins:</strong> Customize the digital character individually.",
@@ -53,7 +53,7 @@ const translations = {
         brandT1: "1. Word & Figurative Mark: PaceLeague", brandT2: "2. Figurative Mark: Pace (Favicon Logo)", brandNote: "Note: A trademark check was conducted in the databases of EUIPO and TMview to exclude legal conflicts.",
 
         cookieText: "This website uses cookies for analytical purposes.", cookieBtn: "Accept", skipLink: "Skip to content",
-        linkAcc: "Accessibility", linkPriv: "Privacy Policy", linkImp: "Imprint", linkCont: "Contact", linkLic: "License", btnDown: "Download App"
+        linkAcc: "Accessibility", linkPriv: "Privacy Policy", linkImp: "Imprint", linkCont: "Contact", linkLic: "License", btnDown: "Download App", dist19: "District 19"
     }
 };
 
@@ -78,11 +78,12 @@ function setLanguage(lang) {
     setText('f3-t', t.f3t); setText('f3-p', t.f3p); setText('f4-t', t.f4t); setText('f4-p', t.f4p);
 
     setText('title-about', t.aboutT); setText('about-h1', t.aboutH1); setHtml('about-p1', t.aboutP1);
-    setText('about-h2', t.aboutH2); setText('about-p2', t.aboutP2); setText('job1', t.job1); setText('job2', t.job2); setText('job3', t.job3); setText('job4', t.job4); setText('job5', t.job5);
+    setText('about-h2', t.aboutH2); setText('about-p2', t.aboutP2); setText('job1', t.job1); setText('job2', t.job2); setText('job3', t.job3); setText('job4', t.job4); setText('job5', t.job5); setText('job6', t.job6);
     setText('about-h3', t.aboutH3); setText('about-p3', t.aboutP3); setHtml('prod-l1', t.prodL1); setHtml('prod-l2', t.prodL2); setHtml('prod-l3', t.prodL3); setHtml('prod-l4', t.prodL4); setHtml('prod-l5', t.prodL5); setHtml('prod-l6', t.prodL6);
     setText('about-h4', t.aboutH4); setText('about-p4', t.aboutP4); setText('about-h5', t.aboutH5); setHtml('biz-p1', t.bizP1); setText('biz-p2', t.bizP2); setText('biz-p3', t.bizP3);
     setText('about-h6', t.aboutH6); setHtml('brand-l1', t.brandL1); setHtml('brand-l2', t.brandL2); setHtml('brand-l3', t.brandL3);
     setText('brand-t1', t.brandT1); setText('brand-t2', t.brandT2); setText('brand-note', t.brandNote);
+    setText('dist-19', t.dist19);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
