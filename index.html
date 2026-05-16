@@ -78,6 +78,13 @@
         .community-card { background: rgba(124, 131, 255, 0.05); border: 1px dashed var(--accent-blue); padding: 20px; border-radius: 12px; text-align: center; margin-top: 40px; }
         .license-box { margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.02); border-radius: 8px; font-size: 11px; color: var(--text-secondary); border: 1px solid var(--border-color); }
         
+        /* TEAM AVATAR GRID */
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin-top: 15px; }
+        .team-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid var(--border-color); text-align: center; }
+        .avatar-circle { width: 50px; height: 50px; background: var(--accent-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; margin: 0 auto 10px; }
+        .team-card strong { display: block; font-size: 13px; margin-bottom: 5px; color: var(--text-main); }
+        .team-card span { font-size: 11px; color: var(--text-secondary); }
+
         /* ACCESSIBILITY & LEGAL ADDITIONS */
         .legal-note { font-size: 12px; margin-top: 15px; font-style: italic; display: block; }
 
@@ -184,12 +191,49 @@
         <section id="about" class="page-section">
             <h2 id="title-about">Über PaceLeague</h2>
             <div class="info-card">
-                <p id="about-p1">PaceLeague ist ein innovatives Wiener Startup, das körperliche Aktivität durch Gamification fördert.</p>
-                
-                <h3 id="title-eula" style="font-size: 16px; color: var(--accent-blue); margin-top: 20px;">Lizenzvereinbarung (EULA)</h3>
+                <h3 style="color: var(--accent-blue); margin-top: 0; font-size: 18px;">Das Unternehmen</h3>
+                <p><strong>PaceLeague Solutions GmbH</strong><br>
+                Gegründet 2026 in Wien<br>
+                Fenerbahce Straße 1907, 1010 Wien<br>
+                E-Mail: contact@paceleague.at<br>
+                Unternehmensgegenstand: Entwicklung von mobiler Fitness-Software</p>
+
+                <h3 style="color: var(--accent-blue); margin-top: 30px; font-size: 18px;">Unser Team</h3>
+                <p>Hinter PaceLeague stehen 5 engagierte Köpfe:</p>
+                <div class="team-grid">
+                    <div class="team-card"><div class="avatar-circle">IÜ</div><strong>Ismet Ünal</strong><span>CEO</span></div>
+                    <div class="team-card"><div class="avatar-circle">BÖ</div><strong>Burak Özbey</strong><span>CEO</span></div>
+                    <div class="team-card"><div class="avatar-circle">GS</div><strong>Goran Sustek</strong><span>Mobile Development</span></div>
+                    <div class="team-card"><div class="avatar-circle">AB</div><strong>Ademcan M. Bozaci</strong><span>UI/UX Design</span></div>
+                    <div class="team-card"><div class="avatar-circle">MT</div><strong>Mulham Taylouni</strong><span>Backend Infrastruktur</span></div>
+                </div>
+
+                <h3 style="color: var(--accent-blue); margin-top: 30px; font-size: 18px;">Unser Produkt</h3>
+                <p>PaceLeague ist eine moderne Schrittzähler und Gamification App für iOS und Android. Sie motiviert durch spielerische Elemente zu mehr Bewegung im Alltag.</p>
+                <ul style="color: var(--text-secondary); font-size: 14px; line-height: 1.8; list-style-type: none; padding-left: 0;">
+                    <li>👟 <strong>Schrittzählung:</strong> Präzise Erfassung der täglichen Bewegung.</li>
+                    <li>⚔️ <strong>5v5 Squad Battles:</strong> In Teams antreten und Bezirke erobern.</li>
+                    <li>🏆 <strong>Solo-Rankings:</strong> Leistung mit anderen Läufern in Wien vergleichen.</li>
+                    <li>👕 <strong>Avatar und Skins:</strong> Den digitalen Charakter individuell anpassen.</li>
+                    <li>🎁 <strong>Partner-Deals:</strong> Exklusive Belohnungen bei lokalen Partnern erhalten.</li>
+                    <li>📊 <strong>Statistiken:</strong> Den eigenen Fortschritt detailliert verfolgen.</li>
+                </ul>
+
+                <h3 style="color: var(--accent-blue); margin-top: 30px; font-size: 18px;">Zielgruppe</h3>
+                <p>Unsere Zielgruppe sind bewegungsfreudige Menschen in Wien zwischen 18 und 45 Jahren. Wir richten uns an alle, die Spaß am Wettbewerb haben und Teil einer aktiven Community sein möchten.</p>
+
+                <h3 style="color: var(--accent-blue); margin-top: 30px; font-size: 18px;">Geschäftsmodell</h3>
+                <div style="background: rgba(124, 131, 255, 0.05); border: 1px solid var(--accent-blue); padding: 20px; border-radius: 12px; margin-top: 15px;">
+                    <p>Wir setzen auf ein faires <strong>Freemium Modell</strong>. Die Basisversion (Free Tier) ist und bleibt komplett kostenlos. Für ambitionierte Nutzer bieten wir <strong>PaceLeague+</strong> an, erhältlich für 2,99 Euro monatlich oder 24,99 Euro jährlich.</p>
+                    <p>Wichtig: Die App zeigt niemals Werbung an, weder in der kostenlosen noch in der Premium Version.</p>
+                    <p style="margin-bottom: 0;">Unsere primären Einnahmequellen sind Abonnements, Sponsoring und strategische Kooperationen mit lokalen Unternehmen.</p>
+                </div>
+
+                <hr style="border-color: var(--border-color); margin: 30px 0;">
+
+                <h3 id="title-eula" style="font-size: 16px; color: var(--accent-blue);">Lizenzvereinbarung (EULA)</h3>
                 <p id="eula-text" style="font-size: 13px; color: var(--text-secondary);">Mit dem Erwerb unserer Software erhalten Sie ein nicht-übertragbares, einfaches Nutzungsrecht. Alle Urheberrechte verbleiben bei PaceLeague Solutions GmbH. Eine Haftung für indirekte Schäden wird, soweit gesetzlich zulässig, ausgeschlossen.</p>
 
-                <hr style="border-color: var(--border-color); margin: 20px 0;">
                 <p><strong id="about-brand">Markenschutz:</strong> <span id="about-p2">Wortmarke "PaceLeague", Nizza-Klassen 9, 41, 42.</span></p>
                 <div class="license-box" id="license-txt">
                     <strong>Lizenz & Bildnachweise:</strong><br>
@@ -355,14 +399,6 @@
             document.getElementById('f2-t').innerText = t.f2t; document.getElementById('f2-p').innerText = t.f2p;
             document.getElementById('f3-t').innerText = t.f3t; document.getElementById('f3-p').innerText = t.f3p;
             document.getElementById('f4-t').innerText = t.f4t; document.getElementById('f4-p').innerText = t.f4p;
-            
-            document.getElementById('title-about').innerText = t.aboutT;
-            document.getElementById('about-p1').innerText = t.aboutP1;
-            document.getElementById('about-brand').innerText = t.brand;
-            document.getElementById('about-p2').innerText = t.aboutP2;
-            document.getElementById('license-txt').innerHTML = t.license;
-            document.getElementById('title-eula').innerText = t.eulaT;
-            document.getElementById('eula-text').innerText = t.eulaTxt;
             
             document.getElementById('title-contact').innerText = t.contT;
             document.getElementById('contact-p').innerText = t.contP;
