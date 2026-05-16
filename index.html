@@ -14,7 +14,7 @@
             --text-main: #ffffff; 
             --text-secondary: #97a1af; 
             --accent-blue: #7c83ff; 
-            --accent-red: #ff6b6b; 
+            --accent-red: #ff6b6b;
         }
 
         * { box-sizing: border-box; }
@@ -228,17 +228,6 @@
                     <p>Wichtig: Die App zeigt niemals Werbung an, weder in der kostenlosen noch in der Premium Version.</p>
                     <p style="margin-bottom: 0;">Unsere primären Einnahmequellen sind Abonnements, Sponsoring und strategische Kooperationen mit lokalen Unternehmen.</p>
                 </div>
-
-                <hr style="border-color: var(--border-color); margin: 30px 0;">
-
-                <h3 id="title-eula" style="font-size: 16px; color: var(--accent-blue);">Lizenzvereinbarung (EULA)</h3>
-                <p id="eula-text" style="font-size: 13px; color: var(--text-secondary);">Mit dem Erwerb unserer Software erhalten Sie ein nicht-übertragbares, einfaches Nutzungsrecht. Alle Urheberrechte verbleiben bei PaceLeague Solutions GmbH. Eine Haftung für indirekte Schäden wird, soweit gesetzlich zulässig, ausgeschlossen.</p>
-
-                <p><strong id="about-brand">Markenschutz:</strong> <span id="about-p2">Wortmarke "PaceLeague", Nizza-Klassen 9, 41, 42.</span></p>
-                <div class="license-box" id="license-txt">
-                    <strong>Lizenz & Bildnachweise:</strong><br>
-                    Das auf dieser Website verwendete Bildmaterial stammt von <b>Unsplash</b> und <b>Pixabay</b>. Gemäß deren Lizenzen sind diese Bilder zur freien Verwendung gestattet.
-                </div>
             </div>
         </section>
 
@@ -312,7 +301,8 @@
             <a onclick="showSection('accessibility')" id="link-acc">Barrierefreiheit</a> | 
             <a onclick="showSection('privacy')" id="link-priv">Datenschutz</a> | 
             <a onclick="showSection('imprint')" id="link-imp">Impressum</a> | 
-            <a onclick="showSection('contact')" id="link-cont">Kontakt</a>
+            <a onclick="showSection('contact')" id="link-cont">Kontakt</a> |
+            <a href="license.html" id="link-lic">Lizenz</a>
         </div>
     </footer>
 
@@ -329,8 +319,6 @@
                 f3t: "Wiener Partner-Deals", f3p: "Top-Performer erhalten exklusive Gutscheine bei lokalen Partnern.",
                 f4t: "Avatar & Skins", f4p: "Personalisieren Sie Ihren digitalen Läufer mit exklusiven Accessoires.",
                 aboutT: "Über PaceLeague", aboutP1: "PaceLeague ist ein innovatives Wiener Startup, das körperliche Aktivität durch Gamification fördert.",
-                brand: "Markenschutz:", aboutP2: 'Wortmarke "PaceLeague", Nizza-Klassen 9, 41, 42.',
-                license: '<strong>Lizenz & Bildnachweise:</strong><br>Das auf dieser Website verwendete Bildmaterial stammt von <b>Unsplash</b> und <b>Pixabay</b>. Gemäß deren Lizenzen sind diese Bilder zur freien Verwendung gestattet.',
                 contT: "Kontakt & Crew", contP: "Haben Sie Fragen oder möchten Sie Teil der PaceLeague-Crew werden?",
                 lblName: "Ihr Name", lblMail: "E-Mail Adresse", lblInt: "Interesse", opt1: "Allgemeine Anfrage", opt2: "Bewerbung als Squad-Kapitän", opt3: "App Beta-Tester", opt4: "Kooperationspartner",
                 lblMsg: "Nachricht", msgPh: "Ihre Nachricht an uns...", btnSub: "Absenden",
@@ -338,11 +326,10 @@
                 privT: "Datenschutz", privP: "Um unsere vollständige Datenschutzerklärung zu lesen, klicken Sie bitte auf den Button unten.",
                 btnPdf: "📄 DSGVO PDF ÖFFNEN", btnDown: "Download App",
                 legalNote: "(Konformität gemäß § 24 Mediengesetz und § 5 E-Commerce-Gesetz)",
-                eulaT: "Lizenzvereinbarung (EULA)",
-                eulaTxt: "Mit dem Erwerb unserer Software erhalten Sie ein nicht-übertragbares, einfaches Nutzungsrecht. Alle Urheberrechte verbleiben bei PaceLeague Solutions GmbH. Eine Haftung für indirekte Schäden wird, soweit gesetzlich zulässig, ausgeschlossen.",
                 accT: "Barrierefreiheitserklärung",
                 accP: "PaceLeague ist bemüht, diese Website im Einklang mit WCAG 2.2 AA barrierefrei zugänglich zu machen. Wir setzen auf semantisches HTML ve optimierte Kontrastverhältnisse für Screenreader.",
-                linkAcc: "Barrierefreiheit"
+                linkAcc: "Barrierefreiheit",
+                linkLic: "Lizenz"
             },
             en: {
                 home: "Home", features: "Features", about: "About Us", contact: "Contact",
@@ -354,8 +341,6 @@
                 f3t: "Vienna Partner Deals", f3p: "Top performers receive exclusive vouchers from local partners.",
                 f4t: "Avatar & Skins", f4p: "Personalize your digital runner with exclusive accessories.",
                 aboutT: "About PaceLeague", aboutP1: "PaceLeague is an innovative Vienna-based startup promoting physical activity through gamification.",
-                brand: "Trademark:", aboutP2: 'Word mark "PaceLeague", Nice classes 9, 41, 42.',
-                license: '<strong>License & Credits:</strong><br>The imagery used on this website is sourced from <b>Unsplash</b> and <b>Pixabay</b>. Under their licenses, these images are free to use.',
                 contT: "Contact & Crew", contP: "Do you have questions or want to join the PaceLeague crew?",
                 lblName: "Your Name", lblMail: "Email Address", lblInt: "Interest", opt1: "General Inquiry", opt2: "Squad Captain Application", opt3: "App Beta Tester", opt4: "Cooperation Partner",
                 lblMsg: "Message", msgPh: "Your message to us...", btnSub: "Submit",
@@ -363,11 +348,10 @@
                 privT: "Privacy Policy", privP: "To read our full privacy policy, please click the button below.",
                 btnPdf: "📄 OPEN GDPR PDF", btnDown: "Download App",
                 legalNote: "(Compliance with § 24 Media Act and § 5 E-Commerce Act)",
-                eulaT: "License Agreement (EULA)",
-                eulaTxt: "By purchasing our software, you receive a non-transferable, simple right of use. All copyrights remain with PaceLeague Solutions GmbH. Liability for indirect damages is excluded to the extent permitted by law.",
                 accT: "Accessibility Statement",
                 accP: "PaceLeague is committed to making this website accessible in accordance with WCAG 2.2 AA. We rely on semantic HTML and optimized contrast ratios for screen readers.",
-                linkAcc: "Accessibility"
+                linkAcc: "Accessibility",
+                linkLic: "License"
             }
         };
 
@@ -385,6 +369,8 @@
             document.getElementById('link-imp').innerText = t.impT;
             document.getElementById('link-cont').innerText = t.contact;
             document.getElementById('link-acc').innerText = t.linkAcc;
+            const linkLic = document.getElementById('link-lic');
+            if (linkLic) linkLic.innerText = t.linkLic;
             
             document.getElementById('hero-title').innerText = t.heroT;
             document.getElementById('hero-desc').innerText = t.heroD;
@@ -399,6 +385,9 @@
             document.getElementById('f2-t').innerText = t.f2t; document.getElementById('f2-p').innerText = t.f2p;
             document.getElementById('f3-t').innerText = t.f3t; document.getElementById('f3-p').innerText = t.f3p;
             document.getElementById('f4-t').innerText = t.f4t; document.getElementById('f4-p').innerText = t.f4p;
+            
+            document.getElementById('title-about').innerText = t.aboutT;
+            document.getElementById('about-p1').innerText = t.aboutP1;
             
             document.getElementById('title-contact').innerText = t.contT;
             document.getElementById('contact-p').innerText = t.contP;
