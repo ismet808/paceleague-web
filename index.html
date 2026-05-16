@@ -87,6 +87,10 @@
 
         /* ACCESSIBILITY & LEGAL ADDITIONS */
         .legal-note { font-size: 12px; margin-top: 15px; font-style: italic; display: block; }
+        
+        .badge { padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; white-space: nowrap; }
+        .badge-done { background: rgba(40, 167, 69, 0.1); color: #2de05b; border: 1px solid #28a745; }
+        .badge-wip { background: rgba(255, 193, 7, 0.1); color: #ffc107; border: 1px solid #ffc107; }
 
         footer { text-align: center; padding: 60px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
         .legal-links a { color: var(--accent-blue); text-decoration: none; margin: 0 10px; cursor: pointer; font-weight: 600; }
@@ -228,6 +232,14 @@
                     <p>Wichtig: Die App zeigt niemals Werbung an, weder in der kostenlosen noch in der Premium Version.</p>
                     <p style="margin-bottom: 0;">Unsere primären Einnahmequellen sind Abonnements, Sponsoring und strategische Kooperationen mit lokalen Unternehmen.</p>
                 </div>
+
+                <h3 style="color: var(--accent-blue); margin-top: 30px; font-size: 18px;">Unsere Marken</h3>
+                <ul style="color: var(--text-secondary); font-size: 14px; line-height: 1.8; list-style-type: none; padding-left: 0;">
+                    <li>🏷️ <strong>Wortmarke "PaceLeague":</strong> Geschützt in den Nizza-Klassen 9, 41 und 42.</li>
+                    <li>🎨 <strong>Bildmarke "Dynamic P":</strong> Unser abstraktes P-Icon (Klassen 9, 42).</li>
+                    <li>🖌️ <strong>Farbmarke:</strong> Unser charakteristischer Blauton #7c83ff (Klasse 41).</li>
+                </ul>
+                <p style="font-size: 12px; color: var(--text-secondary); font-style: italic; margin-top: 10px;">Hinweis: Eine markenrechtliche Prüfung wurde in den Datenbanken von EUIPO und TMview durchgeführt, um rechtliche Konflikte auszuschließen.</p>
             </div>
         </section>
 
@@ -266,12 +278,16 @@
             <h2 id="title-imprint">Impressum</h2>
             <div class="info-card" style="font-size: 14px; color: var(--text-secondary);">
                 <p><strong>PaceLeague Solutions GmbH</strong><br>
-                Fenerbahce Straße 1907, 1010 Wien<br><br>
+                Fenerbahce Straße 1907, 1010 Wien<br>
+                E-Mail: contact@paceleague.at<br><br>
                 <strong id="lbl-manager">Geschäftsführer:</strong><br>
                 Ismet Ünal (CEO)<br>
                 Burak Özbey (CEO)<br><br>
                 <strong id="lbl-fb">Firmenbuchnummer:</strong> FN 123456 x<br>
-                <strong id="lbl-gs">Gerichtsstand:</strong> <span id="val-gs">Handelsgericht Wien</span></p>
+                <strong>UID-Nummer:</strong> ATU98765432<br>
+                <strong id="lbl-gs">Gerichtsstand:</strong> <span id="val-gs">Handelsgericht Wien</span><br>
+                <strong>Kammer:</strong> Wirtschaftskammer Wien<br>
+                <strong>Aufsichtsbehörde:</strong> Magistrat der Stadt Wien</p>
                 
                 <span class="legal-note" id="legal-note-text">(Konformität gemäß § 24 Mediengesetz und § 5 E-Commerce-Gesetz)</span>
             </div>
@@ -280,17 +296,108 @@
         <section id="accessibility" class="page-section">
             <h2 id="title-acc">Barrierefreiheitserklärung</h2>
             <div class="info-card">
-                <p id="acc-p">PaceLeague ist bemüht, diese Website im Einklang mit WCAG 2.2 AA barrierefrei zugänglich zu machen. Wir setzen auf semantisches HTML ve optimierte Kontrastverhältnisse für Screenreader.</p>
+                <p id="acc-p">PaceLeague ist bemüht, diese Website im Einklang mit WCAG 2.2 AA barrierefrei zugänglich zu machen.</p>
+
+                <table style="width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; color: var(--text-secondary);">
+                    <thead>
+                        <tr style="border-bottom: 1px solid var(--border-color); color: var(--text-main);">
+                            <th style="padding: 10px; text-align: left;">Kriterium</th>
+                            <th style="padding: 10px; text-align: left;">Beschreibung</th>
+                            <th style="padding: 10px; text-align: left;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 10px;">Alt Text (1.1.1)</td>
+                            <td style="padding: 10px;">Alternative Texte für Bilder</td>
+                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 10px;">Semantisches HTML (1.3.1)</td>
+                            <td style="padding: 10px;">Strukturierung durch semantische Tags</td>
+                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 10px;">Kontrast (1.4.3)</td>
+                            <td style="padding: 10px;">Minimum 4,5:1 Kontrastverhältnis</td>
+                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 10px;">Reflow 320px (1.4.10)</td>
+                            <td style="padding: 10px;">Responsive Design ohne horizontales Scrollen</td>
+                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 10px;">Tastaturnavigation (2.1.1)</td>
+                            <td style="padding: 10px;">Bedienbarkeit vollständig per Tastatur</td>
+                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 10px;">Skip-Link (2.4.1)</td>
+                            <td style="padding: 10px;">Möglichkeit, Bereiche zu überspringen</td>
+                            <td style="padding: 10px;"><span class="badge badge-wip">In Bearbeitung</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 10px;">Seitentitel (2.4.2)</td>
+                            <td style="padding: 10px;">Aussagekräftige und eindeutige Titel</td>
+                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 10px;">Fokus sichtbar (2.4.7)</td>
+                            <td style="padding: 10px;">Visuelle Hervorhebung des aktiven Fokus</td>
+                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 10px;">Sprache lang=de (3.1.1)</td>
+                            <td style="padding: 10px;">Hauptsprache im HTML-Tag deklariert</td>
+                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                            <td style="padding: 10px;">Formular-Labels (3.3.2)</td>
+                            <td style="padding: 10px;">Korrekte Beschriftung aller Eingabefelder</td>
+                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px;">ARIA (4.1.2)</td>
+                            <td style="padding: 10px;">Zusätzliche Kontext-Informationen</td>
+                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div style="margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 8px;">
+                    <h3 style="color: var(--accent-blue); font-size: 16px; margin-top: 0;">Feedback & Kontakt</h3>
+                    <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 10px;">Haben Sie Probleme bei der Nutzung unserer Website? Bitte schreiben Sie uns eine E-Mail an <a href="mailto:contact@paceleague.at" style="color: var(--accent-blue);">contact@paceleague.at</a>.</p>
+                    <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 0;">Für formelle Beschwerden können Sie sich an das <strong>Bundesministerium für Digitalisierung</strong> wenden.</p>
+                </div>
             </div>
         </section>
 
         <section id="privacy" class="page-section">
             <h2 id="title-privacy">Datenschutz</h2>
-            <div class="info-card" style="text-align: center;">
-                <p style="font-size: 14px; margin-bottom: 20px; color: var(--text-secondary);" id="priv-p">Um unsere vollständige Datenschutzerklärung zu lesen, klicken Sie bitte auf den Button unten.</p>
-                <a href="paceleague_dsgv.pdf" target="_blank" style="display: inline-block; background: var(--accent-blue); color: white; padding: 12px 24px; border-radius: 50px; font-weight: 800; text-decoration: none;" id="btn-pdf" aria-label="DSGVO PDF Dokument öffnen">
-                    📄 DSGVO PDF ÖFFNEN
-                </a>
+            <div class="info-card">
+                <h3 style="color: var(--accent-blue); margin-top: 0; font-size: 18px;">Verantwortlicher</h3>
+                <p style="color: var(--text-secondary); font-size: 14px;">PaceLeague Solutions GmbH, Fenerbahce Straße 1907, 1010 Wien</p>
+
+                <h3 style="color: var(--accent-blue); margin-top: 20px; font-size: 18px;">Welche Daten wir erheben</h3>
+                <ul style="color: var(--text-secondary); font-size: 14px; line-height: 1.8;">
+                    <li><strong>Kontaktformulardaten:</strong> Name und E-Mail-Adresse (Art. 6 Abs. 1 lit. b DSGVO).</li>
+                    <li><strong>Fitnessdaten:</strong> Schrittzähler-Daten mit Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).</li>
+                    <li><strong>Technische Daten:</strong> IP-Adresse (Art. 6 Abs. 1 lit. f DSGVO).</li>
+                </ul>
+
+                <h3 style="color: var(--accent-blue); margin-top: 20px; font-size: 18px;">Nutzerrechte</h3>
+                <p style="color: var(--text-secondary); font-size: 14px;">Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch, Datenübertragbarkeit.</p>
+
+                <h3 style="color: var(--accent-blue); margin-top: 20px; font-size: 18px;">Beschwerderecht & Hosting</h3>
+                <p style="color: var(--text-secondary); font-size: 14px;">Beschwerderecht bei der österreichischen Datenschutzbehörde (<a href="https://www.dsb.gv.at" target="_blank" style="color: var(--accent-blue);">dsb.gv.at</a>). Hosting über Cloudflare Pages.</p>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <p style="font-size: 14px; margin-bottom: 20px; color: var(--text-secondary);" id="priv-p">Um unsere vollständige Datenschutzerklärung zu lesen, klicken Sie bitte auf den Button unten.</p>
+                    <a href="paceleague_dsgv.pdf" target="_blank" style="display: inline-block; background: var(--accent-blue); color: white; padding: 12px 24px; border-radius: 50px; font-weight: 800; text-decoration: none;" id="btn-pdf" aria-label="DSGVO PDF Dokument öffnen">
+                        📄 DSGVO PDF ÖFFNEN
+                    </a>
+                </div>
             </div>
         </section>
     </main>
@@ -327,7 +434,7 @@
                 btnPdf: "📄 DSGVO PDF ÖFFNEN", btnDown: "Download App",
                 legalNote: "(Konformität gemäß § 24 Mediengesetz und § 5 E-Commerce-Gesetz)",
                 accT: "Barrierefreiheitserklärung",
-                accP: "PaceLeague ist bemüht, diese Website im Einklang mit WCAG 2.2 AA barrierefrei zugänglich zu machen. Wir setzen auf semantisches HTML ve optimierte Kontrastverhältnisse für Screenreader.",
+                accP: "PaceLeague ist bemüht, diese Website im Einklang mit WCAG 2.2 AA barrierefrei zugänglich zu machen.",
                 linkAcc: "Barrierefreiheit",
                 linkLic: "Lizenz"
             },
@@ -349,7 +456,7 @@
                 btnPdf: "📄 OPEN GDPR PDF", btnDown: "Download App",
                 legalNote: "(Compliance with § 24 Media Act and § 5 E-Commerce Act)",
                 accT: "Accessibility Statement",
-                accP: "PaceLeague is committed to making this website accessible in accordance with WCAG 2.2 AA. We rely on semantic HTML and optimized contrast ratios for screen readers.",
+                accP: "PaceLeague is committed to making this website accessible in accordance with WCAG 2.2 AA.",
                 linkAcc: "Accessibility",
                 linkLic: "License"
             }
