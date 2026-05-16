@@ -35,7 +35,7 @@
 
         nav { background: var(--card-bg); padding: 0 24px; display: flex; gap: 30px; border-bottom: 1px solid var(--border-color); position: sticky; top: 61px; z-index: 999; }
         nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 700; padding: 18px 0; border-bottom: 3px solid transparent; cursor: pointer; text-transform: uppercase; }
-        nav a.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
+        nav a:hover, nav a.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
 
         /* WELCOME HERO SECTION */
         .hero { 
@@ -47,9 +47,7 @@
         .hero p { color: var(--text-main); font-size: 16px; max-width: 600px; margin: 0 auto; }
 
         /* CONTENT SECTION LAYOUT */
-        .page-section { display: none; padding: 40px 20px; max-width: 900px; margin: auto; animation: fadeIn 0.3s ease-in-out; }
-        .page-section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .page-section { padding: 40px 20px; max-width: 900px; margin: auto; }
 
         h2 { color: var(--accent-blue); font-size: 24px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
         .data-card, .info-card { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid var(--border-color); margin-bottom: 24px; }
@@ -63,34 +61,7 @@
         .profile-img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; margin-right: 15px; border: 2px solid var(--accent-blue); }
         .steps { font-weight: 800; font-variant-numeric: tabular-nums; font-size: 30px; color: var(--text-main); }
 
-        /* GRID SYSTEM FOR FEATURES */
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .feature-card { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); }
-        .feature-card h3 { color: var(--accent-blue); font-size: 16px; margin-bottom: 10px; }
-        .feature-card p { font-size: 13px; color: var(--text-secondary); margin: 0; }
-
-        /* FORM COMPONENT STYLING */
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; font-size: 14px; color: var(--text-secondary); }
-        input, select, textarea { width: 100%; padding: 12px; background: var(--bg-color); border: 1px solid var(--border-color); color: white; border-radius: 8px; font-family: inherit; }
-        .submit-btn { background: var(--accent-blue); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 10px; }
-
         .community-card { background: rgba(124, 131, 255, 0.05); border: 1px dashed var(--accent-blue); padding: 20px; border-radius: 12px; text-align: center; margin-top: 40px; }
-        .license-box { margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.02); border-radius: 8px; font-size: 11px; color: var(--text-secondary); border: 1px solid var(--border-color); }
-        
-        /* TEAM AVATAR GRID */
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 15px; margin-top: 15px; }
-        .team-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; border: 1px solid var(--border-color); text-align: center; }
-        .avatar-circle { width: 50px; height: 50px; background: var(--accent-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; margin: 0 auto 10px; }
-        .team-card strong { display: block; font-size: 13px; margin-bottom: 5px; color: var(--text-main); }
-        .team-card span { font-size: 11px; color: var(--text-secondary); }
-
-        /* ACCESSIBILITY & LEGAL ADDITIONS */
-        .legal-note { font-size: 12px; margin-top: 15px; font-style: italic; display: block; }
-        
-        .badge { padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; white-space: nowrap; }
-        .badge-done { background: rgba(40, 167, 69, 0.1); color: #2de05b; border: 1px solid #28a745; }
-        .badge-wip { background: rgba(255, 193, 7, 0.1); color: #ffc107; border: 1px solid #ffc107; }
 
         footer { text-align: center; padding: 60px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
         .legal-links a { color: var(--accent-blue); text-decoration: none; margin: 0 10px; cursor: pointer; font-weight: 600; }
@@ -116,10 +87,10 @@
     </header>
 
     <nav role="navigation">
-        <a onclick="showSection('home')" id="nav-home" class="active">Home</a>
-        <a onclick="showSection('features')" id="nav-features">Features</a>
-        <a href="about.html" id="nav-about" class="txt-about-nav">Über uns</a>
-        <a onclick="showSection('contact')" id="nav-contact">Contact</a>
+        <a href="index.html" id="nav-home" class="active">Home</a>
+        <a href="features.html" id="nav-features">Features</a>
+        <a href="about.html" id="nav-about">Über uns</a>
+        <a href="contact.html" id="nav-contact">Contact</a>
     </nav>
 
     <main>
@@ -128,7 +99,7 @@
             <p id="hero-desc">Treten Sie der größten digitalen Schritt-Community Wiens bei. Gründen Sie Ihr Squad und verteidigen Sie Ihren Bezirk.</p>
         </div>
 
-        <section id="home" class="page-section active">
+        <section id="home" class="page-section">
             <div class="section-header">
                 <h2 id="title-live">Live Squad Matches</h2>
                 <div class="unit-label" id="label-steps">SCHRITTE</div>
@@ -171,199 +142,6 @@
                 Werden Sie Teil der Bewegung. <span style="color: var(--accent-blue); font-weight: 800;">Wien-weit über 5.000 aktive Läufer.</span>
             </div>
         </section>
-
-        <section id="features" class="page-section">
-            <h2 id="title-features">App Features</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3 id="f1-t">5v5 Squad Battles</h3>
-                    <p id="f1-p">Gründen Sie Ihr eigenes Squad oder treten Sie einem bei. Kämpfen Sie in Echtzeit gegen andere Teams aus Wien.</p>
-                </div>
-                <div class="feature-card">
-                    <h3 id="f2-t">Solo-Rankings</h3>
-                    <p id="f2-p">Beweisen Sie Ihre persönliche Leistung. Dominieren Sie die Bestenlisten Ihres Bezirks und werden Sie die Nummer 1.</p>
-                </div>
-                <div class="feature-card">
-                    <h3 id="f3-t">Wiener Partner-Deals</h3>
-                    <p id="f3-p">Top-Performer erhalten exklusive Gutscheine bei lokalen Partnern.</p>
-                </div>
-                <div class="feature-card">
-                    <h3 id="f4-t">Avatar & Skins</h3>
-                    <p id="f4-p">Personalisieren Sie Ihren digitalen Läufer mit exklusiven Accessoires.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="page-section">
-            <h2 id="title-contact">Kontakt & Crew</h2>
-            <div class="info-card">
-                <p style="font-size: 14px; margin-bottom: 20px;" id="contact-p">Haben Sie Fragen oder möchten Sie Teil der PaceLeague-Crew werden?</p>
-                <form onsubmit="event.preventDefault(); alert('Vielen Dank!');">
-                    <div class="form-group">
-                        <label id="lbl-name" for="contact-name">Ihr Name</label>
-                        <input type="text" id="contact-name" placeholder="Ismet Ünal" required>
-                    </div>
-                    <div class="form-group">
-                        <label id="lbl-mail" for="contact-email">E-Mail Adresse</label>
-                        <input type="email" id="contact-email" placeholder="beispiel@mail.at" required>
-                    </div>
-                    <div class="form-group">
-                        <label id="lbl-interest" for="sel-interest">Interesse</label>
-                        <select id="sel-interest">
-                            <option id="opt1">Allgemeine Anfrage</option>
-                            <option id="opt2">Bewerbung als Squad-Kapitän</option>
-                            <option id="opt3">App Beta-Tester</option>
-                            <option id="opt4">Kooperationspartner</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label id="lbl-msg" for="txt-msg">Nachricht</label>
-                        <textarea rows="4" id="txt-msg" placeholder="Ihre Nachricht an uns..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn" id="btn-submit">Absenden</button>
-                </form>
-            </div>
-        </section>
-
-        <section id="imprint" class="page-section">
-            <h2 id="title-imprint">Impressum</h2>
-            <div class="info-card" style="font-size: 14px; color: var(--text-secondary);">
-                <p><strong>PaceLeague Solutions GmbH</strong><br>
-                Fenerbahce Straße 1907, 1010 Wien<br>
-                E-Mail: contact@paceleague.at<br><br>
-                <strong id="lbl-manager">Geschäftsführer:</strong><br>
-                Ismet Ünal (CEO)<br>
-                Burak Özbey (CEO)<br><br>
-                <strong id="lbl-fb">Firmenbuchnummer:</strong> FN 123456 x<br>
-                <strong>UID-Nummer:</strong> ATU98765432<br>
-                <strong id="lbl-gs">Gerichtsstand:</strong> <span id="val-gs">Handelsgericht Wien</span><br>
-                <strong id="lbl-kammer">Kammer:</strong> <span id="val-kammer">Wirtschaftskammer Wien</span><br>
-                <strong id="lbl-aufsicht">Aufsichtsbehörde:</strong> <span id="val-aufsicht">Magistrat der Stadt Wien</span></p>
-                
-                <span class="legal-note" id="legal-note-text">(Konformität gemäß § 24 Mediengesetz und § 5 E-Commerce-Gesetz)</span>
-            </div>
-        </section>
-
-        <section id="accessibility" class="page-section">
-            <h2 id="title-acc">Barrierefreiheitserklärung</h2>
-            <div class="info-card">
-                <p id="acc-p1">PaceLeague Solutions GmbH ist bemüht, die Website paceleague-web.pages.dev im Einklang mit WCAG 2.2 AA barrierefrei zu gestalten. Diese Erklärung gilt für den gesamten Webauftritt.</p>
-                
-                <h3 id="acc-h1" style="color: var(--accent-blue); font-size: 18px; margin-top: 20px;">Stand der Vereinbarkeit</h3>
-                <p id="acc-p2" style="color: var(--text-secondary); font-size: 14px;">Diese Website ist mit den Anforderungen der WCAG 2.2 auf Stufe AA weitgehend vereinbar. Einzelne Bereiche befinden sich noch in Bearbeitung.</p>
-
-                <table style="width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; color: var(--text-secondary);">
-                    <thead>
-                        <tr style="border-bottom: 1px solid var(--border-color); color: var(--text-main);">
-                            <th id="acc-th1" style="padding: 10px; text-align: left;">Kriterium</th>
-                            <th id="acc-th2" style="padding: 10px; text-align: left;">Beschreibung</th>
-                            <th id="acc-th3" style="padding: 10px; text-align: left;">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td style="padding: 10px;">Alt Text (1.1.1)</td>
-                            <td id="acc-td1-2" style="padding: 10px;">Alternative Texte für Bilder</td>
-                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td style="padding: 10px;">Semantisches HTML (1.3.1)</td>
-                            <td id="acc-td2-2" style="padding: 10px;">Strukturierung durch semantische Tags</td>
-                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td style="padding: 10px;">Kontrast (1.4.3)</td>
-                            <td id="acc-td3-2" style="padding: 10px;">Minimum 4,5:1 Kontrastverhältnis</td>
-                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td style="padding: 10px;">Reflow 320px (1.4.10)</td>
-                            <td id="acc-td4-2" style="padding: 10px;">Responsive Design ohne horizontales Scrollen</td>
-                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td id="acc-td5-1" style="padding: 10px;">Tastaturnavigation (2.1.1)</td>
-                            <td id="acc-td5-2" style="padding: 10px;">Bedienbarkeit vollständig per Tastatur</td>
-                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td style="padding: 10px;">aria-live für Live-Updates (2.4.3)</td>
-                            <td id="acc-td6-2" style="padding: 10px;">Die automatisch aktualisierten Schrittzähler auf der Startseite werden Screenreadern über aria-live mitgeteilt.</td>
-                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td style="padding: 10px;">Skip-Link (2.4.1)</td>
-                            <td id="acc-td7-2" style="padding: 10px;">Möglichkeit, Bereiche zu überspringen.</td>
-                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td id="acc-td8-1" style="padding: 10px;">Seitentitel (2.4.2)</td>
-                            <td id="acc-td8-2" style="padding: 10px;">Aussagekräftige und eindeutige Titel</td>
-                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td id="acc-td9-1" style="padding: 10px;">Fokus sichtbar (2.4.7)</td>
-                            <td id="acc-td9-2" style="padding: 10px;">Visuelle Hervorhebung des aktiven Fokus</td>
-                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td id="acc-td10-1" style="padding: 10px;">Sprache lang=de (3.1.1)</td>
-                            <td id="acc-td10-2" style="padding: 10px;">Hauptsprache im HTML-Tag deklariert</td>
-                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                            <td id="acc-td11-1" style="padding: 10px;">Formular-Labels (3.3.2)</td>
-                            <td id="acc-td11-2" style="padding: 10px;">Korrekte Beschriftung aller Eingabefelder</td>
-                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 10px;">ARIA (4.1.2)</td>
-                            <td id="acc-td12-2" style="padding: 10px;">Zusätzliche Kontext-Informationen</td>
-                            <td style="padding: 10px;"><span class="badge badge-done">Umgesetzt</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3 id="acc-h2" style="color: var(--accent-blue); font-size: 18px; margin-top: 30px;">Erstellung dieser Erklärung</h3>
-                <p id="acc-p3" style="color: var(--text-secondary); font-size: 14px;">Diese Erklärung wurde im Mai 2026 auf Grundlage einer Selbstbewertung erstellt. Geprüft wurde mit WAVE Web Accessibility Evaluation Tool und manuellen Tastatur-Tests.</p>
-
-                <h3 id="acc-h3" style="color: var(--accent-blue); font-size: 18px; margin-top: 25px;">Feedback und Kontakt</h3>
-                <p id="acc-p4" style="color: var(--text-secondary); font-size: 14px;">Barrieren können per E-Mail an contact@paceleague.at gemeldet werden. Wir antworten innerhalb von 5 Werktagen.</p>
-
-                <h3 id="acc-h4" style="color: var(--accent-blue); font-size: 18px; margin-top: 25px;">Durchsetzungsverfahren</h3>
-                <p id="acc-p5" style="color: var(--text-secondary); font-size: 14px;">Wenn Sie auf eine Meldung keine zufriedenstellende Antwort erhalten, können Sie sich an das Bundesministerium für Digitalisierung und Wirtschaftsstandort wenden: bmdw.gv.at</p>
-
-                <p id="acc-p6" style="font-size: 12px; color: var(--text-secondary); font-style: italic; margin-top: 20px;">PaceLeague Solutions GmbH beschäftigt weniger als 10 Personen und gilt als Kleinstunternehmen gemäß § 6 BaFG. Eine unverhältnismäßige Belastung wird für einzelne noch offene Punkte geltend gemacht.</p>
-            </div>
-        </section>
-
-        <section id="privacy" class="page-section">
-            <h2 id="title-privacy">Datenschutz</h2>
-            <div class="info-card">
-                <h3 id="priv-h1" style="color: var(--accent-blue); margin-top: 0; font-size: 18px;">Verantwortlicher</h3>
-                <p id="priv-p1" style="color: var(--text-secondary); font-size: 14px;">PaceLeague Solutions GmbH, Fenerbahce Straße 1907, 1010 Wien</p>
-
-                <h3 id="priv-h2" style="color: var(--accent-blue); margin-top: 20px; font-size: 18px;">Welche Daten wir erheben</h3>
-                <ul style="color: var(--text-secondary); font-size: 14px; line-height: 1.8;">
-                    <li id="priv-l1"><strong>Kontaktformulardaten:</strong> Name und E-Mail-Adresse (Art. 6 Abs. 1 lit. b DSGVO).</li>
-                    <li id="priv-l2"><strong>Fitnessdaten:</strong> Schrittzähler-Daten mit Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).</li>
-                    <li id="priv-l3"><strong>Technische Daten:</strong> IP-Adresse (Art. 6 Abs. 1 lit. f DSGVO).</li>
-                </ul>
-
-                <h3 id="priv-h3" style="color: var(--accent-blue); margin-top: 20px; font-size: 18px;">Nutzerrechte</h3>
-                <p id="priv-p2" style="color: var(--text-secondary); font-size: 14px;">Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch, Datenübertragbarkeit.</p>
-
-                <h3 id="priv-h4" style="color: var(--accent-blue); margin-top: 20px; font-size: 18px;">Beschwerderecht & Hosting</h3>
-                <p id="priv-p3" style="color: var(--text-secondary); font-size: 14px;">Beschwerderecht bei der österreichischen Datenschutzbehörde (<a href="https://www.dsb.gv.at" target="_blank" style="color: var(--accent-blue);">dsb.gv.at</a>). Hosting über Cloudflare Pages.</p>
-
-                <div style="text-align: center; margin-top: 30px;">
-                    <p style="font-size: 14px; margin-bottom: 20px; color: var(--text-secondary);" id="priv-p">Um unsere vollständige Datenschutzerklärung zu lesen, klicken Sie bitte auf den Button unten.</p>
-                    <a href="paceleague_dsgv.pdf" target="_blank" style="display: inline-block; background: var(--accent-blue); color: white; padding: 12px 24px; border-radius: 50px; font-weight: 800; text-decoration: none;" id="btn-pdf" aria-label="DSGVO PDF Dokument öffnen">
-                        📄 DSGVO PDF ÖFFNEN
-                    </a>
-                </div>
-            </div>
-        </section>
     </main>
 
     <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1e293a; color: white; padding: 15px; text-align: center; z-index: 2000; border-top: 1px solid var(--border-color);">
@@ -374,230 +152,16 @@
     <footer>
         <p>&copy; 2026 PaceLeague Solutions GmbH</p>
         <div class="legal-links">
-            <a onclick="showSection('accessibility')" id="link-acc">Barrierefreiheit</a> | 
-            <a onclick="showSection('privacy')" id="link-priv">Datenschutz</a> | 
-            <a onclick="showSection('imprint')" id="link-imp">Impressum</a> | 
-            <a onclick="showSection('contact')" id="link-cont">Kontakt</a> |
+            <a href="accessibility.html" id="link-acc">Barrierefreiheit</a> | 
+            <a href="privacy.html" id="link-priv">Datenschutz</a> | 
+            <a href="imprint.html" id="link-imp">Impressum</a> | 
+            <a href="contact.html" id="link-cont">Kontakt</a> |
             <a href="license.html" id="link-lic">Lizenz</a>
         </div>
     </footer>
 
+    <script src="translation.js"></script>
     <script>
-        /* DICTIONARY FOR MULTI-LANGUAGE SUPPORT */
-        const translations = {
-            de: {
-                home: "Home", features: "Features", about: "Über uns", contact: "Kontakt",
-                heroT: "Move. Compete. Win.", heroD: "Treten Sie der größten digitalen Schritt-Community Wiens bei. Gründen Sie Ihr Squad und verteidigen Sie Ihren Bezirk.",
-                liveT: "Live Squad Matches", stepsL: "SCHRITTE", performerT: "Top Performer", indivL: "INDIVIDUELL",
-                commC: 'Werden Sie Teil der Bewegung. <span style="color: var(--accent-blue); font-weight: 800;">Wien-weit über 5.000 aktive Läufer.</span>',
-                featT: "App Features", f1t: "5v5 Squad Battles", f1p: "Gründen Sie Ihr eigenes Squad oder treten Sie einem bei. Kämpfen Sie in Echtzeit gegen andere Teams aus Wien.",
-                f2t: "Solo-Rankings", f2p: "Beweisen Sie Ihre persönliche Leistung. Dominieren Sie die Bestenlisten Ihres Bezirks und werden Sie die Nummer 1.",
-                f3t: "Wiener Partner-Deals", f3p: "Top-Performer erhalten exklusive Gutscheine bei lokalen Partnern.",
-                f4t: "Avatar & Skins", f4p: "Personalisieren Sie Ihren digitalen Läufer mit exklusiven Accessoires.",
-                aboutT: "Über PaceLeague", aboutP1: "PaceLeague ist ein innovatives Wiener Startup, das körperliche Aktivität durch Gamification fördert.",
-                contT: "Kontakt & Crew", contP: "Haben Sie Fragen oder möchten Sie Teil der PaceLeague-Crew werden?",
-                lblName: "Ihr Name", lblMail: "E-Mail Adresse", lblInt: "Interesse", opt1: "Allgemeine Anfrage", opt2: "Bewerbung als Squad-Kapitän", opt3: "App Beta-Tester", opt4: "Kooperationspartner",
-                lblMsg: "Nachricht", msgPh: "Ihre Nachricht an uns...", btnSub: "Absenden",
-                impT: "Impressum", lblMan: "Geschäftsführer:", lblFb: "Firmenbuchnummer:", lblGs: "Gerichtsstand:", valGs: "Handelsgericht Wien",
-                lblKammer: "Kammer:", valKammer: "Wirtschaftskammer Wien", lblAufsicht: "Aufsichtsbehörde:", valAufsicht: "Magistrat der Stadt Wien",
-                privT: "Datenschutz", privP: "Um unsere vollständige Datenschutzerklärung zu lesen, klicken Sie bitte auf den Button unten.",
-                btnPdf: "📄 DSGVO PDF ÖFFNEN", btnDown: "Download App",
-                legalNote: "(Konformität gemäß § 24 Mediengesetz und § 5 E-Commerce-Gesetz)",
-                accT: "Barrierefreiheitserklärung",
-                accP1: "PaceLeague Solutions GmbH ist bemüht, die Website paceleague-web.pages.dev im Einklang mit WCAG 2.2 AA barrierefrei zu gestalten. Diese Erklärung gilt für den gesamten Webauftritt.",
-                accH1: "Stand der Vereinbarkeit",
-                accP2: "Diese Website ist mit den Anforderungen der WCAG 2.2 auf Stufe AA weitgehend vereinbar. Einzelne Bereiche befinden sich noch in Bearbeitung.",
-                accTh1: "Kriterium", accTh2: "Beschreibung", accTh3: "Status",
-                accTd1_2: "Alternative Texte für Bilder", accTd2_2: "Strukturierung durch semantische Tags", accTd3_2: "Minimum 4,5:1 Kontrastverhältnis", accTd4_2: "Responsive Design ohne horizontales Scrollen",
-                accTd5_1: "Tastaturnavigation (2.1.1)", accTd5_2: "Bedienbarkeit vollständig per Tastatur", accTd6_2: "Die automatisch aktualisierten Schrittzähler auf der Startseite werden Screenreadern über aria-live mitgeteilt.",
-                accTd7_2: "Möglichkeit, Bereiche zu überspringen.", accTd8_1: "Seitentitel (2.4.2)", accTd8_2: "Aussagekräftige und eindeutige Titel",
-                accTd9_1: "Fokus sichtbar (2.4.7)", accTd9_2: "Visuelle Hervorhebung des aktiven Fokus", accTd10_1: "Sprache lang=de (3.1.1)", accTd10_2: "Hauptsprache im HTML-Tag deklariert",
-                accTd11_1: "Formular-Labels (3.3.2)", accTd11_2: "Korrekte Beschriftung aller Eingabefelder", accTd12_2: "Zusätzliche Kontext-Informationen",
-                badgeDone: "Umgesetzt",
-                accH2: "Erstellung dieser Erklärung",
-                accP3: "Diese Erklärung wurde im Mai 2026 auf Grundlage einer Selbstbewertung erstellt. Geprüft wurde mit WAVE Web Accessibility Evaluation Tool und manuellen Tastatur-Tests.",
-                accH3: "Feedback und Kontakt",
-                accP4: "Barrieren können per E-Mail an contact@paceleague.at gemeldet werden. Wir antworten innerhalb von 5 Werktagen.",
-                accH4: "Durchsetzungsverfahren",
-                accP5: "Wenn Sie auf eine Meldung keine zufriedenstellende Antwort erhalten, können Sie sich an das Bundesministerium für Digitalisierung und Wirtschaftsstandort wenden: bmdw.gv.at",
-                accP6: "PaceLeague Solutions GmbH beschäftigt weniger als 10 Personen und gilt als Kleinstunternehmen gemäß § 6 BaFG. Eine unverhältnismäßige Belastung wird für einzelne noch offene Punkte geltend gemacht.",
-                privH1: "Verantwortlicher", privP1: "PaceLeague Solutions GmbH, Fenerbahce Straße 1907, 1010 Wien",
-                privH2: "Welche Daten wir erheben", privL1: "<strong>Kontaktformulardaten:</strong> Name und E-Mail-Adresse (Art. 6 Abs. 1 lit. b DSGVO).",
-                privL2: "<strong>Fitnessdaten:</strong> Schrittzähler-Daten mit Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).", privL3: "<strong>Technische Daten:</strong> IP-Adresse (Art. 6 Abs. 1 lit. f DSGVO).",
-                privH3: "Nutzerrechte", privP2: "Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch, Datenübertragbarkeit.",
-                privH4: "Beschwerderecht & Hosting", privP3: 'Beschwerderecht bei der österreichischen Datenschutzbehörde (<a href="https://www.dsb.gv.at" target="_blank" style="color: var(--accent-blue);">dsb.gv.at</a>). Hosting über Cloudflare Pages.',
-                cookieText: "Diese Website verwendet Cookies zu Analysezwecken.", cookieBtn: "Akzeptieren", skipLink: "Zum Inhalt springen",
-                linkAcc: "Barrierefreiheit", linkLic: "Lizenz"
-            },
-            en: {
-                home: "Home", features: "Features", about: "About Us", contact: "Contact",
-                heroT: "Move. Compete. Win.", heroD: "Join Vienna's largest digital step community. Create your squad and defend your district.",
-                liveT: "Live Squad Matches", stepsL: "STEPS", performerT: "Top Performer", indivL: "INDIVIDUAL",
-                commC: 'Join the movement. <span style="color: var(--accent-blue); font-weight: 800;">Over 5,000 active runners Vienna-wide.</span>',
-                featT: "App Features", f1t: "5v5 Squad Battles", f1p: "Create your own squad or join one. Fight in real-time against other teams from Vienna.",
-                f2t: "Solo Rankings", f2p: "Prove your personal performance. Dominate your district's leaderboards and become number 1.",
-                f3t: "Vienna Partner Deals", f3p: "Top performers receive exclusive vouchers from local partners.",
-                f4t: "Avatar & Skins", f4p: "Personalize your digital runner with exclusive accessories.",
-                aboutT: "About PaceLeague", aboutP1: "PaceLeague is an innovative Vienna-based startup promoting physical activity through gamification.",
-                contT: "Contact & Crew", contP: "Do you have questions or want to join the PaceLeague crew?",
-                lblName: "Your Name", lblMail: "Email Address", lblInt: "Interest", opt1: "General Inquiry", opt2: "Squad Captain Application", opt3: "App Beta Tester", opt4: "Cooperation Partner",
-                lblMsg: "Message", msgPh: "Your message to us...", btnSub: "Submit",
-                impT: "Imprint", lblMan: "Managing Directors:", lblFb: "Commercial Register No:", lblGs: "Place of Jurisdiction:", valGs: "Commercial Court Vienna",
-                lblKammer: "Chamber:", valKammer: "Vienna Chamber of Commerce", lblAufsicht: "Supervisory Authority:", valAufsicht: "Vienna City Administration",
-                privT: "Privacy Policy", privP: "To read our full privacy policy, please click the button below.",
-                btnPdf: "📄 OPEN GDPR PDF", btnDown: "Download App",
-                legalNote: "(Compliance with § 24 Media Act and § 5 E-Commerce Act)",
-                accT: "Accessibility Statement",
-                accP1: "PaceLeague Solutions GmbH is committed to making the website paceleague-web.pages.dev accessible in accordance with WCAG 2.2 AA. This statement applies to the entire website.",
-                accH1: "Status of Compliance",
-                accP2: "This website is largely compliant with the requirements of WCAG 2.2 at Level AA. Some areas are still under development.",
-                accTh1: "Criterion", accTh2: "Description", accTh3: "Status",
-                accTd1_2: "Alternative texts for images", accTd2_2: "Structuring via semantic tags", accTd3_2: "Minimum 4.5:1 contrast ratio", accTd4_2: "Responsive design without horizontal scrolling",
-                accTd5_1: "Keyboard Navigation (2.1.1)", accTd5_2: "Full operability via keyboard", accTd6_2: "Automatically updated step counters on the homepage are announced to screen readers via aria-live.",
-                accTd7_2: "Ability to skip sections.", accTd8_1: "Page Titles (2.4.2)", accTd8_2: "Meaningful and clear titles",
-                accTd9_1: "Focus Visible (2.4.7)", accTd9_2: "Visual highlighting of active focus", accTd10_1: "Language lang=de (3.1.1)", accTd10_2: "Main language declared in HTML tag",
-                accTd11_1: "Form Labels (3.3.2)", accTd11_2: "Correct labeling of all input fields", accTd12_2: "Additional context information",
-                badgeDone: "Implemented",
-                accH2: "Preparation of this statement",
-                accP3: "This statement was prepared in May 2026 based on a self-assessment. Testing was conducted using the WAVE Web Accessibility Evaluation Tool and manual keyboard tests.",
-                accH3: "Feedback and Contact",
-                accP4: "Accessibility issues can be reported via email to contact@paceleague.at. We will respond within 5 business days.",
-                accH4: "Enforcement Procedure",
-                accP5: "If you do not receive a satisfactory response to a report, you can contact the Federal Ministry for Digital and Economic Affairs: bmdw.gv.at",
-                accP6: "PaceLeague Solutions GmbH employs fewer than 10 people and is considered a micro-enterprise under § 6 BaFG. A disproportionate burden is claimed for individual outstanding points.",
-                privH1: "Data Controller", privP1: "PaceLeague Solutions GmbH, Fenerbahce Straße 1907, 1010 Vienna",
-                privH2: "Data We Collect", privL1: "<strong>Contact Form Data:</strong> Name and email address (Art. 6 Para. 1 lit. b GDPR).",
-                privL2: "<strong>Fitness Data:</strong> Step counter data with consent (Art. 6 Para. 1 lit. a GDPR).", privL3: "<strong>Technical Data:</strong> IP address (Art. 6 Para. 1 lit. f GDPR).",
-                privH3: "User Rights", privP2: "Information, correction, deletion, restriction, objection, data portability.",
-                privH4: "Right of Appeal & Hosting", privP3: 'Right to lodge a complaint with the Austrian Data Protection Authority (<a href="https://www.dsb.gv.at" target="_blank" style="color: var(--accent-blue);">dsb.gv.at</a>). Hosted via Cloudflare Pages.',
-                cookieText: "This website uses cookies for analytical purposes.", cookieBtn: "Accept", skipLink: "Skip to content",
-                linkAcc: "Accessibility", linkLic: "License"
-            }
-        };
-
-        /* LANGUAGE SWITCHER */
-        function setLanguage(lang) {
-            document.querySelectorAll('.lang-icon').forEach(icon => icon.classList.remove('active'));
-            document.getElementById('lang-' + lang).classList.add('active');
-            const t = translations[lang];
-            
-            document.getElementById('nav-home').innerText = t.home;
-            document.getElementById('nav-features').innerText = t.features;
-            document.querySelector('.txt-about-nav').innerText = t.about;
-            document.getElementById('nav-contact').innerText = t.contact;
-            document.getElementById('link-priv').innerText = t.privT;
-            document.getElementById('link-imp').innerText = t.impT;
-            document.getElementById('link-cont').innerText = t.contact;
-            document.getElementById('link-acc').innerText = t.linkAcc;
-            const linkLic = document.getElementById('link-lic');
-            if (linkLic) linkLic.innerText = t.linkLic;
-            
-            document.getElementById('hero-title').innerText = t.heroT;
-            document.getElementById('hero-desc').innerText = t.heroD;
-            document.getElementById('title-live').innerText = t.liveT;
-            document.getElementById('label-steps').innerText = t.stepsL;
-            document.getElementById('title-performer').innerText = t.performerT;
-            document.getElementById('label-individual').innerText = t.indivL;
-            document.getElementById('comm-card').innerHTML = t.commC;
-            
-            document.getElementById('title-features').innerText = t.featT;
-            document.getElementById('f1-t').innerText = t.f1t; document.getElementById('f1-p').innerText = t.f1p;
-            document.getElementById('f2-t').innerText = t.f2t; document.getElementById('f2-p').innerText = t.f2p;
-            document.getElementById('f3-t').innerText = t.f3t; document.getElementById('f3-p').innerText = t.f3p;
-            document.getElementById('f4-t').innerText = t.f4t; document.getElementById('f4-p').innerText = t.f4p;
-            
-            document.getElementById('title-contact').innerText = t.contT;
-            document.getElementById('contact-p').innerText = t.contP;
-            document.getElementById('lbl-name').innerText = t.lblName;
-            document.getElementById('lbl-mail').innerText = t.lblMail;
-            document.getElementById('lbl-interest').innerText = t.lblInt;
-            document.getElementById('opt1').innerText = t.opt1; document.getElementById('opt2').innerText = t.opt2;
-            document.getElementById('opt3').innerText = t.opt3; document.getElementById('opt4').innerText = t.opt4;
-            document.getElementById('lbl-msg').innerText = t.lblMsg;
-            document.getElementById('txt-msg').placeholder = t.msgPh;
-            document.getElementById('btn-submit').innerText = t.btnSub;
-            
-            document.getElementById('title-imprint').innerText = t.impT;
-            document.getElementById('lbl-manager').innerText = t.lblMan;
-            document.getElementById('lbl-fb').innerText = t.lblFb;
-            document.getElementById('lbl-gs').innerText = t.lblGs;
-            document.getElementById('val-gs').innerText = t.valGs;
-            document.getElementById('lbl-kammer').innerText = t.lblKammer;
-            document.getElementById('val-kammer').innerText = t.valKammer;
-            document.getElementById('lbl-aufsicht').innerText = t.lblAufsicht;
-            document.getElementById('val-aufsicht').innerText = t.valAufsicht;
-            document.getElementById('legal-note-text').innerText = t.legalNote;
-            
-            document.getElementById('title-acc').innerText = t.accT;
-            document.getElementById('acc-p1').innerText = t.accP1;
-            document.getElementById('acc-h1').innerText = t.accH1;
-            document.getElementById('acc-p2').innerText = t.accP2;
-            document.getElementById('acc-th1').innerText = t.accTh1;
-            document.getElementById('acc-th2').innerText = t.accTh2;
-            document.getElementById('acc-th3').innerText = t.accTh3;
-            document.getElementById('acc-td1-2').innerText = t.accTd1_2;
-            document.getElementById('acc-td2-2').innerText = t.accTd2_2;
-            document.getElementById('acc-td3-2').innerText = t.accTd3_2;
-            document.getElementById('acc-td4-2').innerText = t.accTd4_2;
-            document.getElementById('acc-td5-1').innerText = t.accTd5_1;
-            document.getElementById('acc-td5-2').innerText = t.accTd5_2;
-            document.getElementById('acc-td6-2').innerText = t.accTd6_2;
-            document.getElementById('acc-td7-2').innerText = t.accTd7_2;
-            document.getElementById('acc-td8-1').innerText = t.accTd8_1;
-            document.getElementById('acc-td8-2').innerText = t.accTd8_2;
-            document.getElementById('acc-td9-1').innerText = t.accTd9_1;
-            document.getElementById('acc-td9-2').innerText = t.accTd9_2;
-            document.getElementById('acc-td10-1').innerText = t.accTd10_1;
-            document.getElementById('acc-td10-2').innerText = t.accTd10_2;
-            document.getElementById('acc-td11-1').innerText = t.accTd11_1;
-            document.getElementById('acc-td11-2').innerText = t.accTd11_2;
-            document.getElementById('acc-td12-2').innerText = t.accTd12_2;
-            document.querySelectorAll('.badge-done').forEach(el => el.innerText = t.badgeDone);
-            document.getElementById('acc-h2').innerText = t.accH2;
-            document.getElementById('acc-p3').innerText = t.accP3;
-            document.getElementById('acc-h3').innerText = t.accH3;
-            document.getElementById('acc-p4').innerText = t.accP4;
-            document.getElementById('acc-h4').innerText = t.accH4;
-            document.getElementById('acc-p5').innerText = t.accP5;
-            document.getElementById('acc-p6').innerText = t.accP6;
-            
-            document.getElementById('title-privacy').innerText = t.privT;
-            document.getElementById('priv-p').innerText = t.privP;
-            document.getElementById('btn-pdf').innerText = t.btnPdf;
-            document.getElementById('btn-download').innerText = t.btnDown;
-            document.getElementById('priv-h1').innerText = t.privH1;
-            document.getElementById('priv-p1').innerText = t.privP1;
-            document.getElementById('priv-h2').innerText = t.privH2;
-            document.getElementById('priv-l1').innerHTML = t.privL1;
-            document.getElementById('priv-l2').innerHTML = t.privL2;
-            document.getElementById('priv-l3').innerHTML = t.privL3;
-            document.getElementById('priv-h3').innerText = t.privH3;
-            document.getElementById('priv-p2').innerText = t.privP2;
-            document.getElementById('priv-h4').innerText = t.privH4;
-            document.getElementById('priv-p3').innerHTML = t.privP3;
-
-            document.getElementById('cookie-text').innerText = t.cookieText;
-            document.getElementById('cookie-btn').innerText = t.cookieBtn;
-            document.getElementById('skip-link').innerText = t.skipLink;
-        }
-
-        /* NAVIGATION ENGINE */
-        function showSection(sectionId) {
-            const hero = document.getElementById('main-hero');
-            hero.style.display = (sectionId === 'home') ? 'block' : 'none';
-            document.querySelectorAll('.page-section').forEach(s => s.style.display = 'none');
-            const target = document.getElementById(sectionId);
-            if(target) {
-                target.style.display = 'block';
-                target.classList.add('active');
-            }
-            document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
-            const activeNav = document.getElementById('nav-' + sectionId);
-            if(activeNav) activeNav.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        /* LIVE DATA EMULATION */
         let ottakringSteps = 212450;
         let favoritenSteps = 208920;
         setInterval(() => {
