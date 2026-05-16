@@ -2,26 +2,202 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Kontakt - PaceLeague</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt – PaceLeague</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
-        body { font-family: sans-serif; background-color: #0b111a; color: #ffffff; padding: 40px; }
-        .card { background: #1e293a; padding: 25px; border-radius: 12px; border: 1px solid #313c4c; max-width: 500px; margin: auto; }
-        input, textarea { width: 100%; padding: 12px; margin: 10px 0; background: #0b111a; border: 1px solid #313c4c; color: white; border-radius: 6px; box-sizing: border-box; }
-        button { background-color: #ffffff; color: #000; padding: 12px 24px; border: none; border-radius: 20px; cursor: pointer; font-weight: bold; width: 100%; }
-        h1 { text-align: center; color: #7c83ff; }
-        a { color: #97a1af; text-decoration: none; display: block; text-align: center; margin-top: 20px; }
+        :root {
+            --bg-color: #0b111a; 
+            --card-bg: #1e293a; 
+            --border-color: #313c4c; 
+            --text-main: #ffffff; 
+            --text-secondary: #97a1af; 
+            --accent-blue: #7c83ff; 
+            --accent-red: #ff6b6b;
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: var(--text-main); margin: 0; background-color: var(--bg-color); }
+
+        header { background-color: var(--card-bg); padding: 16px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 22px; font-weight: 800; letter-spacing: -1px; }
+        
+        .header-controls { display: flex; align-items: center; gap: 20px; }
+        
+        .lang-switch { display: flex; gap: 10px; align-items: center; }
+        .lang-icon { width: 24px; height: 24px; cursor: pointer; border-radius: 50%; border: 2px solid transparent; transition: border-color 0.2s; overflow: hidden; display: flex; opacity: 0.5; }
+        .lang-icon.active { border-color: var(--accent-blue); opacity: 1; }
+        .lang-icon svg { width: 100%; height: 100%; object-fit: cover; }
+
+        .app-btn { background-color: #ffffff; color: #000; padding: 8px 18px; border-radius: 24px; text-decoration: none; font-weight: 700; font-size: 13px; }
+
+        nav { background: var(--card-bg); padding: 0 24px; display: flex; gap: 30px; border-bottom: 1px solid var(--border-color); position: sticky; top: 61px; z-index: 999; }
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 700; padding: 18px 0; border-bottom: 3px solid transparent; cursor: pointer; text-transform: uppercase; }
+        nav a:hover, nav a.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
+
+        .page-section { padding: 40px 20px; max-width: 900px; margin: auto; }
+
+        h2 { color: var(--accent-blue); font-size: 24px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
+        .info-card { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid var(--border-color); margin-bottom: 24px; }
+        p { color: var(--text-secondary); font-size: 14px; margin-bottom: 16px; }
+
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-size: 14px; color: var(--text-secondary); }
+        input, select, textarea { width: 100%; padding: 12px; background: var(--bg-color); border: 1px solid var(--border-color); color: white; border-radius: 8px; font-family: inherit; }
+        .submit-btn { background: var(--accent-blue); color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 10px; }
+
+        footer { text-align: center; padding: 60px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); margin-top: 40px; }
+        .legal-links a { color: var(--accent-blue); text-decoration: none; margin: 0 10px; cursor: pointer; font-weight: 600; }
     </style>
 </head>
 <body>
-    <h1>Kontakt</h1>
-    <div class="card">
-        <form action="#">
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="E-Mail" required>
-            <textarea rows="5" placeholder="Nachricht" required></textarea>
-            <button type="submit">Senden</button>
-        </form>
+
+    <a href="#contact" id="skip-link" style="position: absolute; top: -40px; left: 0; background: var(--accent-blue); color: white; padding: 8px; z-index: 2001; transition: top 0.2s;" onfocus="this.style.top='0px'" onblur="this.style.top='-40px'">Zum Inhalt springen</a>
+
+    <header>
+        <div class="logo">PACELEAGUE</div>
+        <div class="header-controls">
+            <div class="lang-switch">
+                <div class="lang-icon active" id="lang-de" onclick="setLanguage('de')" onkeydown="if(event.key === 'Enter') setLanguage('de')" tabindex="0" title="Deutsch" role="button" aria-label="Auf Deutsch umschalten">
+                    <svg viewBox="0 0 512 512"><path fill="#ffce44" d="M0 373.3h512V512H0z"/><path d="M0 0h512v138.7H0z"/><path fill="#d00" d="M0 138.7h512v234.6H0z"/></svg>
+                </div>
+                <div class="lang-icon" id="lang-en" onclick="setLanguage('en')" onkeydown="if(event.key === 'Enter') setLanguage('en')" tabindex="0" title="English" role="button" aria-label="Switch to English">
+                    <svg viewBox="0 0 512 512"><path fill="#00247d" d="M0 0h512v512H0z"/><path stroke="#fff" stroke-width="64" d="M0 0l512 512M512 0L0 512"/><path stroke="#cf142b" stroke-width="40" d="M0 0l512 512M512 0L0 512"/><path stroke="#fff" stroke-width="107" d="M256 0v512M0 256h512"/><path stroke="#cf142b" stroke-width="64" d="M256 0v512M0 256h512"/></svg>
+                </div>
+            </div>
+            <a href="#" class="app-btn" id="btn-download">Download App</a>
+        </div>
+    </header>
+
+    <nav role="navigation">
+        <a href="index.html" id="nav-home">Home</a>
+        <a href="features.html" id="nav-features">Features</a>
+        <a href="about.html" id="nav-about">Über uns</a>
+        <a href="contact.html" id="nav-contact" class="active">Contact</a>
+    </nav>
+
+    <main>
+        <section id="contact" class="page-section">
+            <h2 id="title-contact">Kontakt</h2>
+            
+            <div class="info-card">
+                <p id="contact-info-text">PaceLeague Solutions GmbH, Fenerbahce Straße 1907, 1010 Wien. E-Mail: contact@paceleague.at</p>
+            </div>
+
+            <div class="info-card">
+                <form onsubmit="event.preventDefault(); alert(currentAlertMsg);">
+                    <div class="form-group">
+                        <label id="lbl-name" for="contact-name">Ihr Name</label>
+                        <input type="text" id="contact-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label id="lbl-mail" for="contact-email">E-Mail-Adresse</label>
+                        <input type="email" id="contact-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label id="lbl-interest" for="sel-interest">Interesse</label>
+                        <select id="sel-interest">
+                            <option id="opt1" value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+                            <option id="opt2" value="Bewerbung als Squad-Kapitän">Bewerbung als Squad-Kapitän</option>
+                            <option id="opt3" value="App Beta-Tester">App Beta-Tester</option>
+                            <option id="opt4" value="Kooperationspartner">Kooperationspartner</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label id="lbl-msg" for="txt-msg">Nachricht</label>
+                        <textarea rows="5" id="txt-msg" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" id="btn-submit">Absenden</button>
+                </form>
+                <p id="contact-note" style="font-size: 12px; color: var(--text-secondary); margin-top: 15px; margin-bottom: 0; font-style: italic;">Ihre Daten werden gemäß unserer Datenschutzerklärung verarbeitet und nicht an Dritte weitergegeben.</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1e293a; color: white; padding: 15px; text-align: center; z-index: 2000; border-top: 1px solid var(--border-color);">
+        <span id="cookie-text">Diese Website verwendet Cookies zu Analysezwecken.</span>
+        <button id="cookie-btn" onclick="document.getElementById('cookie-banner').style.display='none'" style="background: var(--accent-blue); color: white; border: none; padding: 5px 15px; margin-left: 15px; border-radius: 5px; cursor: pointer;">Akzeptieren</button>
     </div>
-    <a href="index.html">← Startseite</a>
+
+    <footer>
+        <p>&copy; 2026 PaceLeague Solutions GmbH</p>
+        <div class="legal-links">
+            <a href="accessibility.html" id="link-acc">Barrierefreiheit</a> | 
+            <a href="privacy.html" id="link-priv">Datenschutz</a> | 
+            <a href="imprint.html" id="link-imp">Impressum</a> | 
+            <a href="contact.html" id="link-cont" style="color: var(--text-main);">Kontakt</a> |
+            <a href="license.html" id="link-lic">Lizenz</a>
+        </div>
+    </footer>
+
+    <script src="translation.js"></script>
+    <script>
+        const localTranslations = {
+            de: {
+                titleContact: "Kontakt",
+                contactInfoText: "PaceLeague Solutions GmbH, Fenerbahce Straße 1907, 1010 Wien. E-Mail: contact@paceleague.at",
+                lblName: "Ihr Name",
+                lblMail: "E-Mail-Adresse",
+                lblInterest: "Interesse",
+                opt1: "Allgemeine Anfrage",
+                opt2: "Bewerbung als Squad-Kapitän",
+                opt3: "App Beta-Tester",
+                opt4: "Kooperationspartner",
+                lblMsg: "Nachricht",
+                btnSubmit: "Absenden",
+                contactNote: "Ihre Daten werden gemäß unserer Datenschutzerklärung verarbeitet und nicht an Dritte weitergegeben.",
+                alertMsg: "Vielen Dank für Ihre Nachricht!"
+            },
+            en: {
+                titleContact: "Contact",
+                contactInfoText: "PaceLeague Solutions GmbH, Fenerbahce Straße 1907, 1010 Vienna. Email: contact@paceleague.at",
+                lblName: "Your Name",
+                lblMail: "Email Address",
+                lblInterest: "Interest",
+                opt1: "General Inquiry",
+                opt2: "Squad Captain Application",
+                opt3: "App Beta Tester",
+                opt4: "Cooperation Partner",
+                lblMsg: "Message",
+                btnSubmit: "Submit",
+                contactNote: "Your data will be processed in accordance with our privacy policy and will not be shared with third parties.",
+                alertMsg: "Thank you for your message!"
+            }
+        };
+
+        let currentAlertMsg = localTranslations.de.alertMsg;
+
+        const originalSetLanguage = window.setLanguage;
+        window.setLanguage = function(lang) {
+            if (typeof originalSetLanguage === 'function') {
+                originalSetLanguage(lang);
+            }
+            
+            const t = localTranslations[lang];
+            if (!t) return;
+
+            currentAlertMsg = t.alertMsg;
+
+            const setText = (id, text) => { let el = document.getElementById(id); if(el) el.innerText = text; };
+
+            setText('title-contact', t.titleContact);
+            setText('contact-info-text', t.contactInfoText);
+            setText('lbl-name', t.lblName);
+            setText('lbl-mail', t.lblMail);
+            setText('lbl-interest', t.lblInterest);
+            setText('opt1', t.opt1);
+            setText('opt2', t.opt2);
+            setText('opt3', t.opt3);
+            setText('opt4', t.opt4);
+            setText('lbl-msg', t.lblMsg);
+            setText('btn-submit', t.btnSubmit);
+            setText('contact-note', t.contactNote);
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('paceleague_lang') || 'de';
+            setLanguage(savedLang);
+        });
+    </script>
 </body>
 </html>
