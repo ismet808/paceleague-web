@@ -14,7 +14,7 @@
             --text-main: #ffffff; 
             --text-secondary: #97a1af; 
             --accent-blue: #7c83ff; 
-            --accent-red: #ff3b30; 
+            --accent-red: #ff6b6b; 
         }
 
         * { box-sizing: border-box; }
@@ -79,7 +79,7 @@
         .license-box { margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.02); border-radius: 8px; font-size: 11px; color: var(--text-secondary); border: 1px solid var(--border-color); }
         
         /* ACCESSIBILITY & LEGAL ADDITIONS */
-        .legal-note { font-size: 10px; margin-top: 15px; opacity: 0.6; font-style: italic; display: block; }
+        .legal-note { font-size: 12px; margin-top: 15px; font-style: italic; display: block; }
 
         footer { text-align: center; padding: 60px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
         .legal-links a { color: var(--accent-blue); text-decoration: none; margin: 0 10px; cursor: pointer; font-weight: 600; }
@@ -91,10 +91,10 @@
         <div class="logo">PACELEAGUE</div>
         <div class="header-controls">
             <div class="lang-switch">
-                <div class="lang-icon active" id="lang-de" onclick="setLanguage('de')" title="Deutsch" role="button" aria-label="Auf Deutsch umschalten">
+                <div class="lang-icon active" id="lang-de" onclick="setLanguage('de')" onkeydown="if(event.key === 'Enter') setLanguage('de')" tabindex="0" title="Deutsch" role="button" aria-label="Auf Deutsch umschalten">
                     <svg viewBox="0 0 512 512"><path fill="#ffce44" d="M0 373.3h512V512H0z"/><path d="M0 0h512v138.7H0z"/><path fill="#d00" d="M0 138.7h512v234.6H0z"/></svg>
                 </div>
-                <div class="lang-icon" id="lang-en" onclick="setLanguage('en')" title="English" role="button" aria-label="Switch to English">
+                <div class="lang-icon" id="lang-en" onclick="setLanguage('en')" onkeydown="if(event.key === 'Enter') setLanguage('en')" tabindex="0" title="English" role="button" aria-label="Switch to English">
                     <svg viewBox="0 0 512 512"><path fill="#00247d" d="M0 0h512v512H0z"/><path stroke="#fff" stroke-width="64" d="M0 0l512 512M512 0L0 512"/><path stroke="#cf142b" stroke-width="40" d="M0 0l512 512M512 0L0 512"/><path stroke="#fff" stroke-width="107" d="M256 0v512M0 256h512"/><path stroke="#cf142b" stroke-width="64" d="M256 0v512M0 256h512"/></svg>
                 </div>
             </div>
@@ -255,7 +255,7 @@
             <h2 id="title-privacy">Datenschutz</h2>
             <div class="info-card" style="text-align: center;">
                 <p style="font-size: 14px; margin-bottom: 20px; color: var(--text-secondary);" id="priv-p">Um unsere vollständige Datenschutzerklärung zu lesen, klicken Sie bitte auf den Button unten.</p>
-                <a href="paceleague_dsgv.pdf" target="_blank" style="display: inline-block; background: var(--accent-blue); color: white; padding: 12px 24px; border-radius: 50px; font-weight: 800; text-decoration: none;" id="btn-pdf">
+                <a href="paceleague_dsgv.pdf" target="_blank" style="display: inline-block; background: var(--accent-blue); color: white; padding: 12px 24px; border-radius: 50px; font-weight: 800; text-decoration: none;" id="btn-pdf" aria-label="DSGVO PDF Dokument öffnen">
                     📄 DSGVO PDF ÖFFNEN
                 </a>
             </div>
