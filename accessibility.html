@@ -173,9 +173,9 @@
         </section>
     </main>
 
-    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1e293a; color: white; padding: 15px; text-align: center; z-index: 2000; border-top: 1px solid var(--border-color);">
-        <span id="cookie-text">Diese Website verwendet Cookies zu Analysezwecken.</span>
-        <button id="cookie-btn" onclick="document.getElementById('cookie-banner').style.display='none'" style="background: var(--accent-blue); color: white; border: none; padding: 5px 15px; margin-left: 15px; border-radius: 5px; cursor: pointer;">Akzeptieren</button>
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1e293a; color: #ffffff; padding: 15px; text-align: center; z-index: 2000; border-top: 1px solid var(--border-color);">
+        <span id="cookie-text" style="color: #ffffff; font-weight: 600;">Diese Website verwendet Cookies zu Analysezwecken.</span>
+        <button id="cookie-btn" onclick="document.getElementById('cookie-banner').style.display='none'" style="background: #5b62d9; color: #ffffff; border: none; padding: 6px 18px; margin-left: 15px; border-radius: 6px; font-weight: 700; cursor: pointer;">Akzeptieren</button>
     </div>
 
     <footer>
@@ -257,74 +257,3 @@
                 accTd72: "Possibility to skip areas.",
                 accTd81: "Page Title (2.4.2)",
                 accTd82: "Meaningful and unique titles",
-                accTd91: "Focus Visible (2.4.7)",
-                accTd92: "Visual highlighting of the active focus",
-                accTd101: "Language lang=de (3.1.1)",
-                accTd102: "Main language declared in the HTML tag",
-                accTd111: "Form Labels (3.3.2)",
-                accTd112: "Correct labeling of all input fields",
-                accTd121: "ARIA (4.1.2)",
-                accTd122: "Additional context information",
-                statusDone: "Implemented",
-                accH2: "Preparation of this statement",
-                accP3: "Written in May 2026, tested with WAVE and manually clicked through with a keyboard. No automated tool truly replaces this.",
-                accH3: "Feedback and Contact",
-                accP4: "If anything does not work or is difficult to access, simply send an email to contact@paceleague.at. We will look into it, usually within a few days.",
-                accH4: "Enforcement Procedure",
-                accP5: "Anyone who is not satisfied with our response can contact the Federal Ministry for Digitalization: bmdw.gv.at",
-                accP6: "PaceLeague has fewer than 10 employees and therefore falls under the micro-enterprise regulation according to § 6 BaFG. We make use of this for a few remaining open points."
-            }
-        };
-
-        const originalSetLanguage = window.setLanguage;
-        window.setLanguage = function(lang) {
-            if (typeof originalSetLanguage === 'function') {
-                originalSetLanguage(lang);
-            }
-            
-            const t = localTranslations[lang];
-            if (!t) return;
-
-            const setText = (id, text) => { let el = document.getElementById(id); if(el) el.innerText = text; };
-
-            setText('title-acc', t.titleAcc);
-            setText('acc-p1', t.accP1);
-            setText('acc-h1', t.accH1);
-            setText('acc-p2', t.accP2);
-            setText('acc-th1', t.accTh1);
-            setText('acc-th2', t.accTh2);
-            setText('acc-th3', t.accTh3);
-            
-            setText('acc-td1-1', t.accTd11); setText('acc-td1-2', t.accTd12);
-            setText('acc-td2-1', t.accTd21); setText('acc-td2-2', t.accTd22);
-            setText('acc-td3-1', t.accTd31); setText('acc-td3-2', t.accTd32);
-            setText('acc-td4-1', t.accTd41); setText('acc-td4-2', t.accTd42);
-            setText('acc-td5-1', t.accTd51); setText('acc-td5-2', t.accTd52);
-            setText('acc-td6-1', t.accTd61); setText('acc-td6-2', t.accTd62);
-            setText('acc-td7-1', t.accTd71); setText('acc-td7-2', t.accTd72);
-            setText('acc-td8-1', t.accTd81); setText('acc-td8-2', t.accTd82);
-            setText('acc-td9-1', t.accTd91); setText('acc-td9-2', t.accTd92);
-            setText('acc-td10-1', t.accTd101); setText('acc-td10-2', t.accTd102);
-            setText('acc-td11-1', t.accTd111); setText('acc-td11-2', t.accTd112);
-            setText('acc-td12-1', t.accTd121); setText('acc-td12-2', t.accTd122);
-
-            for (let i = 1; i <= 12; i++) {
-                setText('acc-status' + i, t.statusDone);
-            }
-
-            setText('acc-h2', t.accH2);
-            setText('acc-p3', t.accP3);
-            setText('acc-h3', t.accH3);
-            setText('acc-p4', t.accP4);
-            setText('acc-h4', t.accH4);
-            setText('acc-p5', t.accP5);
-            setText('acc-p6', t.accP6);
-        };
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('paceleague_lang') || 'de';
-            setLanguage(savedLang);
-        });
-    </script>
-</body>
-</html>
