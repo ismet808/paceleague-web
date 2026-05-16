@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lizenzbedingungen - PaceLeague</title>
+    <title>Lizenz – PaceLeague</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
         :root {
             --bg-color: #0b111a;
@@ -12,141 +13,162 @@
             --text-main: #ffffff;
             --text-secondary: #97a1af;
             --accent-blue: #7c83ff;
+            --accent-red: #ff6b6b;
         }
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            padding: 40px 20px;
-            line-height: 1.6;
-            max-width: 900px;
-            margin: auto;
-        }
-        h1, h2, h3 {
-            color: var(--accent-blue);
-            font-weight: 800;
-        }
-        h1 { font-size: 28px; margin-bottom: 24px; }
-        h2 { font-size: 20px; margin-top: 30px; margin-bottom: 16px; }
-        .card {
-            background: var(--card-bg);
-            padding: 24px;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 24px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            font-size: 14px;
-        }
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-        th {
-            color: var(--accent-blue);
-            font-weight: 700;
-        }
-        td {
-            color: var(--text-secondary);
-        }
-        a {
-            color: var(--accent-blue);
-            text-decoration: none;
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-main);
-            font-weight: 700;
-            text-decoration: none;
-        }
-        .highlight {
-            color: var(--text-main);
-            font-weight: 700;
-        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: var(--text-main); margin: 0; background-color: var(--bg-color); }
+
+        header { background-color: var(--card-bg); padding: 16px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 22px; font-weight: 800; letter-spacing: -1px; }
+        .header-controls { display: flex; align-items: center; gap: 20px; }
+        .lang-switch { display: flex; gap: 10px; align-items: center; }
+        .lang-icon { width: 24px; height: 24px; cursor: pointer; border-radius: 50%; border: 2px solid transparent; transition: border-color 0.2s; overflow: hidden; display: flex; opacity: 0.5; }
+        .lang-icon.active { border-color: var(--accent-blue); opacity: 1; }
+        .lang-icon svg { width: 100%; height: 100%; object-fit: cover; }
+        .app-btn { background-color: #ffffff; color: #000; padding: 8px 18px; border-radius: 24px; text-decoration: none; font-weight: 700; font-size: 13px; }
+
+        nav { background: var(--card-bg); padding: 0 24px; display: flex; gap: 30px; border-bottom: 1px solid var(--border-color); position: sticky; top: 61px; z-index: 999; }
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 700; padding: 18px 0; border-bottom: 3px solid transparent; cursor: pointer; text-transform: uppercase; }
+        nav a:hover, nav a.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
+
+        .page-section { padding: 40px 20px; max-width: 900px; margin: auto; }
+
+        h2 { color: var(--accent-blue); font-size: 24px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { color: var(--accent-blue); font-size: 16px; margin-top: 24px; margin-bottom: 10px; }
+        h3:first-child { margin-top: 0; }
+
+        .info-card { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid var(--border-color); margin-bottom: 24px; }
+        .info-card p { color: var(--text-secondary); font-size: 14px; margin-bottom: 0; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 8px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border-color); }
+        th { color: var(--accent-blue); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+        td { color: var(--text-secondary); vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
+        .highlight { color: var(--text-main); font-weight: 700; }
+
+        footer { text-align: center; padding: 60px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); margin-top: 40px; }
+        .legal-links a { color: var(--accent-blue); text-decoration: none; margin: 0 10px; cursor: pointer; font-weight: 600; }
     </style>
 </head>
 <body>
 
-    <h1>Lizenzbedingungen</h1>
-    
-    <div class="card">
-        <h3>Teil 1 - Nutzungsrechte</h3>
-        <p>Mit dem Erwerb von PaceLeague+ erhalten Sie ein einfaches, nicht übertragbares Nutzungsrecht für eine Person auf einem Gerät. Die App darf für persönliche, nicht kommerzielle Zwecke genutzt werden. Weitergabe, Verkauf oder Unterlizenzierung ist nicht gestattet. Der Quellcode darf nicht dekompiliert oder verändert werden.</p>
+    <a href="#license" id="skip-link" style="position: absolute; top: -40px; left: 0; background: var(--accent-blue); color: white; padding: 8px; z-index: 2001; transition: top 0.2s;" onfocus="this.style.top='0px'" onblur="this.style.top='-40px'">Zum Inhalt springen</a>
 
-        <h3>Teil 2 - Rechte beim Unternehmen</h3>
-        <p>Alle Urheber- und Markenrechte an der App, dem Design, den Inhalten und dem Code verbleiben bei PaceLeague Solutions GmbH. Der Kauf eines Abonnements überträgt kein Eigentum an der Software.</p>
+    <header>
+        <div class="logo">PACELEAGUE</div>
+        <div class="header-controls">
+            <div class="lang-switch">
+                <div class="lang-icon active" id="lang-de" onclick="setLanguage('de')" onkeydown="if(event.key === 'Enter') setLanguage('de')" tabindex="0" title="Deutsch" role="button" aria-label="Auf Deutsch umschalten">
+                    <svg viewBox="0 0 512 512"><path fill="#ffce44" d="M0 373.3h512V512H0z"/><path d="M0 0h512v138.7H0z"/><path fill="#d00" d="M0 138.7h512v234.6H0z"/></svg>
+                </div>
+                <div class="lang-icon" id="lang-en" onclick="setLanguage('en')" onkeydown="if(event.key === 'Enter') setLanguage('en')" tabindex="0" title="English" role="button" aria-label="Switch to English">
+                    <svg viewBox="0 0 512 512"><path fill="#00247d" d="M0 0h512v512H0z"/><path stroke="#fff" stroke-width="64" d="M0 0l512 512M512 0L0 512"/><path stroke="#cf142b" stroke-width="40" d="M0 0l512 512M512 0L0 512"/><path stroke="#fff" stroke-width="107" d="M256 0v512M0 256h512"/><path stroke="#cf142b" stroke-width="64" d="M256 0v512M0 256h512"/></svg>
+                </div>
+            </div>
+            <a href="#" class="app-btn" id="btn-download">Download App</a>
+        </div>
+    </header>
 
-        <h3>Teil 3 - Haftungsbeschränkungen</h3>
-        <p>PaceLeague Solutions GmbH haftet nicht für indirekte Schäden, Datenverlust oder entgangenen Gewinn. Die Verfügbarkeit des Dienstes wird nicht garantiert. Inhalte Dritter (z.B. Partnerangebote) liegen außerhalb unserer Verantwortung. Die Haftung ist, soweit gesetzlich zulässig, auf den vom Nutzer bezahlten Abonnementbetrag begrenzt.</p>
+    <nav role="navigation">
+        <a href="index.html" id="nav-home">Home</a>
+        <a href="features.html" id="nav-features">Features</a>
+        <a href="about.html" id="nav-about">Über uns</a>
+        <a href="contact.html" id="nav-contact">Contact</a>
+    </nav>
 
-        <h3>Teil 4 - Laufzeit und Kündigung</h3>
-        <p>Abonnements laufen monatlich oder jährlich und können jederzeit gekündigt werden. Nach Kündigung bleibt der Zugang bis zum Ende der bezahlten Periode bestehen. Bei schwerwiegendem Verstoß gegen diese Bedingungen kann PaceLeague das Konto ohne Rückerstattung sperren.</p>
+    <main>
+        <section id="license" class="page-section">
+
+            <h2>Lizenzbedingungen</h2>
+
+            <div class="info-card">
+                <h3>Nutzungsrechte</h3>
+                <p>Mit dem Erwerb von PaceLeague+ bekommt man ein einfaches, nicht übertragbares Nutzungsrecht für eine Person auf einem Gerät. Die App darf für persönliche, nicht kommerzielle Zwecke genutzt werden. Weitergabe, Verkauf oder Unterlizenzierung ist nicht erlaubt. Den Quellcode dekompilieren oder verändern geht ebenfalls nicht.</p>
+
+                <h3>Rechte beim Unternehmen</h3>
+                <p>Alle Urheber- und Markenrechte an der App, dem Design, den Inhalten und dem Code bleiben bei PaceLeague Solutions GmbH. Ein Abonnement kaufen bedeutet nicht, dass man Eigentum an der Software erwirbt.</p>
+
+                <h3>Haftungsbeschränkungen</h3>
+                <p>Für indirekte Schäden, Datenverlust oder entgangenen Gewinn übernehmen wir keine Haftung. Die Verfügbarkeit des Dienstes wird nicht garantiert. Inhalte von Drittanbietern wie Partnerangebote liegen außerhalb unserer Verantwortung. Die Haftung ist, soweit gesetzlich zulässig, auf den bezahlten Abonnementbetrag begrenzt.</p>
+
+                <h3>Laufzeit und Kündigung</h3>
+                <p>Abonnements laufen monatlich oder jährlich und können jederzeit gekündigt werden. Nach der Kündigung bleibt der Zugang bis zum Ende der bezahlten Periode bestehen. Bei schwerwiegendem Verstoß gegen diese Bedingungen kann PaceLeague das Konto ohne Rückerstattung sperren.</p>
+            </div>
+
+            <h2>Urheberrecht & Medienlizenzen</h2>
+
+            <div class="info-card" style="padding: 0; overflow: hidden;">
+                <table aria-label="Medienlizenzen PaceLeague">
+                    <thead>
+                        <tr>
+                            <th>Medienart</th>
+                            <th>Beschreibung</th>
+                            <th>Quelle & Urheber</th>
+                            <th>Lizenz</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="highlight">Bild</span></td>
+                            <td>Foto von laufenden Personen, früher als Hero-Hintergrundbild verwendet.</td>
+                            <td>Unsplash, Urheber: Tom Patmore</td>
+                            <td>Unsplash License. Kommerzielle Nutzung erlaubt, keine Namensnennung erforderlich.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">Grafik</span></td>
+                            <td>Logo Ottakringer Madrid, Logo Döner Bros, Profilbild Goran S.</td>
+                            <td>Logos: selbst erstellt (PaceLeague Solutions GmbH). Profilbild: Pixabay.</td>
+                            <td>Logos: alle Rechte vorbehalten. Profilbild: Pixabay Lizenz, kommerzielle Nutzung erlaubt.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">Video</span></td>
+                            <td>Hintergrundvideo Hero-Section (hero_video.mp4)</td>
+                            <td>Pixabay Videos</td>
+                            <td>Pixabay Lizenz. Kostenlos für kommerzielle Nutzung, keine Namensnennung erforderlich.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">Sound</span></td>
+                            <td>Notification-Ton für Schrittzähler-Updates</td>
+                            <td>Pixabay Audio</td>
+                            <td>Pixabay Lizenz. Kostenlos für kommerzielle Nutzung.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">Schriftart</span></td>
+                            <td>Inter (UI-Schriftart, gesamte Website)</td>
+                            <td>Google Fonts / Rasmus Andersson</td>
+                            <td>SIL Open Font License. Frei für kommerzielle Nutzung.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">Texte</span></td>
+                            <td>Website-Texte, Produktbeschreibungen, rechtliche Hinweise</td>
+                            <td>PaceLeague Solutions GmbH</td>
+                            <td>Alle Rechte vorbehalten.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1e293a; color: white; padding: 15px; text-align: center; z-index: 2000; border-top: 1px solid var(--border-color);">
+        <span id="cookie-text">Diese Website verwendet Cookies zu Analysezwecken.</span>
+        <button id="cookie-btn" onclick="document.getElementById('cookie-banner').style.display='none'" style="background: var(--accent-blue); color: white; border: none; padding: 5px 15px; margin-left: 15px; border-radius: 5px; cursor: pointer;">Akzeptieren</button>
     </div>
 
-    <h2>Urheberrecht & Medienlizenzen</h2>
-    <div class="card">
-        <p style="color: var(--text-secondary);">Gemäß Aufgabe 2 der Projektanforderungen dokumentiert diese Seite die Lizenzen, Urheber und Verwertungsrechte für alle Medien, die auf der PaceLeague Website verwendet werden.</p>
-        
-        <table>
-            <thead>
-                <tr>
-                    <th>Medienart</th>
-                    <th>Beschreibung</th>
-                    <th>Quelle & Urheber</th>
-                    <th>Lizenz & Nutzungsrechte</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Bild</td>
-                    <td>Schwarz-Weiß Foto von rennenden Personen (Hero Section).</td>
-                    <td>Quelle: Unsplash<br>Urheber: Tom Patmore</td>
-                    <td><span class="highlight">Unsplash License</span><br>Kommerzielle Nutzung erlaubt. Verwertungsrechte sind sichergestellt, keine Namensnennung zwingend erforderlich.</td>
-                </tr>
-                <tr>
-                    <td>Grafik</td>
-                    <td>Logo Ottakringer Madrid, Logo Döner Bros, Profilbild Goran S.</td>
-                    <td>Logo Ottakringer Madrid und Logo Döner Bros Favoriten: selbst erstellt von PaceLeague Solutions GmbH, alle Rechte vorbehalten.<br>Profilbild Goran S.: Pixabay Lizenz, kostenlos für kommerzielle Nutzung, Namensnennung nicht erforderlich.</td>
-                    <td><span class="highlight">Urheberrechtsschutz / Freie kommerzielle Lizenz</span><br>Alle Rechte vorbehalten für Eigentexturen; freie Nutzung für Profilbilder ohne Registrierungspflicht.</td>
-                </tr>
-                <tr>
-                    <td>Video</td>
-                    <td>Hintergrundbild Hero-Section</td>
-                    <td>Tom Patmore</td>
-                    <td>Unsplash License, kommerzielle Nutzung erlaubt</td>
-                </tr>
-                <tr>
-                    <td>Sound</td>
-                    <td>Schrittzähler-Sound (Notification-Ton)</td>
-                    <td>Pixabay Lizenz</td>
-                    <td>kostenlos für kommerzielle Nutzung</td>
-                </tr>
-                <tr>
-                    <td>Schriftart</td>
-                    <td>Standard UI Schriftart (Inter, Sans-serif).</td>
-                    <td>System / Google Fonts</td>
-                    <td>Frei für kommerzielle Nutzung auf Webplattformen (SIL Open Font License).</td>
-                </tr>
-                <tr>
-                    <td>Texte</td>
-                    <td>Website-Texte, Produktbeschreibungen und rechtliche Hinweise.</td>
-                    <td>In-house (PaceLeague Solutions GmbH)</td>
-                    <td>Alle Rechte vorbehalten.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <footer>
+        <p>&copy; 2026 PaceLeague Solutions GmbH</p>
+        <div class="legal-links">
+            <a href="accessibility.html" id="link-acc">Barrierefreiheit</a> |
+            <a href="privacy.html" id="link-priv">Datenschutz</a> |
+            <a href="imprint.html" id="link-imp">Impressum</a> |
+            <a href="contact.html" id="link-cont">Kontakt</a> |
+            <a href="license.html" id="link-lic" style="color: var(--text-main);">Lizenz</a>
+        </div>
+    </footer>
 
-    <a href="index.html" class="back-link">Zurück zur Startseite</a>
-
+    <script src="translation.js"></script>
 </body>
 </html>
