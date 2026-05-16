@@ -1,13 +1,128 @@
 <!DOCTYPE html>
 <html lang="de">
-<head><meta charset="UTF-8"><title>Lizenz - PaceLeague</title>
-<style>body{font-family:sans-serif;background-color:#0b111a;color:#ffffff;padding:40px;} h1{color:#7c83ff;} .card{background:#1e293a;padding:20px;border-radius:12px;border:1px solid #313c4c;} a{color:#97a1af;text-decoration:none;display:block;margin-top:20px;}</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lizenzen & Urheberrecht - PaceLeague</title>
+    <style>
+        :root {
+            --bg-color: #0b111a;
+            --card-bg: #1e293a;
+            --border-color: #313c4c;
+            --text-main: #ffffff;
+            --text-secondary: #97a1af;
+            --accent-blue: #7c83ff;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 40px 20px;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: auto;
+        }
+        h1, h2 {
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            color: var(--accent-blue);
+            font-weight: 700;
+        }
+        td {
+            color: var(--text-secondary);
+        }
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+        .highlight {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
-<h1>Lizenzbedingungen</h1>
-<div class="card">
-    <p>Der Nutzer erhält ein einfaches, nicht-übertragbares Nutzungsrecht an der PaceLeague App. Alle Urheberrechte verbleiben bei der PaceLeague Solutions GmbH.</p>
-</div>
-<a href="index.html">← Zurück</a>
+
+    <h1>Urheberrecht & Medienlizenzen</h1>
+    <div class="card">
+        <p style="color: var(--text-secondary);">Gemäß Aufgabe 2 der Projektanforderungen dokumentiert diese Seite die Lizenzen, Urheber und Verwertungsrechte für alle Medien, die auf der PaceLeague Website verwendet werden.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Medienart</th>
+                    <th>Beschreibung</th>
+                    <th>Quelle & Urheber</th>
+                    <th>Lizenz & Nutzungsrechte</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bild</td>
+                    <td>Schwarz-Weiß Foto von rennenden Personen (Hero Section).</td>
+                    <td>Quelle: Unsplash<br>Urheber: Tom Patmore</td>
+                    <td><span class="highlight">Unsplash License</span><br>Kommerzielle Nutzung erlaubt. Verwertungsrechte sind sichergestellt, keine Namensnennung zwingend erforderlich.</td>
+                </tr>
+                <tr>
+                    <td>Grafik</td>
+                    <td>Logo Ottakringer Madrid, Logo Döner Bros, Profilbild Goran S.</td>
+                    <td>Quelle: [Link einfügen]<br>Urheber: [Name einfügen]</td>
+                    <td><span class="highlight">[Lizenztyp einfügen]</span><br>[Nutzungsbedingungen einfügen]</td>
+                </tr>
+                <tr>
+                    <td>Schriftart</td>
+                    <td>Standard UI Schriftart (Inter, Sans-serif).</td>
+                    <td>System / Google Fonts</td>
+                    <td>Frei für kommerzielle Nutzung auf Webplattformen (SIL Open Font License).</td>
+                </tr>
+                <tr>
+                    <td>Texte</td>
+                    <td>Website-Texte, Produktbeschreibungen und rechtliche Hinweise.</td>
+                    <td>In-house (PaceLeague Solutions GmbH)</td>
+                    <td>Alle Rechte vorbehalten.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Markenschutz & EULA</h2>
+    <div class="card">
+        <p><span class="highlight">Markenschutz:</span> Wortmarke PaceLeague, Nizza-Klassen 9, 41, 42.</p>
+        <p style="margin-top: 15px;"><span class="highlight">Lizenzvereinbarung (EULA):</span> Mit dem Erwerb unserer Software erhalten Sie ein nicht-übertragbares, einfaches Nutzungsrecht. Alle Urheberrechte verbleiben bei PaceLeague Solutions GmbH. Eine Haftung für indirekte Schäden wird, soweit gesetzlich zulässig, ausgeschlossen.</p>
+    </div>
+
+    <a href="index.html" class="back-link">Zurück zur Startseite</a>
+
 </body>
 </html>
