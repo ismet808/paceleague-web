@@ -2,31 +2,193 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Impressum - PaceLeague</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum – PaceLeague</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
-        body { font-family: sans-serif; background-color: #0b111a; color: #ffffff; padding: 40px; line-height: 1.6; }
-        h1, h2 { color: #7c83ff; border-bottom: 1px solid #313c4c; padding-bottom: 10px; }
-        .imprint-box { background: #1e293a; padding: 25px; border-radius: 12px; border: 1px solid #313c4c; }
-        .label { color: #7c83ff; font-weight: bold; }
-        a { color: #97a1af; text-decoration: none; display: block; margin-top: 20px; }
+        :root {
+            --bg-color: #0b111a; 
+            --card-bg: #1e293a; 
+            --border-color: #313c4c; 
+            --text-main: #ffffff; 
+            --text-secondary: #97a1af; 
+            --accent-blue: #7c83ff; 
+            --accent-red: #ff6b6b;
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: var(--text-main); margin: 0; background-color: var(--bg-color); }
+
+        header { background-color: var(--card-bg); padding: 16px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 22px; font-weight: 800; letter-spacing: -1px; }
+        
+        .header-controls { display: flex; align-items: center; gap: 20px; }
+        
+        .lang-switch { display: flex; gap: 10px; align-items: center; }
+        .lang-icon { width: 24px; height: 24px; cursor: pointer; border-radius: 50%; border: 2px solid transparent; transition: border-color 0.2s; overflow: hidden; display: flex; opacity: 0.5; }
+        .lang-icon.active { border-color: var(--accent-blue); opacity: 1; }
+        .lang-icon svg { width: 100%; height: 100%; object-fit: cover; }
+
+        .app-btn { background-color: #ffffff; color: #000; padding: 8px 18px; border-radius: 24px; text-decoration: none; font-weight: 700; font-size: 13px; }
+
+        nav { background: var(--card-bg); padding: 0 24px; display: flex; gap: 30px; border-bottom: 1px solid var(--border-color); position: sticky; top: 61px; z-index: 999; }
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 700; padding: 18px 0; border-bottom: 3px solid transparent; cursor: pointer; text-transform: uppercase; }
+        nav a:hover, nav a.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
+
+        .page-section { padding: 40px 20px; max-width: 900px; margin: auto; }
+
+        h2 { color: var(--accent-blue); font-size: 24px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
+        .info-card { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid var(--border-color); margin-bottom: 24px; }
+        p { color: var(--text-secondary); font-size: 14px; margin-bottom: 16px; }
+
+        footer { text-align: center; padding: 60px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); margin-top: 40px; }
+        .legal-links a { color: var(--accent-blue); text-decoration: none; margin: 0 10px; cursor: pointer; font-weight: 600; }
     </style>
 </head>
 <body>
-    <h1>Impressum</h1>
-    <div class="imprint-box">
-        <p><span class="label">Firmenname:</span> PaceLeague Solutions GmbH</p>
-        <p><span class="label">Sitz:</span> 1010 Wien, Österreich</p>
-        <p><span class="label">Anschrift:</span> Fenerbahce Straße 1907</p>
-        <p><span class="label">E-Mail:</span> contact@paceleague.at</p>
-        <p><span class="label">Firmenbuchnummer:</span> FN 123456 x</p>
-        <p><span class="label">Firmenbuchgericht:</span> Handelsgericht Wien</p>
-        <p><span class="label">UID-Nummer:</span> ATU98765432</p>
-        <p><span class="label">Kammer:</span> Wirtschaftskammer Wien</p>
-        <h2>Offenlegung nach § 25 Mediengesetz</h2>
-        <p><span class="label">Medieninhaber:</span> PaceLeague Solutions GmbH</p>
-        <p><span class="label">Geschäftsführer:</span> Ismet Ünal</p>
-        <p><span class="label">Blattlinie:</span> Förderung der körperlichen Aktivität durch Gamification.</p>
+
+    <a href="#imprint" id="skip-link" style="position: absolute; top: -40px; left: 0; background: var(--accent-blue); color: white; padding: 8px; z-index: 2001; transition: top 0.2s;" onfocus="this.style.top='0px'" onblur="this.style.top='-40px'">Zum Inhalt springen</a>
+
+    <header>
+        <div class="logo">PACELEAGUE</div>
+        <div class="header-controls">
+            <div class="lang-switch">
+                <div class="lang-icon active" id="lang-de" onclick="setLanguage('de')" onkeydown="if(event.key === 'Enter') setLanguage('de')" tabindex="0" title="Deutsch" role="button" aria-label="Auf Deutsch umschalten">
+                    <svg viewBox="0 0 512 512"><path fill="#ffce44" d="M0 373.3h512V512H0z"/><path d="M0 0h512v138.7H0z"/><path fill="#d00" d="M0 138.7h512v234.6H0z"/></svg>
+                </div>
+                <div class="lang-icon" id="lang-en" onclick="setLanguage('en')" onkeydown="if(event.key === 'Enter') setLanguage('en')" tabindex="0" title="English" role="button" aria-label="Switch to English">
+                    <svg viewBox="0 0 512 512"><path fill="#00247d" d="M0 0h512v512H0z"/><path stroke="#fff" stroke-width="64" d="M0 0l512 512M512 0L0 512"/><path stroke="#cf142b" stroke-width="40" d="M0 0l512 512M512 0L0 512"/><path stroke="#fff" stroke-width="107" d="M256 0v512M0 256h512"/><path stroke="#cf142b" stroke-width="64" d="M256 0v512M0 256h512"/></svg>
+                </div>
+            </div>
+            <a href="#" class="app-btn" id="btn-download">Download App</a>
+        </div>
+    </header>
+
+    <nav role="navigation">
+        <a href="index.html" id="nav-home">Home</a>
+        <a href="features.html" id="nav-features">Features</a>
+        <a href="about.html" id="nav-about">Über uns</a>
+        <a href="contact.html" id="nav-contact">Contact</a>
+    </nav>
+
+    <main>
+        <section id="imprint" class="page-section">
+            <h2 id="title-imprint">Impressum</h2>
+            <div class="info-card" style="font-size: 14px; color: var(--text-secondary);">
+                <p><strong>PaceLeague Solutions GmbH</strong><br>
+                Fenerbahce Straße 1907, 1010 Wien, Österreich<br>
+                E-Mail: contact@paceleague.at<br><br>
+                
+                <strong id="lbl-manager">Geschäftsführer:</strong><br>
+                Ismet Ünal (CEO)<br>
+                Burak Özbey (CEO)<br><br>
+                
+                <strong id="lbl-fb">Firmenbuchnummer:</strong> FN 123456 x<br>
+                <strong id="lbl-fbg">Firmenbuchgericht:</strong> <span id="val-fbg">Handelsgericht Wien</span><br>
+                <strong>UID-Nummer:</strong> ATU98765432<br>
+                <strong id="lbl-gs">Gerichtsstand:</strong> <span id="val-gs">Handelsgericht Wien</span><br>
+                <strong id="lbl-kammer">Kammer:</strong> <span id="val-kammer">Wirtschaftskammer Wien</span><br>
+                <strong id="lbl-aufsicht">Aufsichtsbehörde:</strong> <span id="val-aufsicht">Magistrat der Stadt Wien</span><br>
+                <strong id="lbl-trade">Anwendbare Rechtsvorschriften:</strong> <span id="val-trade">Gewerbeordnung (GewO) abrufbar unter www.ris.bka.gv.at</span><br><br>
+
+                <strong id="lbl-purpose">Unternehmensgegenstand:</strong> <span id="val-purpose">Entwicklung, Vertrieb und Betrieb von mobiler Fitness-Software und Gamification-Plattformen.</span>
+                </p>
+                
+                <span class="legal-note" id="legal-note-text">(Konformität gemäß § 24 Mediengesetz und § 5 E-Commerce-Gesetz)</span>
+            </div>
+        </section>
+    </main>
+
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1e293a; color: white; padding: 15px; text-align: center; z-index: 2000; border-top: 1px solid var(--border-color);">
+        <span id="cookie-text">Diese Website verwendet Cookies zu Analysezwecken.</span>
+        <button id="cookie-btn" onclick="document.getElementById('cookie-banner').style.display='none'" style="background: var(--accent-blue); color: white; border: none; padding: 5px 15px; margin-left: 15px; border-radius: 5px; cursor: pointer;">Akzeptieren</button>
     </div>
-    <a href="index.html">← Zurück zur Startseite</a>
+
+    <footer>
+        <p>&copy; 2026 PaceLeague Solutions GmbH</p>
+        <div class="legal-links">
+            <a href="accessibility.html" id="link-acc">Barrierefreiheit</a> | 
+            <a href="privacy.html" id="link-priv">Datenschutz</a> | 
+            <a href="imprint.html" id="link-imp" style="color: var(--text-main);">Impressum</a> | 
+            <a href="contact.html" id="link-cont">Kontakt</a> |
+            <a href="license.html" id="link-lic">Lizenz</a>
+        </div>
+    </footer>
+
+    <script src="translation.js"></script>
+    <script>
+        const localTranslations = {
+            de: {
+                titleImprint: "Impressum",
+                lblManager: "Geschäftsführer:",
+                lblFb: "Firmenbuchnummer:",
+                lblFbg: "Firmenbuchgericht:",
+                valFbg: "Handelsgericht Wien",
+                lblGs: "Gerichtsstand:",
+                valGs: "Handelsgericht Wien",
+                lblKammer: "Kammer:",
+                valKammer: "Wirtschaftskammer Wien",
+                lblAufsicht: "Aufsichtsbehörde:",
+                valAufsicht: "Magistrat der Stadt Wien",
+                lblTrade: "Anwendbare Rechtsvorschriften:",
+                valTrade: "Gewerbeordnung (GewO) abrufbar unter www.ris.bka.gv.at",
+                lblPurpose: "Unternehmensgegenstand:",
+                valPurpose: "Entwicklung, Vertrieb und Betrieb von mobiler Fitness-Software und Gamification-Plattformen.",
+                legalNote: "(Konformität gemäß § 24 Mediengesetz und § 5 E-Commerce-Gesetz)"
+            },
+            en: {
+                titleImprint: "Imprint",
+                lblManager: "Managing Directors:",
+                lblFb: "Commercial Register No:",
+                lblFbg: "Commercial Register Court:",
+                valFbg: "Commercial Court Vienna",
+                lblGs: "Place of Jurisdiction:",
+                valGs: "Commercial Court Vienna",
+                lblKammer: "Chamber:",
+                valKammer: "Vienna Chamber of Commerce",
+                lblAufsicht: "Supervisory Authority:",
+                valAufsicht: "Vienna City Administration",
+                lblTrade: "Applicable Regulations:",
+                valTrade: "Industrial Code (Gewerbeordnung - GewO) accessible at www.ris.bka.gv.at",
+                lblPurpose: "Corporate Purpose:",
+                valPurpose: "Development, distribution, and operation of mobile fitness software and gamification platforms.",
+                legalNote: "(Compliance with § 24 Media Act and § 5 E-Commerce Act)"
+            }
+        };
+
+        const originalSetLanguage = window.setLanguage;
+        window.setLanguage = function(lang) {
+            if (typeof originalSetLanguage === 'function') {
+                originalSetLanguage(lang);
+            }
+            
+            const t = localTranslations[lang];
+            if (!t) return;
+
+            const setText = (id, text) => { let el = document.getElementById(id); if(el) el.innerText = text; };
+
+            setText('title-imprint', t.titleImprint);
+            setText('lbl-manager', t.lblManager);
+            setText('lbl-fb', t.lblFb);
+            setText('lbl-fbg', t.lblFbg);
+            setText('val-fbg', t.valFbg);
+            setText('lbl-gs', t.lblGs);
+            setText('val-gs', t.valGs);
+            setText('lbl-kammer', t.lblKammer);
+            setText('val-kammer', t.valKammer);
+            setText('lbl-aufsicht', t.lblAufsicht);
+            setText('val-aufsicht', t.valAufsicht);
+            setText('lbl-trade', t.lblTrade);
+            setText('val-trade', t.valTrade);
+            setText('lbl-purpose', t.lblPurpose);
+            setText('val-purpose', t.valPurpose);
+            setText('legal-note-text', t.legalNote);
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('paceleague_lang') || 'de';
+            setLanguage(savedLang);
+        });
+    </script>
 </body>
 </html>
