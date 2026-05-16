@@ -1,13 +1,194 @@
 <!DOCTYPE html>
 <html lang="de">
-<head><meta charset="UTF-8"><title>Barrierefreiheit - PaceLeague</title>
-<style>body{font-family:sans-serif;background-color:#0b111a;color:#ffffff;padding:40px;} h1{color:#7c83ff;} .card{background:#1e293a;padding:20px;border-radius:12px;border:1px solid #313c4c;} a{color:#97a1af;text-decoration:none;display:block;margin-top:20px;}</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barrierefreiheit – PaceLeague</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        :root {
+            --bg-color: #0b111a; 
+            --card-bg: #1e293a; 
+            --border-color: #313c4c; 
+            --text-main: #ffffff; 
+            --text-secondary: #97a1af; 
+            --accent-blue: #7c83ff; 
+            --accent-red: #ff6b6b;
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: var(--text-main); margin: 0; background-color: var(--bg-color); }
+
+        header { background-color: var(--card-bg); padding: 16px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 22px; font-weight: 800; letter-spacing: -1px; }
+        
+        .header-controls { display: flex; align-items: center; gap: 20px; }
+        
+        .lang-switch { display: flex; gap: 10px; align-items: center; }
+        .lang-icon { width: 24px; height: 24px; cursor: pointer; border-radius: 50%; border: 2px solid transparent; transition: border-color 0.2s; overflow: hidden; display: flex; opacity: 0.5; }
+        .lang-icon.active { border-color: var(--accent-blue); opacity: 1; }
+        .lang-icon svg { width: 100%; height: 100%; object-fit: cover; }
+
+        .app-btn { background-color: #ffffff; color: #000; padding: 8px 18px; border-radius: 24px; text-decoration: none; font-weight: 700; font-size: 13px; }
+
+        nav { background: var(--card-bg); padding: 0 24px; display: flex; gap: 30px; border-bottom: 1px solid var(--border-color); position: sticky; top: 61px; z-index: 999; }
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 700; padding: 18px 0; border-bottom: 3px solid transparent; cursor: pointer; text-transform: uppercase; }
+        nav a:hover, nav a.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
+
+        .page-section { padding: 40px 20px; max-width: 900px; margin: auto; }
+
+        h2 { color: var(--accent-blue); font-size: 24px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
+        .info-card { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid var(--border-color); margin-bottom: 24px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 14px; color: var(--text-secondary); }
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        th { color: var(--text-main); border-bottom: 1px solid var(--border-color); }
+        
+        .badge { padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; white-space: nowrap; }
+        .badge-done { background: rgba(40, 167, 69, 0.1); color: #2de05b; border: 1px solid #28a745; }
+        .badge-wip { background: rgba(255, 193, 7, 0.1); color: #ffc107; border: 1px solid #ffc107; }
+
+        footer { text-align: center; padding: 60px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); margin-top: 40px; }
+        .legal-links a { color: var(--accent-blue); text-decoration: none; margin: 0 10px; cursor: pointer; font-weight: 600; }
+    </style>
 </head>
 <body>
-<h1>Barrierefreiheitserklärung</h1>
-<div class="card">
-    <p>Diese Website ist WCAG 2.2 AA konform. Wir nutzen hohen Kontrast und Screenreader-Unterstützung, um allen Nutzern den Zugang zu ermöglichen.</p>
-</div>
-<a href="index.html">← Zurück</a>
+
+    <a href="#accessibility" id="skip-link" style="position: absolute; top: -40px; left: 0; background: var(--accent-blue); color: white; padding: 8px; z-index: 2001; transition: top 0.2s;" onfocus="this.style.top='0px'" onblur="this.style.top='-40px'">Zum Inhalt springen</a>
+
+    <header>
+        <div class="logo">PACELEAGUE</div>
+        <div class="header-controls">
+            <div class="lang-switch">
+                <div class="lang-icon active" id="lang-de" onclick="setLanguage('de')" onkeydown="if(event.key === 'Enter') setLanguage('de')" tabindex="0" title="Deutsch" role="button" aria-label="Auf Deutsch umschalten">
+                    <svg viewBox="0 0 512 512"><path fill="#ffce44" d="M0 373.3h512V512H0z"/><path d="M0 0h512v138.7H0z"/><path fill="#d00" d="M0 138.7h512v234.6H0z"/></svg>
+                </div>
+                <div class="lang-icon" id="lang-en" onclick="setLanguage('en')" onkeydown="if(event.key === 'Enter') setLanguage('en')" tabindex="0" title="English" role="button" aria-label="Switch to English">
+                    <svg viewBox="0 0 512 512"><path fill="#00247d" d="M0 0h512v512H0z"/><path stroke="#fff" stroke-width="64" d="M0 0l512 512M512 0L0 512"/><path stroke="#cf142b" stroke-width="40" d="M0 0l512 512M512 0L0 512"/><path stroke="#fff" stroke-width="107" d="M256 0v512M0 256h512"/><path stroke="#cf142b" stroke-width="64" d="M256 0v512M0 256h512"/></svg>
+                </div>
+            </div>
+            <a href="#" class="app-btn" id="btn-download">Download App</a>
+        </div>
+    </header>
+
+    <nav role="navigation">
+        <a href="index.html" id="nav-home">Home</a>
+        <a href="features.html" id="nav-features">Features</a>
+        <a href="about.html" id="nav-about">Über uns</a>
+        <a href="contact.html" id="nav-contact">Contact</a>
+    </nav>
+
+    <main>
+        <section id="accessibility" class="page-section">
+            <h2 id="title-acc">Barrierefreiheitserklärung</h2>
+            <div class="info-card">
+                <p id="acc-p1">PaceLeague Solutions GmbH ist bemüht, die Website paceleague-web.pages.dev im Einklang mit WCAG 2.2 AA barrierefrei zu gestalten. Diese Erklärung gilt für den gesamten Webauftritt.</p>
+                
+                <h3 id="acc-h1" style="color: var(--accent-blue); font-size: 18px; margin-top: 20px;">Stand der Vereinbarkeit</h3>
+                <p id="acc-p2" style="color: var(--text-secondary); font-size: 14px;">Diese Website ist mit den Anforderungen der WCAG 2.2 auf Stufe AA weitgehend vereinbar. Einzelne Bereiche befinden sich noch in Bearbeitung.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th id="acc-th1">Kriterium</th>
+                            <th id="acc-th2">Beschreibung</th>
+                            <th id="acc-th3">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alt Text (1.1.1)</td>
+                            <td id="acc-td1-2">Alternative Texte für Bilder</td>
+                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr>
+                            <td>Semantisches HTML (1.3.1)</td>
+                            <td id="acc-td2-2">Strukturierung durch semantische Tags</td>
+                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr>
+                            <td>Kontrast (1.4.3)</td>
+                            <td id="acc-td3-2">Minimum 4,5:1 Kontrastverhältnis</td>
+                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr>
+                            <td>Reflow 320px (1.4.10)</td>
+                            <td id="acc-td4-2">Responsive Design ohne horizontales Scrollen</td>
+                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr>
+                            <td id="acc-td5-1">Tastaturnavigation (2.1.1)</td>
+                            <td id="acc-td5-2">Bedienbarkeit vollständig per Tastatur</td>
+                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr>
+                            <td>aria-live für Live-Updates (2.4.3)</td>
+                            <td id="acc-td6-2">Die automatisch aktualisierten Schrittzähler auf der Startseite werden Screenreadern über aria-live mitgeteilt.</td>
+                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr>
+                            <td>Skip-Link (2.4.1)</td>
+                            <td id="acc-td7-2">Möglichkeit, Bereiche zu überspringen.</td>
+                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr>
+                            <td id="acc-td8-1">Seitentitel (2.4.2)</td>
+                            <td id="acc-td8-2">Aussagekräftige und eindeutige Titel</td>
+                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr>
+                            <td id="acc-td9-1">Fokus sichtbar (2.4.7)</td>
+                            <td id="acc-td9-2">Visuelle Hervorhebung des aktiven Fokus</td>
+                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr>
+                            <td id="acc-td10-1">Sprache lang=de (3.1.1)</td>
+                            <td id="acc-td10-2">Hauptsprache im HTML-Tag deklariert</td>
+                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr>
+                            <td id="acc-td11-1">Formular-Labels (3.3.2)</td>
+                            <td id="acc-td11-2">Korrekte Beschriftung aller Eingabefelder</td>
+                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                        <tr>
+                            <td>ARIA (4.1.2)</td>
+                            <td id="acc-td12-2">Zusätzliche Kontext-Informationen</td>
+                            <td><span class="badge badge-done">Umgesetzt</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 id="acc-h2" style="color: var(--accent-blue); font-size: 18px; margin-top: 30px;">Erstellung dieser Erklärung</h3>
+                <p id="acc-p3" style="color: var(--text-secondary); font-size: 14px;">Diese Erklärung wurde im Mai 2026 auf Grundlage einer Selbstbewertung erstellt. Geprüft wurde mit WAVE Web Accessibility Evaluation Tool und manuellen Tastatur-Tests.</p>
+
+                <h3 id="acc-h3" style="color: var(--accent-blue); font-size: 18px; margin-top: 25px;">Feedback und Kontakt</h3>
+                <p id="acc-p4" style="color: var(--text-secondary); font-size: 14px;">Barrieren können per E-Mail an contact@paceleague.at gemeldet werden. Wir antworten innerhalb von 5 Werktagen.</p>
+
+                <h3 id="acc-h4" style="color: var(--accent-blue); font-size: 18px; margin-top: 25px;">Durchsetzungsverfahren</h3>
+                <p id="acc-p5" style="color: var(--text-secondary); font-size: 14px;">Wenn Sie auf eine Meldung keine zufriedenstellende Antwort erhalten, können Sie sich an das Bundesministerium für Digitalisierung und Wirtschaftsstandort wenden: bmdw.gv.at</p>
+
+                <p id="acc-p6" style="font-size: 12px; color: var(--text-secondary); font-style: italic; margin-top: 20px;">PaceLeague Solutions GmbH beschäftigt weniger als 10 Personen und gilt als Kleinstunternehmen gemäß § 6 BaFG. Eine unverhältnismäßige Belastung wird für einzelne noch offene Punkte geltend gemacht.</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1e293a; color: white; padding: 15px; text-align: center; z-index: 2000; border-top: 1px solid var(--border-color);">
+        <span id="cookie-text">Diese Website verwendet Cookies zu Analysezwecken.</span>
+        <button id="cookie-btn" onclick="document.getElementById('cookie-banner').style.display='none'" style="background: var(--accent-blue); color: white; border: none; padding: 5px 15px; margin-left: 15px; border-radius: 5px; cursor: pointer;">Akzeptieren</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 PaceLeague Solutions GmbH</p>
+        <div class="legal-links">
+            <a href="accessibility.html" id="link-acc" style="color: var(--text-main);">Barrierefreiheit</a> | 
+            <a href="privacy.html" id="link-priv">Datenschutz</a> | 
+            <a href="imprint.html" id="link-imp">Impressum</a> | 
+            <a href="contact.html" id="link-cont">Kontakt</a> |
+            <a href="license.html" id="link-lic">Lizenz</a>
+        </div>
+    </footer>
+
+    <script src="translation.js"></script>
 </body>
 </html>
