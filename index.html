@@ -6,7 +6,6 @@
     <title>PaceLeague – Official Website</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
-        /* DEFINE CORE DESIGN SYSTEM AND COLOR PALETTE */
         :root {
             --bg-color: #0b111a; 
             --card-bg: #1e293a; 
@@ -20,55 +19,60 @@
         * { box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: var(--text-main); margin: 0; background-color: var(--bg-color); }
 
-        /* HEADER AND NAVIGATION DESIGN */
         header { background-color: var(--card-bg); padding: 16px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 22px; font-weight: 800; letter-spacing: -1px; }
-        
         .header-controls { display: flex; align-items: center; gap: 20px; }
-        
         .lang-switch { display: flex; gap: 10px; align-items: center; }
         .lang-icon { width: 24px; height: 24px; cursor: pointer; border-radius: 50%; border: 2px solid transparent; transition: border-color 0.2s; overflow: hidden; display: flex; opacity: 0.5; }
         .lang-icon.active { border-color: var(--accent-blue); opacity: 1; }
         .lang-icon svg { width: 100%; height: 100%; object-fit: cover; }
-
         .app-btn { background-color: #ffffff; color: #000; padding: 8px 18px; border-radius: 24px; text-decoration: none; font-weight: 700; font-size: 13px; }
 
         nav { background: var(--card-bg); padding: 0 24px; display: flex; gap: 30px; border-bottom: 1px solid var(--border-color); position: sticky; top: 61px; z-index: 999; }
         nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 700; padding: 18px 0; border-bottom: 3px solid transparent; cursor: pointer; text-transform: uppercase; }
         nav a:hover, nav a.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
 
-        /* WELCOME HERO SECTION */
-        .hero { 
-           <div class="hero" id="main-hero" role="banner" style="position:relative; overflow:hidden;">
-    <video autoplay muted playsinline
-           onended="this.pause()"
-           style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0; opacity:0.35;">
-        <source src="hero_video.mp4" type="video/mp4">
-    </video>
-    <div style="position:relative; z-index:1;">
-        <h1 id="hero-title">Move. Compete. Win.</h1>
-        <p id="hero-desc">Treten Sie der größten digitalen Schritt-Community Wiens bei...</p>
-    </div>
-</div>
+        /* HERO */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 80px 24px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #0b111a;
+        }
+        .hero video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.35;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(11,17,26,0.5) 0%, rgba(11,17,26,0.85) 100%);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
         .hero h1 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
         .hero p { color: var(--text-main); font-size: 16px; max-width: 600px; margin: 0 auto; }
 
-        /* CONTENT SECTION LAYOUT */
         .page-section { padding: 40px 20px; max-width: 900px; margin: auto; }
-
         h2 { color: var(--accent-blue); font-size: 24px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
         .data-card, .info-card { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid var(--border-color); margin-bottom: 24px; }
-
         .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; }
         .unit-label { color: var(--text-secondary); font-size: 11px; font-weight: 800; letter-spacing: 1px; }
-        
         .squad-row { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .squad-row:last-child { border-bottom: none; }
         .team-info { display: flex; align-items: center; font-size: 21px; font-weight: 700; }
         .profile-img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; margin-right: 15px; border: 2px solid var(--accent-blue); }
         .steps { font-weight: 800; font-variant-numeric: tabular-nums; font-size: 30px; color: var(--text-main); }
-
         .community-card { background: rgba(124, 131, 255, 0.05); border: 1px dashed var(--accent-blue); padding: 20px; border-radius: 12px; text-align: center; margin-top: 40px; }
 
         footer { text-align: center; padding: 60px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); }
@@ -103,8 +107,14 @@
 
     <main>
         <div class="hero" id="main-hero" role="banner">
-            <h1 id="hero-title">Move. Compete. Win.</h1>
-            <p id="hero-desc">Treten Sie der größten digitalen Schritt-Community Wiens bei. Gründen Sie Ihr Squad und verteidigen Sie Ihren Bezirk.</p>
+            <video autoplay muted playsinline onended="this.pause()" aria-hidden="true">
+                <source src="hero_video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 id="hero-title">Move. Compete. Win.</h1>
+                <p id="hero-desc">Treten Sie der größten digitalen Schritt-Community Wiens bei. Gründen Sie Ihr Squad und verteidigen Sie Ihren Bezirk.</p>
+            </div>
         </div>
 
         <section id="home" class="page-section">
