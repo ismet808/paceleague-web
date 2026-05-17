@@ -99,7 +99,7 @@
 
             <h2>Urheberrecht & Medienlizenzen</h2>
 
-            <div class="info-card" style="padding: 0; overflow: hidden;">
+            <div class="info-card" style="padding: 0; overflow: hidden; margin-bottom: 24px;">
                 <table aria-label="Medienlizenzen PaceLeague">
                     <thead>
                         <tr>
@@ -138,6 +138,11 @@
                 </table>
             </div>
 
+            <div class="info-card">
+                <h3 id="lic-ai-title">KI-Einsatz (Künstliche Intelligenz)</h3>
+                <p id="lic-ai-desc">Für die Erstellung und Optimierung bestimmter Inhalte auf dieser Website wurde teilweise <a href="https://gemini.google.com" target="_blank" style="color: var(--accent-blue);">Google Gemini</a> verwendet.</p>
+            </div>
+
         </section>
     </main>
 
@@ -158,5 +163,36 @@
     </footer>
 
     <script src="translation.js"></script>
+    <script>
+        const customTranslationsLic = {
+            de: {
+                licAiTitle: "KI-Einsatz (Künstliche Intelligenz)",
+                licAiDesc: "Für die Erstellung und Optimierung bestimmter Inhalte auf dieser Website wurde teilweise <a href='https://gemini.google.com' target='_blank' style='color: var(--accent-blue);'>Google Gemini</a> verwendet."
+            },
+            en: {
+                licAiTitle: "AI Usage (Artificial Intelligence)",
+                licAiDesc: "For the creation and optimization of certain content on this website, <a href='https://gemini.google.com' target='_blank' style='color: var(--accent-blue);'>Google Gemini</a> was partially used."
+            }
+        };
+
+        const originalSetLanguageLic = window.setLanguage;
+        window.setLanguage = function(lang) {
+            if (typeof originalSetLanguageLic === 'function') {
+                originalSetLanguageLic(lang);
+            }
+            
+            const t = customTranslationsLic[lang];
+            if (!t) return;
+
+            const setHtml = (id, html) => { let el = document.getElementById(id); if(el) el.innerHTML = html; };
+            setHtml('lic-ai-title', t.licAiTitle);
+            setHtml('lic-ai-desc', t.licAiDesc);
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('paceleague_lang') || 'de';
+            setLanguage(savedLang);
+        });
+    </script>
 </body>
 </html>
