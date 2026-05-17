@@ -69,6 +69,7 @@
     <nav role="navigation">
         <a href="index.html" id="nav-home">Home</a>
         <a href="features.html" id="nav-features" class="active">Features</a>
+        <a href="shop.html" id="nav-shop">Shop</a>
         <a href="about.html" id="nav-about">Über uns</a>
         <a href="contact.html" id="nav-contact">Contact</a>
     </nav>
@@ -79,19 +80,19 @@
             <div class="feature-grid">
                 <div class="feature-card">
                     <h3 id="f1-t">5v5 Squad Battles</h3>
-                    <p id="f1-p">Zusammen mit Freunden ein Squad bilden und im Alltag gegen andere Bezirke antreten.</p>
+                    <p id="f1-p">Gründen Sie Ihr eigenes Squad oder treten Sie einem bei. Kämpfen Sie in Echtzeit gegen andere Teams aus Wien.</p>
                 </div>
                 <div class="feature-card">
                     <h3 id="f2-t">Solo-Rankings</h3>
-                    <p id="f2-p">Die eigene Leistung zählt. Klettere in der allgemeinen Bestenliste nach oben.</p>
+                    <p id="f2-p">Beweisen Sie Ihre persönliche Leistung. Dominieren Sie die Bestenlisten Ihres Bezirks und werden Sie die Nummer 1.</p>
                 </div>
                 <div class="feature-card">
                     <h3 id="f3-t">Wiener Partner-Deals</h3>
-                    <p id="f3-p">Gute Platzierungen werden mit Gutscheinen von lokalen Shops und Lokalen belohnt.</p>
+                    <p id="f3-p">Top-Performer erhalten exklusive Gutscheine bei lokalen Partnern.</p>
                 </div>
                 <div class="feature-card">
                     <h3 id="f4-t">Avatar & Skins</h3>
-                    <p id="f4-p">Den eigenen Charakter individuell gestalten, komplett ohne versteckte Kosten.</p>
+                    <p id="f4-p">Personalisieren Sie Ihren digitalen Läufer mit exklusiven Accessoires.</p>
                 </div>
             </div>
         </section>
@@ -114,55 +115,5 @@
     </footer>
 
     <script src="translation.js"></script>
-    <script>
-        const localTranslationsFeatures = {
-            de: {
-                f1t: "5v5 Squad Battles",
-                f1p: "Zusammen mit Freunden ein Squad bilden und im Alltag gegen andere Bezirke antreten.",
-                f2t: "Solo-Rankings",
-                f2p: "Die eigene Leistung zählt. Klettere in der allgemeinen Bestenliste nach oben.",
-                f3t: "Wiener Partner-Deals",
-                f3p: "Gute Platzierungen werden mit Gutscheinen von lokalen Shops und Lokalen belohnt.",
-                f4t: "Avatar & Skins",
-                f4p: "Den eigenen Charakter individuell gestalten, komplett ohne versteckte Kosten."
-            },
-            en: {
-                f1t: "5v5 Squad Battles",
-                f1p: "Form a squad with friends and compete daily against other districts.",
-                f2t: "Solo Rankings",
-                f2p: "Your individual performance matters. Climb to the top of the overall leaderboard.",
-                f3t: "Vienna Partner Deals",
-                f3p: "High ranks are rewarded with vouchers from local shops and venues.",
-                f4t: "Avatar & Skins",
-                f4p: "Customize your character completely without hidden in-app purchases."
-            }
-        };
-
-        const originalSetLanguageFeatures = window.setLanguage;
-        window.setLanguage = function(lang) {
-            if (typeof originalSetLanguageFeatures === 'function') {
-                originalSetLanguageFeatures(lang);
-            }
-            
-            const t = localTranslationsFeatures[lang];
-            if (!t) return;
-
-            const setText = (id, text) => { let el = document.getElementById(id); if(el) el.innerText = text; };
-
-            setText('f1-t', t.f1t);
-            setText('f1-p', t.f1p);
-            setText('f2-t', t.f2t);
-            setText('f2-p', t.f2p);
-            setText('f3-t', t.f3t);
-            setText('f3-p', t.f3p);
-            setText('f4-t', t.f4t);
-            setText('f4-p', t.f4p);
-        };
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('paceleague_lang') || 'de';
-            setLanguage(savedLang);
-        });
-    </script>
 </body>
 </html>

@@ -1,26 +1,19 @@
 const translations = {
     de: {
-        home: "Home", features: "Features", about: "Über uns", contact: "Kontakt",
+        home: "Home", features: "Features", shop: "Shop", about: "Über uns", contact: "Kontakt",
         heroT: "Move. Compete. Win.",
         heroD: "Treten Sie der größten digitalen Schritt-Community Wiens bei. Gründen Sie Ihr Squad und verteidigen Sie Ihren Bezirk.",
         liveT: "Live Squad Matches", stepsL: "SCHRITTE", performerT: "Top Performer", indivL: "INDIVIDUELL",
         commC: 'Werden Sie Teil der Bewegung. <span style="color: var(--accent-blue); font-weight: 800;">Wien-weit über 5.000 aktive Läufer.</span>',
         featT: "App Features",
         f1t: "5v5 Squad Battles",
-        f1p: "Zusammen mit Freunden ein Squad bilden und im Alltag gegen andere Bezirke antreten.",
+        f1p: "Ein Squad gründen oder einem beitreten. Dann gegen andere Teams aus Wien kämpfen, in Echtzeit.",
         f2t: "Solo-Rankings",
-        f2p: "Die eigene Leistung zählt. Klettere in der allgemeinen Bestenliste nach oben.",
+        f2p: "Wer lieber alleine läuft, kann trotzdem in den Bezirkslisten ganz oben landen.",
         f3t: "Wiener Partner-Deals",
-        f3p: "Gute Platzierungen werden mit Gutscheinen von lokalen Shops und Lokalen belohnt.",
+        f3p: "Wer regelmäßig unter den Besten ist, bekommt Gutscheine von lokalen Betrieben.",
         f4t: "Avatar & Skins",
-        f4p: "Den eigenen Charakter individuell gestalten, komplett ohne versteckte Kosten.",
-
-        s1Title: "Schrittzählung", s1Desc: "Läuft im Hintergrund und zählt alle Bewegungen im Alltag mit.",
-        s2Title: "5v5 Squad Battles", s2Desc: "Teams aus verschiedenen Bezirken treten gegeneinander an.",
-        s3Title: "Solo-Rankings", s3Desc: "Alleine spielen und sich in der Bestenliste hocharbeiten.",
-        s4Title: "Charakter Anpassung", s4Desc: "Einen eigenen Avatar erstellen und nach Belieben einkleiden.",
-        s5Title: "Partner Deals", s5Desc: "Gutscheine von lokalen Wiener Betrieben als Belohnung erhalten.",
-        s6Title: "Statistiken", s6Desc: "Die eigene Leistung in Wochenberichten einsehen.",
+        f4p: "Den eigenen Läufer anpassen. Outfits werden durch Leistung freigeschaltet, nicht gekauft.",
 
         aboutT: "Über PaceLeague",
         aboutH1: "Das Unternehmen",
@@ -31,12 +24,12 @@ const translations = {
         job1: "CEO", job2: "CEO", job3: "Mobile Development", job4: "UI/UX Design", job5: "Backend Infrastruktur", job6: "Softwareentwickler",
         aboutH3: "Unser Produkt",
         aboutP3: "PaceLeague zählt deine Schritte und macht daraus einen echten Wettkampf. Für iOS und Android, funktioniert auch mit Smartwatch. Der Grundgedanke: Sport macht mehr Spaß wenn jemand verlieren kann.",
-        prodL1: "<strong>Schrittzählung:</strong> Läuft im Hintergrund, zählt alles mit, auch wenn man es vergisst.",
-        prodL2: "<strong>5v5 Squad Battles:</strong> Fünf Leute gegen fünf andere aus einem anderen Bezirk. Wer mehr geht, gewinnt.",
-        prodL3: "<strong>Solo-Rankings:</strong> Wer will kann auch alleine gegen die Bestenliste kämpfen.",
-        prodL4: "<strong>Avatar und Skins:</strong> Den eigenen Charakter anpassen. Nichts davon muss man kaufen.",
-        prodL5: "<strong>Partner-Deals:</strong> Wer oben in der Rangliste steht bekommt Gutscheine von lokalen Betrieben in Wien.",
-        prodL6: "<strong>Statistiken:</strong> Wochenberichte, Fortschritte, wie man sich gegen andere schlägt.",
+        prodL1: "👟 <strong>Schrittzählung:</strong> Läuft im Hintergrund, zählt alles mit, auch wenn man es vergisst.",
+        prodL2: "⚔️ <strong>5v5 Squad Battles:</strong> Fünf Leute gegen fünf andere aus einem anderen Bezirk. Wer mehr geht, gewinnt.",
+        prodL3: "🏆 <strong>Solo-Rankings:</strong> Wer will kann auch alleine gegen die Bestenliste kämpfen.",
+        prodL4: "👕 <strong>Avatar und Skins:</strong> Den eigenen Charakter anpassen. Nichts davon muss man kaufen.",
+        prodL5: "🎁 <strong>Partner-Deals:</strong> Wer oben in der Rangliste steht bekommt Gutscheine von lokalen Betrieben in Wien.",
+        prodL6: "📊 <strong>Statistiken:</strong> Wochenberichte, Fortschritte, wie man sich gegen andere schlägt.",
         aboutH4: "Zielgruppe",
         aboutP4: "Eigentlich alle die in Wien leben und ab und zu spazieren gehen oder laufen. Hauptsächlich 18 bis 45, aber ehrlich gesagt spielen auch Leute drüber. Wettbewerb motiviert, das ist keine neue Idee, wir haben es nur auf Schritte übertragen.",
         aboutH5: "Geschäftsmodell",
@@ -44,9 +37,9 @@ const translations = {
         bizP2: "Werbung gibt es keine. Weder in der kostenlosen Version noch in der bezahlten. Das war von Anfang an so geplant und das bleibt auch so.",
         bizP3: "Geld kommt rein durch Abonnements, durch Fördermittel und durch Deals mit lokalen Firmen die ihren Gutschein in der App anbieten wollen.",
         aboutH6: "Unsere Marken und visuelle Identität",
-        brandL1: "<strong>Wortmarke \"PaceLeague\":</strong> Der Name selbst, eingetragen in Nizza-Klassen 9, 41 und 42.",
-        brandL2: "<strong>Bildmarke \"Pace\":</strong> Das P-Icon das auch als Favicon läuft. Klassen 9 und 42.",
-        brandL3: "<strong>Farbmarke:</strong> Der Blauton #7c83ff den man überall auf der Seite sieht. Klasse 41.",
+        brandL1: "🏷️ <strong>Wortmarke \"PaceLeague\":</strong> Der Name selbst, eingetragen in Nizza-Klassen 9, 41 und 42.",
+        brandL2: "🎨 <strong>Bildmarke \"Pace\":</strong> Das P-Icon das auch als Favicon läuft. Klassen 9 und 42.",
+        brandL3: "🖌️ <strong>Farbmarke:</strong> Der Blauton #7c83ff den man überall auf der Seite sieht. Klasse 41.",
         brandT1: "1. Wortbildmarke: PaceLeague",
         brandT2: "2. Bildmarke: Pace (Favicon-Logo)",
         brandT3: "3. Farbmarke: #7c83ff",
@@ -60,27 +53,20 @@ const translations = {
         dist19: "Bezirk 19"
     },
     en: {
-        home: "Home", features: "Features", about: "About Us", contact: "Contact",
+        home: "Home", features: "Features", shop: "Shop", about: "About Us", contact: "Contact",
         heroT: "Move. Compete. Win.",
         heroD: "Join Vienna's largest digital step community. Create your squad and defend your district.",
         liveT: "Live Squad Matches", stepsL: "STEPS", performerT: "Top Performer", indivL: "INDIVIDUAL",
         commC: 'Join the movement. <span style="color: var(--accent-blue); font-weight: 800;">Over 5,000 active runners Vienna-wide.</span>',
         featT: "App Features",
         f1t: "5v5 Squad Battles",
-        f1p: "Form a squad with friends and compete daily against other districts.",
+        f1p: "Start a squad or join one. Then compete against other teams from Vienna in real time.",
         f2t: "Solo Rankings",
-        f2p: "Your individual performance matters. Climb to the top of the overall leaderboard.",
+        f2p: "Prefer running alone? You can still top the district leaderboards.",
         f3t: "Vienna Partner Deals",
-        f3p: "High ranks are rewarded with vouchers from local shops and venues.",
+        f3p: "Regular top performers get vouchers from local businesses.",
         f4t: "Avatar & Skins",
-        f4p: "Customize your character completely without hidden in-app purchases.",
-
-        s1Title: "Step Counting", s1Desc: "Runs in the background and tracks all your daily movements.",
-        s2Title: "5v5 Squad Battles", s2Desc: "Teams from different districts compete directly against each other.",
-        s3Title: "Solo Rankings", s3Desc: "Play solo and work your way up the general leaderboard.",
-        s4Title: "Character Customization", s4Desc: "Create your own avatar and dress it up however you like.",
-        s5Title: "Partner Deals", s5Desc: "Earn vouchers from local Viennese businesses as rewards.",
-        s6Title: "Statistics", s6Desc: "Review your performance through weekly progress reports.",
+        f4p: "Customize your runner. Outfits are unlocked through performance, not purchases.",
 
         aboutT: "About PaceLeague",
         aboutH1: "The Company",
@@ -91,12 +77,12 @@ const translations = {
         job1: "CEO", job2: "CEO", job3: "Mobile Development", job4: "UI/UX Design", job5: "Backend Infrastructure", job6: "Software Developer",
         aboutH3: "Our Product",
         aboutP3: "PaceLeague counts your steps and turns them into real competition. Available for iOS and Android, works with smartwatches too. The idea: sport is more fun when someone can lose.",
-        prodL1: "<strong>Step Counting:</strong> Runs in the background, tracks everything even if you forget about it.",
-        prodL2: "<strong>5v5 Squad Battles:</strong> Five people against five from another district. Whoever walks more, wins.",
-        prodL3: "<strong>Solo Rankings:</strong> Prefer going solo? You can still compete against the leaderboard.",
-        prodL4: "<strong>Avatar and Skins:</strong> Customize your character. Nothing needs to be purchased.",
-        prodL5: "<strong>Partner Deals:</strong> Top performers get vouchers from local Vienna businesses.",
-        prodL6: "<strong>Statistics:</strong> Weekly summaries, progress tracking, how you compare to others.",
+        prodL1: "👟 <strong>Step Counting:</strong> Runs in the background, tracks everything even if you forget about it.",
+        prodL2: "⚔️ <strong>5v5 Squad Battles:</strong> Five people against five from another district. Whoever walks more, wins.",
+        prodL3: "🏆 <strong>Solo Rankings:</strong> Prefer going solo? You can still compete against the leaderboard.",
+        prodL4: "👕 <strong>Avatar and Skins:</strong> Customize your character. Nothing needs to be purchased.",
+        prodL5: "🎁 <strong>Partner Deals:</strong> Top performers get vouchers from local Vienna businesses.",
+        prodL6: "📊 <strong>Statistics:</strong> Weekly summaries, progress tracking, how you compare to others.",
         aboutH4: "Target Audience",
         aboutP4: "Basically anyone living in Vienna who walks or runs occasionally. Mainly 18 to 45, but honestly older people play too. Competition motivates — that's not a new idea, we just applied it to steps.",
         aboutH5: "Business Model",
@@ -104,9 +90,9 @@ const translations = {
         bizP2: "No ads. Not in the free version, not in the paid one. That was the plan from the start and it's staying that way.",
         bizP3: "Revenue comes from subscriptions, grants, and deals with local businesses that want their vouchers in the app.",
         aboutH6: "Our Brands and Visual Identity",
-        brandL1: "<strong>Wordmark \"PaceLeague\":</strong> The name itself, registered in Nice Classes 9, 41 and 42.",
-        brandL2: "<strong>Figurative Mark \"Pace\":</strong> The P-icon that also serves as the favicon. Classes 9 and 42.",
-        brandL3: "<strong>Color Mark:</strong> The blue tone #7c83ff visible throughout the site. Class 41.",
+        brandL1: "🏷️ <strong>Wordmark \"PaceLeague\":</strong> The name itself, registered in Nice Classes 9, 41 and 42.",
+        brandL2: "🎨 <strong>Figurative Mark \"Pace\":</strong> The P-icon that also serves as the favicon. Classes 9 and 42.",
+        brandL3: "🖌️ <strong>Color Mark:</strong> The blue tone #7c83ff visible throughout the site. Class 41.",
         brandT1: "1. Word & Figurative Mark: PaceLeague",
         brandT2: "2. Figurative Mark: Pace (Favicon Logo)",
         brandT3: "3. Color Mark: #7c83ff",
@@ -134,6 +120,7 @@ function setLanguage(lang) {
 
     setText('nav-home', t.home);
     setText('nav-features', t.features);
+    setText('nav-shop', t.shop);
     setText('nav-about', t.about);
     setText('nav-contact', t.contact);
     setText('btn-download', t.btnDown);
@@ -160,13 +147,6 @@ function setLanguage(lang) {
     setText('f2-t', t.f2t); setText('f2-p', t.f2p);
     setText('f3-t', t.f3t); setText('f3-p', t.f3p);
     setText('f4-t', t.f4t); setText('f4-p', t.f4p);
-
-    setText('s1-title', t.s1Title); setText('s1-desc', t.s1Desc);
-    setText('s2-title', t.s2Title); setText('s2-desc', t.s2Desc);
-    setText('s3-title', t.s3Title); setText('s3-desc', t.s3Desc);
-    setText('s4-title', t.s4Title); setText('s4-desc', t.s4Desc);
-    setText('s5-title', t.s5Title); setText('s5-desc', t.s5Desc);
-    setText('s6-title', t.s6Title); setText('s6-desc', t.s6Desc);
 
     setText('title-about', t.aboutT);
     setText('about-h1', t.aboutH1);

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lizenz – PaceLeague</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        :root {
+            --bg-color: #0b111a;
+            --card-bg: #1e293a;
+            --border-color: #313c4c;
+            --text-main: #ffffff;
+            --text-secondary: #97a1af;
+            --accent-blue: #7c83ff;
+            --accent-red: #ff6b6b;
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: var(--text-main); margin: 0; background-color: var(--bg-color); }
+
+        header { background-color: var(--card-bg); padding: 16px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 22px; font-weight: 800; letter-spacing: -1px; }
+        .header-controls { display: flex; align-items: center; gap: 20px; }
+        .lang-switch { display: flex; gap: 10px; align-items: center; }
+        .lang-icon { width: 24px; height: 24px; cursor: pointer; border-radius: 50%; border: 2px solid transparent; transition: border-color 0.2s; overflow: hidden; display: flex; opacity: 0.5; }
+        .lang-icon.active { border-color: var(--accent-blue); opacity: 1; }
+        .lang-icon svg { width: 100%; height: 100%; object-fit: cover; }
+        .app-btn { background-color: #ffffff; color: #000; padding: 8px 18px; border-radius: 24px; text-decoration: none; font-weight: 700; font-size: 13px; }
+
+        nav { background: var(--card-bg); padding: 0 24px; display: flex; gap: 30px; border-bottom: 1px solid var(--border-color); position: sticky; top: 61px; z-index: 999; }
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 700; padding: 18px 0; border-bottom: 3px solid transparent; cursor: pointer; text-transform: uppercase; }
+        nav a:hover, nav a.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
+
+        .page-section { padding: 40px 20px; max-width: 900px; margin: auto; }
+
+        h2 { color: var(--accent-blue); font-size: 24px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { color: var(--accent-blue); font-size: 16px; margin-top: 24px; margin-bottom: 10px; }
+        h3:first-child { margin-top: 0; }
+
+        .info-card { background: var(--card-bg); padding: 24px; border-radius: 16px; border: 1px solid var(--border-color); margin-bottom: 24px; }
+        .info-card p { color: var(--text-secondary); font-size: 14px; margin-bottom: 0; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 8px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border-color); }
+        th { color: var(--accent-blue); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+        td { color: var(--text-secondary); vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
+        .highlight { color: var(--text-main); font-weight: 700; }
+
+        footer { text-align: center; padding: 60px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); margin-top: 40px; }
+        .legal-links a { color: var(--accent-blue); text-decoration: none; margin: 0 10px; cursor: pointer; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <a href="#license" id="skip-link" style="position: absolute; top: -40px; left: 0; background: var(--accent-blue); color: white; padding: 8px; z-index: 2001; transition: top 0.2s;" onfocus="this.style.top='0px'" onblur="this.style.top='-40px'">Zum Inhalt springen</a>
+
+    <header>
+        <div class="logo">PACELEAGUE</div>
+        <div class="header-controls">
+            <div class="lang-switch">
+                <div class="lang-icon active" id="lang-de" onclick="setLanguage('de')" onkeydown="if(event.key === 'Enter') setLanguage('de')" tabindex="0" title="Deutsch" role="button" aria-label="Auf Deutsch umschalten">
+                    <svg viewBox="0 0 512 512"><path fill="#ffce44" d="M0 373.3h512V512H0z"/><path d="M0 0h512v138.7H0z"/><path fill="#d00" d="M0 138.7h512v234.6H0z"/></svg>
+                </div>
+                <div class="lang-icon" id="lang-en" onclick="setLanguage('en')" onkeydown="if(event.key === 'Enter') setLanguage('en')" tabindex="0" title="English" role="button" aria-label="Switch to English">
+                    <svg viewBox="0 0 512 512"><path fill="#00247d" d="M0 0h512v512H0z"/><path stroke="#fff" stroke-width="64" d="M0 0l512 512M512 0L0 512"/><path stroke="#cf142b" stroke-width="40" d="M0 0l512 512M512 0L0 512"/><path stroke="#fff" stroke-width="107" d="M256 0v512M0 256h512"/><path stroke="#cf142b" stroke-width="64" d="M256 0v512M0 256h512"/></svg>
+                </div>
+            </div>
+            <a href="#" class="app-btn" id="btn-download">Download App</a>
+        </div>
+    </header>
+
+    <nav role="navigation">
+        <a href="index.html" id="nav-home">Home</a>
+        <a href="features.html" id="nav-features">Features</a>
+        <a href="shop.html" id="nav-shop">Shop</a>
+        <a href="about.html" id="nav-about">Über uns</a>
+        <a href="contact.html" id="nav-contact">Contact</a>
+    </nav>
+
+    <main>
+        <section id="license" class="page-section">
+
+            <h2>Lizenzbedingungen</h2>
+
+            <div class="info-card">
+                <h3>Nutzungsrechte</h3>
+                <p>Mit dem Erwerb von PaceLeague+ bekommt man ein einfaches, nicht übertragbares Nutzungsrecht für eine Person auf einem Gerät. Die App darf für persönliche, nicht kommerzielle Zwecke genutzt werden. Weitergabe, Verkauf oder Unterlizenzierung ist nicht erlaubt. Den Quellcode dekompilieren oder verändern geht ebenfalls nicht.</p>
+
+                <h3>Rechte beim Unternehmen</h3>
+                <p>Alle Urheber- und Markenrechte an der App, dem Design, den Inhalten und dem Code bleiben bei PaceLeague Solutions GmbH. Ein Abonnement kaufen bedeutet nicht, dass man Eigentum an der Software erwirbt.</p>
+
+                <h3>Haftungsbeschränkungen</h3>
+                <p>Für indirekte Schäden, Datenverlust oder entgangenen Gewinn übernehmen wir keine Haftung. Die Verfügbarkeit des Dienstes wird nicht garantiert. Inhalte von Drittanbietern wie Partnerangebote liegen außerhalb unserer Verantwortung. Die Haftung ist, soweit gesetzlich zulässig, auf den bezahlten Abonnementbetrag begrenzt.</p>
+
+                <h3>Laufzeit und Kündigung</h3>
+                <p>Abonnements laufen monatlich oder jährlich und können jederzeit gekündigt werden. Nach der Kündigung bleibt der Zugang bis zum Ende der bezahlten Periode bestehen. Bei schwerwiegendem Verstoß gegen diese Bedingungen kann PaceLeague das Konto ohne Rückerstattung sperren.</p>
+            </div>
+
+            <h2>Urheberrecht & Medienlizenzen</h2>
+
+            <div class="info-card" style="padding: 0; overflow: hidden; margin-bottom: 24px;">
+                <table aria-label="Medienlizenzen PaceLeague">
+                    <thead>
+                        <tr>
+                            <th>Medienart</th>
+                            <th>Beschreibung</th>
+                            <th>Quelle & Urheber</th>
+                            <th>Lizenz & Nutzungsrechte</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="highlight">Bild und Grafik</span></td>
+                            <td>Logo Ottakringer Madrid, Logo Döner Bros, Profilbild Ceren Ü. (goran_profil.jpg), Foto von laufenden Personen (früher als Hero-Hintergrundbild verwendet)</td>
+                            <td>Logo Ottakringer: ogie (Unsplash). Logo Döner Bros: Conmongt (Pixabay). Profilbild Ceren Ü.: The Creative Idea (Unsplash). Foto von laufenden Personen: Tom Patmore (Unsplash).</td>
+                            <td>Unsplash License / Pixabay Lizenz. Kommerzielle Nutzung ist erlaubt. Eine Namensnennung ist nicht zwingend erforderlich, wird aber zur Sicherstellung der Nutzungsrechte freiwillig aufgeführt. Modifikationen sind gestattet.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">Video</span></td>
+                            <td>Hintergrundvideo Hero-Section (hero_video.mp4)</td>
+                            <td>Pexels, Urheber: Tường Chopper</td>
+                            <td>Pexels License. Kostenlose Nutzung für kommerzielle und nicht-kommerzielle Zwecke erlaubt. Modifikationen sind gestattet. Keine Namensnennung erforderlich, Verwertungsrechte sind gesichert.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">Schriftart</span></td>
+                            <td>Inter (UI-Schriftart, gesamte Website)</td>
+                            <td>Google Fonts / Rasmus Andersson</td>
+                            <td>SIL Open Font License (OFL). Frei für kommerzielle Nutzung, Modifikation und Weitergabe auf Web-Plattformen.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="highlight">Texte</span></td>
+                            <td>Marketing- und Website-Texte, Produktbeschreibungen, rechtliche Hinweise</td>
+                            <td>PaceLeague Solutions GmbH (In-house)</td>
+                            <td>Alle Rechte vorbehalten (Proprietary). Jede Vervielfältigung oder kommerzielle Nutzung bedarf der ausdrücklichen Zustimmung durch PaceLeague Solutions GmbH.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-card">
+                <h3 id="lic-ai-title">KI-Einsatz (Künstliche Intelligenz)</h3>
+                <p id="lic-ai-desc">Für die Erstellung und Optimierung bestimmter Inhalte auf dieser Website wurde teilweise <a href="https://gemini.google.com" target="_blank" style="color: var(--accent-blue);">Google Gemini</a> verwendet.</p>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1e293a; color: #ffffff; padding: 15px; text-align: center; z-index: 2000; border-top: 1px solid var(--border-color);">
+        <span id="cookie-text" style="color: #ffffff; font-weight: 600;">Diese Website verwendet Cookies zu Analysezwecken.</span>
+        <button id="cookie-btn" onclick="document.getElementById('cookie-banner').style.display='none'" style="background: #5b62d9; color: #ffffff; border: none; padding: 6px 18px; margin-left: 15px; border-radius: 6px; font-weight: 700; cursor: pointer;">Akzeptieren</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 PaceLeague Solutions GmbH</p>
+        <div class="legal-links">
+            <a href="accessibility.html" id="link-acc">Barrierefreiheit</a> |
+            <a href="privacy.html" id="link-priv">Datenschutz</a> |
+            <a href="imprint.html" id="link-imp">Impressum</a> |
+            <a href="contact.html" id="link-cont">Kontakt</a> |
+            <a href="license.html" id="link-lic" style="color: var(--text-main);">Lizenz</a>
+        </div>
+    </footer>
+
+    <script src="translation.js"></script>
+    <script>
+        const customTranslationsLic = {
+            de: {
+                licAiTitle: "KI-Einsatz (Künstliche Intelligenz)",
+                licAiDesc: "Für die Erstellung und Optimierung bestimmter Inhalte auf dieser Website wurde teilweise <a href='https://gemini.google.com' target='_blank' style='color: var(--accent-blue);'>Google Gemini</a> verwendet."
+            },
+            en: {
+                licAiTitle: "AI Usage (Artificial Intelligence)",
+                licAiDesc: "For the creation and optimization of certain content on this website, <a href='https://gemini.google.com' target='_blank' style='color: var(--accent-blue);'>Google Gemini</a> was partially used."
+            }
+        };
+
+        const originalSetLanguageLic = window.setLanguage;
+        window.setLanguage = function(lang) {
+            if (typeof originalSetLanguageLic === 'function') {
+                originalSetLanguageLic(lang);
+            }
+            
+            const t = customTranslationsLic[lang];
+            if (!t) return;
+
+            const setHtml = (id, html) => { let el = document.getElementById(id); if(el) el.innerHTML = html; };
+            setHtml('lic-ai-title', t.licAiTitle);
+            setHtml('lic-ai-desc', t.licAiDesc);
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('paceleague_lang') || 'de';
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>

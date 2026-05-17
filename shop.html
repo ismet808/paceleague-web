@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaceLeague+ – Abonnement</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        :root {
+            --bg-color: #0b111a;
+            --card-bg: #1e293a;
+            --border-color: #313c4c;
+            --text-main: #ffffff;
+            --text-secondary: #97a1af;
+            --accent-blue: #7c83ff;
+            --accent-red: #ff6b6b;
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: var(--text-main); margin: 0; background-color: var(--bg-color); }
+
+        header { background-color: var(--card-bg); padding: 16px 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 22px; font-weight: 800; letter-spacing: -1px; }
+        .header-controls { display: flex; align-items: center; gap: 20px; }
+        .lang-switch { display: flex; gap: 10px; align-items: center; }
+        .lang-icon { width: 24px; height: 24px; cursor: pointer; border-radius: 50%; border: 2px solid transparent; transition: border-color 0.2s; overflow: hidden; display: flex; opacity: 0.5; }
+        .lang-icon.active { border-color: var(--accent-blue); opacity: 1; }
+        .lang-icon svg { width: 100%; height: 100%; object-fit: cover; }
+        .app-btn { background-color: #ffffff; color: #000; padding: 8px 18px; border-radius: 24px; text-decoration: none; font-weight: 700; font-size: 13px; }
+
+        nav { background: var(--card-bg); padding: 0 24px; display: flex; gap: 30px; border-bottom: 1px solid var(--border-color); position: sticky; top: 61px; z-index: 999; overflow-x: auto; }
+        nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 700; padding: 18px 0; border-bottom: 3px solid transparent; cursor: pointer; text-transform: uppercase; white-space: nowrap; }
+        nav a:hover, nav a.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
+
+        .page-section { padding: 40px 20px; max-width: 960px; margin: auto; }
+        h2 { color: var(--accent-blue); font-size: 24px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Hero banner */
+        .shop-hero { text-align: center; padding: 60px 24px 40px; border-bottom: 1px solid var(--border-color); background: linear-gradient(180deg, rgba(124,131,255,0.07) 0%, transparent 100%); }
+        .shop-hero h1 { font-size: 38px; font-weight: 800; margin-bottom: 10px; }
+        .shop-hero h1 span { color: var(--accent-blue); }
+        .shop-hero p { color: var(--text-secondary); font-size: 16px; max-width: 540px; margin: 0 auto; }
+
+        /* Toggle */
+        .billing-toggle { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 32px 0 0; }
+        .toggle-label { font-size: 14px; font-weight: 700; color: var(--text-secondary); }
+        .toggle-label.active { color: var(--text-main); }
+        .toggle-switch { position: relative; width: 52px; height: 28px; cursor: pointer; }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .toggle-slider { position: absolute; inset: 0; background: var(--border-color); border-radius: 28px; transition: background 0.25s; }
+        .toggle-slider::before { content: ''; position: absolute; width: 20px; height: 20px; left: 4px; top: 4px; background: #fff; border-radius: 50%; transition: transform 0.25s; }
+        input:checked + .toggle-slider { background: var(--accent-blue); }
+        input:checked + .toggle-slider::before { transform: translateX(24px); }
+        .save-badge { background: rgba(124,131,255,0.15); color: var(--accent-blue); font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 20px; border: 1px solid var(--accent-blue); }
+
+        /* Plan cards */
+        .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px; margin-top: 40px; }
+        .plan-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px 28px; display: flex; flex-direction: column; position: relative; transition: border-color 0.2s, transform 0.2s; }
+        .plan-card:hover { transform: translateY(-4px); }
+        .plan-card.featured { border-color: var(--accent-blue); box-shadow: 0 0 0 1px var(--accent-blue), 0 8px 32px rgba(124,131,255,0.15); }
+        .plan-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--accent-blue); color: #fff; font-size: 11px; font-weight: 800; padding: 3px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+        .plan-name { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); margin-bottom: 8px; }
+        .plan-price { font-size: 42px; font-weight: 800; margin-bottom: 2px; }
+        .plan-price span { font-size: 18px; font-weight: 400; color: var(--text-secondary); }
+        .plan-period { font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; min-height: 20px; }
+        .plan-features { list-style: none; padding: 0; margin: 0 0 32px; flex: 1; }
+        .plan-features li { font-size: 14px; color: var(--text-secondary); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.04); display: flex; align-items: flex-start; gap: 10px; }
+        .plan-features li:last-child { border-bottom: none; }
+        .plan-features li::before { content: '✓'; color: var(--accent-blue); font-weight: 800; flex-shrink: 0; }
+        .plan-features li.cross::before { content: '✕'; color: var(--text-secondary); }
+        .plan-features li.cross { opacity: 0.5; }
+        .plan-btn { display: block; text-align: center; padding: 14px; border-radius: 12px; font-weight: 800; font-size: 14px; cursor: pointer; border: none; transition: opacity 0.2s, transform 0.1s; }
+        .plan-btn:active { transform: scale(0.98); }
+        .plan-btn.primary { background: var(--accent-blue); color: #fff; }
+        .plan-btn.secondary { background: rgba(255,255,255,0.06); color: var(--text-main); border: 1px solid var(--border-color); }
+        .plan-btn:hover { opacity: 0.85; }
+
+        /* Comparison table */
+        .comparison-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 8px; }
+        .comparison-table th, .comparison-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border-color); }
+        .comparison-table th { color: var(--accent-blue); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 800; }
+        .comparison-table td { color: var(--text-secondary); }
+        .comparison-table td:first-child { color: var(--text-main); font-weight: 600; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .check { color: var(--accent-blue); font-weight: 800; }
+        .cross-td { color: var(--text-secondary); opacity: 0.4; }
+
+        /* FAQ */
+        .faq-item { border-bottom: 1px solid var(--border-color); }
+        .faq-question { padding: 18px 0; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+        .faq-question::after { content: '+'; color: var(--accent-blue); font-size: 20px; flex-shrink: 0; transition: transform 0.2s; }
+        .faq-item.open .faq-question::after { transform: rotate(45deg); }
+        .faq-answer { font-size: 14px; color: var(--text-secondary); max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s; }
+        .faq-item.open .faq-answer { max-height: 200px; padding-bottom: 18px; }
+
+        /* Modal */
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 3000; display: none; align-items: center; justify-content: center; padding: 20px; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 20px; padding: 36px; max-width: 480px; width: 100%; position: relative; }
+        .modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; color: var(--text-secondary); font-size: 22px; cursor: pointer; line-height: 1; }
+        .modal h3 { color: var(--accent-blue); font-size: 20px; margin-top: 0; margin-bottom: 6px; }
+        .modal-plan-info { font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; font-weight: 600; }
+        .form-group input, .form-group select { width: 100%; padding: 12px 14px; background: var(--bg-color); border: 1px solid var(--border-color); color: var(--text-main); border-radius: 10px; font-family: inherit; font-size: 14px; }
+        .form-group input:focus, .form-group select:focus { outline: 2px solid var(--accent-blue); border-color: transparent; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .modal-submit { width: 100%; padding: 14px; background: var(--accent-blue); color: #fff; border: none; border-radius: 12px; font-weight: 800; font-size: 15px; cursor: pointer; margin-top: 8px; }
+        .modal-note { font-size: 12px; color: var(--text-secondary); text-align: center; margin-top: 12px; }
+        .modal-success { text-align: center; display: none; }
+        .modal-success .success-icon { font-size: 56px; margin-bottom: 12px; }
+        .modal-success h3 { color: var(--text-main); font-size: 22px; margin-bottom: 8px; }
+        .modal-success p { color: var(--text-secondary); font-size: 14px; }
+
+        footer { text-align: center; padding: 60px 20px; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-color); margin-top: 40px; }
+        .legal-links a { color: var(--accent-blue); text-decoration: none; margin: 0 10px; cursor: pointer; font-weight: 600; }
+
+        @media (max-width: 600px) {
+            .shop-hero h1 { font-size: 28px; }
+            .plan-price { font-size: 34px; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#shop-hero" id="skip-link" style="position: absolute; top: -40px; left: 0; background: var(--accent-blue); color: white; padding: 8px; z-index: 2001; transition: top 0.2s; font-weight: 700;" onfocus="this.style.top='0px'" onblur="this.style.top='-40px'">Zum Inhalt springen</a>
+
+    <header>
+        <div class="logo">PACELEAGUE</div>
+        <div class="header-controls">
+            <div class="lang-switch">
+                <div class="lang-icon active" id="lang-de" onclick="setLanguage('de')" onkeydown="if(event.key === 'Enter') setLanguage('de')" tabindex="0" title="Deutsch" role="button" aria-label="Auf Deutsch umschalten">
+                    <svg viewBox="0 0 512 512"><path fill="#ffce44" d="M0 373.3h512V512H0z"/><path d="M0 0h512v138.7H0z"/><path fill="#d00" d="M0 138.7h512v234.6H0z"/></svg>
+                </div>
+                <div class="lang-icon" id="lang-en" onclick="setLanguage('en')" onkeydown="if(event.key === 'Enter') setLanguage('en')" tabindex="0" title="English" role="button" aria-label="Switch to English">
+                    <svg viewBox="0 0 512 512"><path fill="#00247d" d="M0 0h512v512H0z"/><path stroke="#fff" stroke-width="64" d="M0 0l512 512M512 0L0 512"/><path stroke="#cf142b" stroke-width="40" d="M0 0l512 512M512 0L0 512"/><path stroke="#fff" stroke-width="107" d="M256 0v512M0 256h512"/><path stroke="#cf142b" stroke-width="64" d="M256 0v512M0 256h512"/></svg>
+                </div>
+            </div>
+            <a href="#" class="app-btn" id="btn-download">Download App</a>
+        </div>
+    </header>
+
+    <nav role="navigation" aria-label="Hauptnavigation">
+        <a href="index.html" id="nav-home">Home</a>
+        <a href="features.html" id="nav-features">Features</a>
+        <a href="shop.html" id="nav-shop" class="active">Shop</a>
+        <a href="about.html" id="nav-about">Über uns</a>
+        <a href="contact.html" id="nav-contact">Kontakt</a>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <div class="shop-hero" id="shop-hero">
+            <h1 id="shop-hero-title">Hol dir <span>PaceLeague+</span></h1>
+            <p id="shop-hero-desc">Mehr Funktionen, mehr Kontrolle, mehr Wettbewerb. Starte jetzt deinen kostenlosen Monat.</p>
+
+            <div class="billing-toggle" role="group" aria-label="Abrechnungszeitraum wählen">
+                <span class="toggle-label active" id="toggle-monthly-label">Monatlich</span>
+                <label class="toggle-switch" aria-label="Jährliche Abrechnung">
+                    <input type="checkbox" id="billing-toggle" onchange="switchBilling(this.checked)">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label" id="toggle-yearly-label">Jährlich</span>
+                <span class="save-badge" id="save-badge">–30% sparen</span>
+            </div>
+        </div>
+
+        <section class="page-section" aria-labelledby="plans-heading">
+            <h2 id="plans-heading" class="sr-only" style="position:absolute;left:-9999px;">Abonnementpläne</h2>
+
+            <!-- Plan cards -->
+            <div class="plans-grid" role="list">
+
+                <!-- Free -->
+                <div class="plan-card" role="listitem">
+                    <div class="plan-name" id="plan-free-name">Free</div>
+                    <div class="plan-price" id="plan-free-price">0 <span>€</span></div>
+                    <div class="plan-period" id="plan-free-period">Für immer kostenlos</div>
+                    <ul class="plan-features" aria-label="Free Plan Funktionen">
+                        <li id="pf1">Schrittzählung im Hintergrund</li>
+                        <li id="pf2">Solo-Rangliste (Bezirk)</li>
+                        <li id="pf3">1 Squad beitreten</li>
+                        <li class="cross" id="pf4">Squad selbst gründen</li>
+                        <li class="cross" id="pf5">Partner-Deals & Gutscheine</li>
+                        <li class="cross" id="pf6">Erweiterter Avatar-Shop</li>
+                        <li class="cross" id="pf7">Detaillierte Wochenstatistiken</li>
+                    </ul>
+                    <button class="plan-btn secondary" id="btn-free" onclick="openModal('free')">Kostenlos starten</button>
+                </div>
+
+                <!-- Plus Monthly / Yearly (featured) -->
+                <div class="plan-card featured" role="listitem">
+                    <div class="plan-badge" id="plan-plus-badge">Empfohlen</div>
+                    <div class="plan-name" id="plan-plus-name">PaceLeague+</div>
+                    <div class="plan-price" id="plan-plus-price">2,99 <span>€</span></div>
+                    <div class="plan-period" id="plan-plus-period">pro Monat, jederzeit kündbar</div>
+                    <ul class="plan-features" aria-label="PaceLeague+ Funktionen">
+                        <li id="pp1">Schrittzählung im Hintergrund</li>
+                        <li id="pp2">Solo-Rangliste (Bezirk & Wien-weit)</li>
+                        <li id="pp3">Unbegrenzt Squads beitreten</li>
+                        <li id="pp4">Eigenes Squad gründen & verwalten</li>
+                        <li id="pp5">Alle Partner-Deals & Gutscheine</li>
+                        <li id="pp6">Vollständiger Avatar-Shop</li>
+                        <li id="pp7">Detaillierte Wochenstatistiken</li>
+                    </ul>
+                    <button class="plan-btn primary" id="btn-plus" onclick="openModal('plus')">Jetzt abonnieren</button>
+                </div>
+
+            </div>
+
+            <!-- Comparison table -->
+            <div style="margin-top: 56px;">
+                <h2 id="title-compare">Planvergleich</h2>
+                <div class="info-card" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; overflow: hidden; padding: 0;">
+                    <table class="comparison-table" aria-label="Vergleich Free vs PaceLeague+">
+                        <thead>
+                            <tr>
+                                <th id="cmp-th1">Funktion</th>
+                                <th id="cmp-th2">Free</th>
+                                <th id="cmp-th3">PaceLeague+</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td id="cmp-r1">Schrittzählung</td><td class="check">✓</td><td class="check">✓</td></tr>
+                            <tr><td id="cmp-r2">Bezirks-Rangliste</td><td class="check">✓</td><td class="check">✓</td></tr>
+                            <tr><td id="cmp-r3">Wien-weite Rangliste</td><td class="cross-td">✕</td><td class="check">✓</td></tr>
+                            <tr><td id="cmp-r4">Squad beitreten</td><td id="cmp-r4-free">Max. 1</td><td class="check">✓ Unbegrenzt</td></tr>
+                            <tr><td id="cmp-r5">Squad gründen</td><td class="cross-td">✕</td><td class="check">✓</td></tr>
+                            <tr><td id="cmp-r6">Partner-Deals</td><td class="cross-td">✕</td><td class="check">✓</td></tr>
+                            <tr><td id="cmp-r7">Avatar & Skins</td><td id="cmp-r7-free">Basis</td><td class="check">✓ Vollständig</td></tr>
+                            <tr><td id="cmp-r8">Wochenstatistiken</td><td class="cross-td">✕</td><td class="check">✓</td></tr>
+                            <tr><td id="cmp-r9">Werbung</td><td id="cmp-r9-free">Keine</td><td id="cmp-r9-plus">Keine</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div style="margin-top: 56px;">
+                <h2 id="title-faq">FAQ</h2>
+                <div id="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question" id="faq-q1" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)">Gibt es eine Bindungsfrist?</div>
+                        <div class="faq-answer" id="faq-a1">Nein. Monatliche Abonnements können jederzeit zum Ende des Abrechnungsmonats gekündigt werden. Jährliche Abonnements laufen 12 Monate und können danach monatlich gekündigt werden.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" id="faq-q2" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)">Wie bezahle ich?</div>
+                        <div class="faq-answer" id="faq-a2">Kreditkarte, SEPA-Lastschrift und PayPal werden unterstützt. Die Zahlung wird über Stripe abgewickelt (auf dieser Demo-Seite simuliert).</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" id="faq-q3" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)">Gibt es eine Probezeit?</div>
+                        <div class="faq-answer" id="faq-a3">Ja — der erste Monat ist kostenlos. Keine Kreditkarte nötig. Danach wird der reguläre Preis fällig, und du wirst vorher per Mail erinnert.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question" id="faq-q4" tabindex="0" role="button" aria-expanded="false" onclick="toggleFaq(this)">Was passiert nach der Kündigung?</div>
+                        <div class="faq-answer" id="faq-a4">Du behältst den Plus-Zugang bis zum Ende des bezahlten Zeitraums. Danach wechselst du automatisch zurück auf Free — deine Daten bleiben erhalten.</div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()" aria-label="Schließen">×</button>
+
+            <div id="modal-form-area">
+                <h3 id="modal-title">Abonnement abschließen</h3>
+                <p class="modal-plan-info" id="modal-plan-info">PaceLeague+ – Monatlich – 2,99 €/Monat</p>
+
+                <div class="form-group">
+                    <label id="modal-lbl-name" for="modal-name">Vollständiger Name</label>
+                    <input type="text" id="modal-name" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                    <label id="modal-lbl-email" for="modal-email">E-Mail-Adresse</label>
+                    <input type="email" id="modal-email" autocomplete="email" required>
+                </div>
+                <div class="form-group">
+                    <label id="modal-lbl-payment" for="modal-payment">Zahlungsmethode</label>
+                    <select id="modal-payment">
+                        <option id="modal-opt-cc">Kreditkarte</option>
+                        <option id="modal-opt-sepa">SEPA-Lastschrift</option>
+                        <option id="modal-opt-paypal">PayPal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label id="modal-lbl-card" for="modal-card">Kartennummer (Demo)</label>
+                    <input type="text" id="modal-card" placeholder="4242 4242 4242 4242" maxlength="19" oninput="formatCard(this)">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label id="modal-lbl-exp" for="modal-exp">Ablaufdatum</label>
+                        <input type="text" id="modal-exp" placeholder="MM/JJ" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label id="modal-lbl-cvc" for="modal-cvc">CVC</label>
+                        <input type="text" id="modal-cvc" placeholder="123" maxlength="3">
+                    </div>
+                </div>
+                <button class="modal-submit" id="modal-submit-btn" onclick="submitCheckout()">Jetzt kaufen (Demo)</button>
+                <p class="modal-note" id="modal-note">⚠️ Dies ist eine Demo. Es werden keine echten Zahlungen verarbeitet.</p>
+            </div>
+
+            <div class="modal-success" id="modal-success">
+                <div class="success-icon">🎉</div>
+                <h3 id="success-title">Willkommen bei PaceLeague+!</h3>
+                <p id="success-desc">Dein Abonnement wurde aktiviert (Demo). Du erhältst gleich eine Bestätigung per E-Mail.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #1e293a; color: #ffffff; padding: 15px; text-align: center; z-index: 2000; border-top: 1px solid var(--border-color);">
+        <span id="cookie-text" style="color: #ffffff; font-weight: 600;">Diese Website verwendet Cookies zu Analysezwecken.</span>
+        <button id="cookie-btn" onclick="document.getElementById('cookie-banner').style.display='none'" style="background: #5b62d9; color: #ffffff; border: none; padding: 6px 18px; margin-left: 15px; border-radius: 6px; font-weight: 700; cursor: pointer;">Akzeptieren</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 PaceLeague Solutions GmbH</p>
+        <div class="legal-links">
+            <a href="accessibility.html" id="link-acc">Barrierefreiheit</a> |
+            <a href="privacy.html" id="link-priv">Datenschutz</a> |
+            <a href="imprint.html" id="link-imp">Impressum</a> |
+            <a href="contact.html" id="link-cont">Kontakt</a> |
+            <a href="license.html" id="link-lic">Lizenz</a>
+        </div>
+    </footer>
+
+    <script src="translation.js"></script>
+    <script>
+        /* ── Billing toggle ── */
+        let isYearly = false;
+
+        function switchBilling(yearly) {
+            isYearly = yearly;
+            const monthlyLabel = document.getElementById('toggle-monthly-label');
+            const yearlyLabel = document.getElementById('toggle-yearly-label');
+            if (monthlyLabel) monthlyLabel.classList.toggle('active', !yearly);
+            if (yearlyLabel) yearlyLabel.classList.toggle('active', yearly);
+            applyShopTranslations(currentShopLang);
+        }
+
+        /* ── Modal ── */
+        let currentPlan = 'plus';
+
+        function openModal(plan) {
+            currentPlan = plan;
+            const overlay = document.getElementById('modal-overlay');
+            const formArea = document.getElementById('modal-form-area');
+            const successArea = document.getElementById('modal-success');
+            if (formArea) formArea.style.display = '';
+            if (successArea) successArea.style.display = 'none';
+            if (overlay) overlay.classList.add('active');
+            applyShopTranslations(currentShopLang);
+            document.getElementById('modal-name')?.focus();
+        }
+
+        function closeModal() {
+            document.getElementById('modal-overlay')?.classList.remove('active');
+        }
+
+        document.getElementById('modal-overlay')?.addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+        function formatCard(input) {
+            let val = input.value.replace(/\D/g, '').slice(0, 16);
+            input.value = val.replace(/(.{4})/g, '$1 ').trim();
+        }
+
+        function submitCheckout() {
+            const name = document.getElementById('modal-name')?.value.trim();
+            const email = document.getElementById('modal-email')?.value.trim();
+            if (!name || !email) {
+                alert(currentShopLang === 'de' ? 'Bitte Name und E-Mail ausfüllen.' : 'Please fill in your name and email.');
+                return;
+            }
+            document.getElementById('modal-form-area').style.display = 'none';
+            document.getElementById('modal-success').style.display = 'block';
+        }
+
+        /* ── FAQ ── */
+        function toggleFaq(el) {
+            const item = el.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => {
+                i.classList.remove('open');
+                i.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                el.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        /* ── Translations ── */
+        let currentShopLang = 'de';
+
+        const shopTranslations = {
+            de: {
+                shopHeroTitle: 'Hol dir <span style="color:var(--accent-blue)">PaceLeague+</span>',
+                shopHeroDesc: 'Mehr Funktionen, mehr Kontrolle, mehr Wettbewerb. Starte jetzt deinen kostenlosen Monat.',
+                toggleMonthly: 'Monatlich',
+                toggleYearly: 'Jährlich',
+                saveBadge: '–30% sparen',
+                planFreeName: 'Free',
+                planFreePrice: '0',
+                planFreePeriod: 'Für immer kostenlos',
+                pf1: 'Schrittzählung im Hintergrund',
+                pf2: 'Solo-Rangliste (Bezirk)',
+                pf3: '1 Squad beitreten',
+                pf4: 'Squad selbst gründen',
+                pf5: 'Partner-Deals & Gutscheine',
+                pf6: 'Erweiterter Avatar-Shop',
+                pf7: 'Detaillierte Wochenstatistiken',
+                btnFree: 'Kostenlos starten',
+                planPlusBadge: 'Empfohlen',
+                planPlusName: 'PaceLeague+',
+                planPlusPriceMonthly: '2,99',
+                planPlusPriceYearly: '17,49',
+                planPlusPeriodMonthly: 'pro Monat, jederzeit kündbar',
+                planPlusPeriodYearly: 'pro Monat (24,99 €/Jahr), jederzeit kündbar',
+                pp1: 'Schrittzählung im Hintergrund',
+                pp2: 'Solo-Rangliste (Bezirk & Wien-weit)',
+                pp3: 'Unbegrenzt Squads beitreten',
+                pp4: 'Eigenes Squad gründen & verwalten',
+                pp5: 'Alle Partner-Deals & Gutscheine',
+                pp6: 'Vollständiger Avatar-Shop',
+                pp7: 'Detaillierte Wochenstatistiken',
+                btnPlus: 'Jetzt abonnieren',
+                titleCompare: 'Planvergleich',
+                cmpTh1: 'Funktion', cmpTh2: 'Free', cmpTh3: 'PaceLeague+',
+                cmpR1: 'Schrittzählung', cmpR2: 'Bezirks-Rangliste', cmpR3: 'Wien-weite Rangliste',
+                cmpR4: 'Squad beitreten', cmpR4Free: 'Max. 1',
+                cmpR5: 'Squad gründen', cmpR6: 'Partner-Deals',
+                cmpR7: 'Avatar & Skins', cmpR7Free: 'Basis',
+                cmpR8: 'Wochenstatistiken',
+                cmpR9: 'Werbung', cmpR9Free: 'Keine', cmpR9Plus: 'Keine',
+                titleFaq: 'FAQ',
+                faqQ1: 'Gibt es eine Bindungsfrist?',
+                faqA1: 'Nein. Monatliche Abonnements können jederzeit zum Ende des Abrechnungsmonats gekündigt werden. Jährliche Abonnements laufen 12 Monate und können danach monatlich gekündigt werden.',
+                faqQ2: 'Wie bezahle ich?',
+                faqA2: 'Kreditkarte, SEPA-Lastschrift und PayPal werden unterstützt. Die Zahlung wird über Stripe abgewickelt (auf dieser Demo-Seite simuliert).',
+                faqQ3: 'Gibt es eine Probezeit?',
+                faqA3: 'Ja — der erste Monat ist kostenlos. Keine Kreditkarte nötig. Danach wird der reguläre Preis fällig, und du wirst vorher per Mail erinnert.',
+                faqQ4: 'Was passiert nach der Kündigung?',
+                faqA4: 'Du behältst den Plus-Zugang bis zum Ende des bezahlten Zeitraums. Danach wechselst du automatisch zurück auf Free — deine Daten bleiben erhalten.',
+                modalTitle: 'Abonnement abschließen',
+                modalPlanFree: 'Free – Kostenlos',
+                modalPlanPlusMonthly: 'PaceLeague+ – Monatlich – 2,99 €/Monat',
+                modalPlanPlusYearly: 'PaceLeague+ – Jährlich – 24,99 €/Jahr',
+                modalLblName: 'Vollständiger Name',
+                modalLblEmail: 'E-Mail-Adresse',
+                modalLblPayment: 'Zahlungsmethode',
+                modalOptCc: 'Kreditkarte',
+                modalOptSepa: 'SEPA-Lastschrift',
+                modalOptPaypal: 'PayPal',
+                modalLblCard: 'Kartennummer (Demo)',
+                modalLblExp: 'Ablaufdatum',
+                modalLblCvc: 'CVC',
+                modalSubmit: 'Jetzt kaufen (Demo)',
+                modalNote: '⚠️ Dies ist eine Demo. Es werden keine echten Zahlungen verarbeitet.',
+                successTitle: 'Willkommen bei PaceLeague+!',
+                successDesc: 'Dein Abonnement wurde aktiviert (Demo). Du erhältst gleich eine Bestätigung per E-Mail.'
+            },
+            en: {
+                shopHeroTitle: 'Get <span style="color:var(--accent-blue)">PaceLeague+</span>',
+                shopHeroDesc: 'More features, more control, more competition. Start your free month now.',
+                toggleMonthly: 'Monthly',
+                toggleYearly: 'Yearly',
+                saveBadge: 'Save 30%',
+                planFreeName: 'Free',
+                planFreePrice: '0',
+                planFreePeriod: 'Free forever',
+                pf1: 'Background step counting',
+                pf2: 'Solo leaderboard (district)',
+                pf3: 'Join 1 squad',
+                pf4: 'Create your own squad',
+                pf5: 'Partner deals & vouchers',
+                pf6: 'Extended avatar shop',
+                pf7: 'Detailed weekly statistics',
+                btnFree: 'Start for free',
+                planPlusBadge: 'Recommended',
+                planPlusName: 'PaceLeague+',
+                planPlusPriceMonthly: '2.99',
+                planPlusPriceYearly: '17.49',
+                planPlusPeriodMonthly: 'per month, cancel anytime',
+                planPlusPeriodYearly: 'per month (€24.99/year), cancel anytime',
+                pp1: 'Background step counting',
+                pp2: 'Solo leaderboard (district & Vienna-wide)',
+                pp3: 'Join unlimited squads',
+                pp4: 'Create & manage your own squad',
+                pp5: 'All partner deals & vouchers',
+                pp6: 'Full avatar shop',
+                pp7: 'Detailed weekly statistics',
+                btnPlus: 'Subscribe now',
+                titleCompare: 'Plan Comparison',
+                cmpTh1: 'Feature', cmpTh2: 'Free', cmpTh3: 'PaceLeague+',
+                cmpR1: 'Step counting', cmpR2: 'District leaderboard', cmpR3: 'Vienna-wide leaderboard',
+                cmpR4: 'Join squad', cmpR4Free: 'Max. 1',
+                cmpR5: 'Create squad', cmpR6: 'Partner deals',
+                cmpR7: 'Avatar & skins', cmpR7Free: 'Basic',
+                cmpR8: 'Weekly statistics',
+                cmpR9: 'Ads', cmpR9Free: 'None', cmpR9Plus: 'None',
+                titleFaq: 'FAQ',
+                faqQ1: 'Is there a minimum contract period?',
+                faqA1: 'No. Monthly subscriptions can be cancelled at any time at the end of the billing month. Annual subscriptions run for 12 months and can then be cancelled monthly.',
+                faqQ2: 'How do I pay?',
+                faqA2: 'Credit card, SEPA direct debit and PayPal are supported. Payment is processed via Stripe (simulated on this demo page).',
+                faqQ3: 'Is there a trial period?',
+                faqA3: 'Yes — the first month is free. No credit card required. Afterwards the regular price applies and you will be reminded by email beforehand.',
+                faqQ4: 'What happens after cancellation?',
+                faqA4: 'You keep Plus access until the end of the paid period. After that you automatically switch back to Free — your data is retained.',
+                modalTitle: 'Complete subscription',
+                modalPlanFree: 'Free – No charge',
+                modalPlanPlusMonthly: 'PaceLeague+ – Monthly – €2.99/month',
+                modalPlanPlusYearly: 'PaceLeague+ – Yearly – €24.99/year',
+                modalLblName: 'Full name',
+                modalLblEmail: 'Email address',
+                modalLblPayment: 'Payment method',
+                modalOptCc: 'Credit card',
+                modalOptSepa: 'SEPA direct debit',
+                modalOptPaypal: 'PayPal',
+                modalLblCard: 'Card number (Demo)',
+                modalLblExp: 'Expiry date',
+                modalLblCvc: 'CVC',
+                modalSubmit: 'Buy now (Demo)',
+                modalNote: '⚠️ This is a demo. No real payments are processed.',
+                successTitle: 'Welcome to PaceLeague+!',
+                successDesc: 'Your subscription has been activated (demo). You will shortly receive a confirmation email.'
+            }
+        };
+
+        function applyShopTranslations(lang) {
+            const t = shopTranslations[lang];
+            if (!t) return;
+
+            const setText = (id, text) => { const el = document.getElementById(id); if (el) el.innerText = text; };
+            const setHtml = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+
+            setHtml('shop-hero-title', t.shopHeroTitle);
+            setText('shop-hero-desc', t.shopHeroDesc);
+            setText('toggle-monthly-label', t.toggleMonthly);
+            setText('toggle-yearly-label', t.toggleYearly);
+            setText('save-badge', t.saveBadge);
+
+            setText('plan-free-name', t.planFreeName);
+            setText('plan-free-price', t.planFreePrice);
+            setText('plan-free-period', t.planFreePeriod);
+            setText('pf1', t.pf1); setText('pf2', t.pf2); setText('pf3', t.pf3);
+            setText('pf4', t.pf4); setText('pf5', t.pf5); setText('pf6', t.pf6); setText('pf7', t.pf7);
+            setText('btn-free', t.btnFree);
+
+            setText('plan-plus-badge', t.planPlusBadge);
+            setText('plan-plus-name', t.planPlusName);
+            setText('plan-plus-price', isYearly ? t.planPlusPriceYearly : t.planPlusPriceMonthly);
+            setText('plan-plus-period', isYearly ? t.planPlusPeriodYearly : t.planPlusPeriodMonthly);
+            setText('pp1', t.pp1); setText('pp2', t.pp2); setText('pp3', t.pp3);
+            setText('pp4', t.pp4); setText('pp5', t.pp5); setText('pp6', t.pp6); setText('pp7', t.pp7);
+            setText('btn-plus', t.btnPlus);
+
+            setText('title-compare', t.titleCompare);
+            setText('cmp-th1', t.cmpTh1); setText('cmp-th2', t.cmpTh2); setText('cmp-th3', t.cmpTh3);
+            setText('cmp-r1', t.cmpR1); setText('cmp-r2', t.cmpR2); setText('cmp-r3', t.cmpR3);
+            setText('cmp-r4', t.cmpR4); setText('cmp-r4-free', t.cmpR4Free);
+            setText('cmp-r5', t.cmpR5); setText('cmp-r6', t.cmpR6);
+            setText('cmp-r7', t.cmpR7); setText('cmp-r7-free', t.cmpR7Free);
+            setText('cmp-r8', t.cmpR8);
+            setText('cmp-r9', t.cmpR9); setText('cmp-r9-free', t.cmpR9Free); setText('cmp-r9-plus', t.cmpR9Plus);
+
+            setText('title-faq', t.titleFaq);
+            setText('faq-q1', t.faqQ1); setText('faq-a1', t.faqA1);
+            setText('faq-q2', t.faqQ2); setText('faq-a2', t.faqA2);
+            setText('faq-q3', t.faqQ3); setText('faq-a3', t.faqA3);
+            setText('faq-q4', t.faqQ4); setText('faq-a4', t.faqA4);
+
+            // Modal
+            setText('modal-title', t.modalTitle);
+            const planInfo = currentPlan === 'free' ? t.modalPlanFree
+                           : isYearly ? t.modalPlanPlusYearly : t.modalPlanPlusMonthly;
+            setText('modal-plan-info', planInfo);
+            setText('modal-lbl-name', t.modalLblName);
+            setText('modal-lbl-email', t.modalLblEmail);
+            setText('modal-lbl-payment', t.modalLblPayment);
+            setText('modal-opt-cc', t.modalOptCc);
+            setText('modal-opt-sepa', t.modalOptSepa);
+            setText('modal-opt-paypal', t.modalOptPaypal);
+            setText('modal-lbl-card', t.modalLblCard);
+            setText('modal-lbl-exp', t.modalLblExp);
+            setText('modal-lbl-cvc', t.modalLblCvc);
+            setText('modal-submit-btn', t.modalSubmit);
+            setText('modal-note', t.modalNote);
+            setText('success-title', t.successTitle);
+            setText('success-desc', t.successDesc);
+        }
+
+        // Hook into global setLanguage
+        const _origSetLang = window.setLanguage;
+        window.setLanguage = function(lang) {
+            if (typeof _origSetLang === 'function') _origSetLang(lang);
+            currentShopLang = lang;
+            applyShopTranslations(lang);
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('paceleague_lang') || 'de';
+            setLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
