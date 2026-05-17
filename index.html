@@ -32,7 +32,6 @@
         nav a { color: var(--text-secondary); text-decoration: none; font-size: 13px; font-weight: 700; padding: 18px 0; border-bottom: 3px solid transparent; cursor: pointer; text-transform: uppercase; }
         nav a:hover, nav a.active { color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
 
-        /* HERO */
         .hero {
             position: relative;
             overflow: hidden;
@@ -56,10 +55,7 @@
             background: linear-gradient(180deg, rgba(11,17,26,0.5) 0%, rgba(11,17,26,0.85) 100%);
             z-index: 1;
         }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
+        .hero-content { position: relative; z-index: 2; }
         .hero h1 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
         .hero p { color: var(--text-main); font-size: 16px; max-width: 600px; margin: 0 auto; }
 
@@ -150,14 +146,14 @@
                 <div class="squad-row">
                     <div class="team-info">
                         <img src="goran_profil.jpg" class="profile-img" alt="Profilbild von Ceren Ü.">
-                        <span>Ceren Ü. <small style="color: var(--text-secondary);">(<span data-de="Bezirk 19" data-en="District 19">Bezirk 19</span>)</small></span>
+                        <span>Ceren Ü. <small style="color: var(--text-secondary);">(<span id="dist-19">Bezirk 19</span>)</small></span>
                     </div>
                     <span class="steps" style="color: var(--accent-blue);">41.234</span>
                 </div>
             </div>
 
             <div class="community-card" id="comm-card">
-                Werden Sie Teil der Bewegung. <span style="color: var(--accent-blue); font-weight: 800;">Wien-weit über 5.000 active Läufer.</span>
+                Werden Sie Teil der Bewegung. <span style="color: var(--accent-blue); font-weight: 800;">Wien-weit über 5.000 aktive Läufer.</span>
             </div>
         </section>
     </main>
@@ -192,4 +188,4 @@
         }, 3000);
     </script>
 </body>
-</html>S
+</html>
